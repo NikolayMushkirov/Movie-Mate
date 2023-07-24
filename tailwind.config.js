@@ -12,7 +12,7 @@ module.exports = {
           "linear-gradient(98.37deg, #f89e00 0.99%, #da2f68 100%)",
       },
       backgroundImage: {
-        'gradient-text': 'linear-gradient(to right, #628bc7, #1bfe57 )',
+        'gradient-main': 'linear-gradient(to right, #628bc7, #1bfe57 )',
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",

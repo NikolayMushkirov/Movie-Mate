@@ -1,9 +1,10 @@
-import Header from "@/components/Header";
+
+import SearchForm from "@/components/SearchForm";
 
 export default function Home() {
   return (
-    <main className="">
-      <Header />
+    <main className="h-screen flex flex-col justify-center">
+      <SearchForm/>
     </main>
   );
 }
