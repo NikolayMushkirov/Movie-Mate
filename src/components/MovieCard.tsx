@@ -1,31 +1,31 @@
 import Image from "next/image";
+import CircularRating from "./CircularRating";
 type Props = {
-  title : string;
-  overview: string;
+  title: string;
   poster_path: string;
-  vote_average:number;
+  vote_average: number;
   release_date: string;
 };
 
 const MovieCard = ({
   title,
-  overview,
   poster_path,
   vote_average,
   release_date,
 }: Props) => {
   return (
-    <div className="flex items-center justify-center flex-col w-64 ">
-      <p>{overview}</p>
+    <div className="flex  flex-col   relative">
       <Image
         src={`https://image.tmdb.org/t/p/original${poster_path}`}
         width={500}
         height={500}
         alt="Picture of the author"
       />
-      <div>
-        <div>{vote_average}</div>
-        <h3>{title}</h3>
+      <div className="relative -top-5 left-5">
+        <CircularRating rating={vote_average} />
+      </div>
+      <div className="justify-self-start">
+        <h3 className="text-xl font-bold">{title}</h3>
         <p>{release_date}</p>
       </div>
     </div>

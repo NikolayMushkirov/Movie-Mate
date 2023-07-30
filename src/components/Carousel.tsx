@@ -21,7 +21,7 @@ const Carousel = ({ movieData }: Props) => {
   return (
     <Swiper
       slidesPerView={6}
-      spaceBetween={0}
+      spaceBetween={30}
       navigation
       pagination={{
         clickable: true,

@@ -6,6 +6,8 @@ import {
   getTopRatedData,
   getTrendingData,
 } from "../api/getMoviesData";
+import Popular from "./popular/page";
+import TopRated from "./top-rated/page";
 
 type Props = {};
 
@@ -20,13 +22,14 @@ const HomePage = async (props: Props) => {
     topRatedData,
   ]);
 
-  console.log(trending, "trending");
-  console.log(popular, "popular");
+
 
   return (
-    <main className="h-screen flex flex-col justify-center items-center">
+    <main className=" flex flex-col justify-center items-center gap-24">
       <SearchForm />
       <Trending trending={trending} />
+      <Popular popular = {popular}/>
+      <TopRated topRated = {topRated}/>
     </main>
   );
 };
