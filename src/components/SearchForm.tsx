@@ -4,9 +4,9 @@ type Props = {};
 
 const SearchForm = (props: Props) => {
   return (
-    <form className="ali flex justify-center">
+    <form className="w-3/4 flex justify-center">
       <input
-        className="w-1/2 p-3 pl-6 rounded-tl-full rounded-bl-full text-black"
+        className="w-1/2 p-5 pl-6 rounded-tl-full rounded-bl-full text-black outline-none"
         placeholder="Enter movie title"
       />
       <button

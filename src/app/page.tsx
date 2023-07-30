@@ -1,10 +1,12 @@
 
-import SearchForm from "@/components/SearchForm";
+
+import HomePage from "./home/page";
 
 export default function Home() {
+
   return (
-    <main className="h-screen flex flex-col justify-center">
-      <SearchForm/>
-    </main>
+    <div >
+      <HomePage />
+    </div>
   );
 }
