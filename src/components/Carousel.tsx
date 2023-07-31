@@ -1,8 +1,9 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
+import { Pagination , Navigation} from "swiper/modules";
 import "swiper/css";
+import 'swiper/css/navigation';
 import MovieCard from "./MovieCard";
 
 type Props = {
@@ -22,11 +23,11 @@ const Carousel = ({ movieData }: Props) => {
     <Swiper
       slidesPerView={6}
       spaceBetween={30}
-      navigation
+      navigation = {true}
       pagination={{
         clickable: true,
       }}
-      modules={[Pagination]}
+      modules={[Pagination, Navigation]}
     >
       {movieData.results.map((movie) => (
         <SwiperSlide key={movie.id} style={{width:'15%'}}>

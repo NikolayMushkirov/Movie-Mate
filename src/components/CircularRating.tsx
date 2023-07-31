@@ -9,12 +9,12 @@ const CircularRating = ({ rating }: Props) => {
   const customStyles = {
     backgroundColor: "white",
     textColor: "black",
-    textSize: "2.4rem",
-    fontWeight: 'bold',
+    textSize: "2.1rem",
+    fontWeight:'bold',
     pathColor: rating < 5 ? "red" : rating < 7 ? "orange" : "green",
   };
   return (
-    <div className="w-12">
+    <div className="w-14">
       <CircularProgressbar
         value={rating}
         maxValue={10}

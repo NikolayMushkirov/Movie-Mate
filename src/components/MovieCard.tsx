@@ -21,7 +21,7 @@ const MovieCard = ({
         height={500}
         alt="Picture of the author"
       />
-      <div className="relative -top-5 left-5">
+      <div className="relative -top-5 left-2">
         <CircularRating rating={vote_average} />
       </div>
       <div className="justify-self-start">

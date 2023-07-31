@@ -34,5 +34,16 @@ const getTopRatedData = async () => {
   });
   return response.json();
 };
+const getUpcomingData = async () => {
+  const url = "https://api.themoviedb.org/3/movie/upcoming";
+  const response = await fetch(url, {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      Authorization: `Bearer ${key}`,
+    },
+  });
+  return response.json();
+};
 
-export { getTrendingData, getPopularData, getTopRatedData };
+export { getTrendingData, getPopularData, getTopRatedData, getUpcomingData };

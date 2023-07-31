@@ -8,13 +8,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-       'main-bg-color': '#04152D',
+        "main-bg-color": "#04152D",
       },
       backgroundImage: {
-        'gradient-main': 'linear-gradient(to right, #628bc7, #1bfe57 )',
+        "gradient-main": "linear-gradient(to right, #628bc7, #1bfe57 )",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        'gradient':
+          "linear-gradient(180deg, rgba(4, 21, 45, 0) 0%, #04152d 79.17%)",
       },
     },
   },
