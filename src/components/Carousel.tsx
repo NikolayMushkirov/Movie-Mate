@@ -25,14 +25,15 @@ const Carousel = ({ movieData }: Props) => {
     >
       {movieData.results.map((movie) => (
         <SwiperSlide key={movie.id} style={{ width: "15%" }}>
-          <Link href={`/details/${movie.id}`}>
+
             <MovieCard
               title={movie.title}
               poster_path={movie.poster_path}
               vote_average={movie.vote_average}
               release_date={movie.release_date}
+              movie_id = {movie.id}
             />
-          </Link>
+
         </SwiperSlide>
       ))}
     </Swiper>

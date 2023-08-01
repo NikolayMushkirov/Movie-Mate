@@ -1,4 +1,3 @@
-
 const key = process.env.NEXT_PUBLIC_TMDB_KEY;
 
 const getTrendingData = async () => {
@@ -45,5 +44,22 @@ const getUpcomingData = async () => {
   });
   return response.json();
 };
+const getMovieDetailsData = async (id: string) => {
+  const url = `https://api.themoviedb.org/3/movie/${id}`;
+  const response = await fetch(url, {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      Authorization: `Bearer ${key}`,
+    },
+  });
+  return response.json();
+};
 
-export { getTrendingData, getPopularData, getTopRatedData, getUpcomingData };
+export {
+  getTrendingData,
+  getPopularData,
+  getTopRatedData,
+  getUpcomingData,
+  getMovieDetailsData,
+};

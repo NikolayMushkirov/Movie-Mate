@@ -1,8 +1,8 @@
 import Carousel from "@/components/Carousel";
-import { MovieData } from "@/types/types";
+import { MovieDataType } from "@/types/types";
 
 type Props = {
-  topRated: MovieData;
+  topRated: MovieDataType;
 };
 
 const TopRated = ({ topRated }: Props) => {

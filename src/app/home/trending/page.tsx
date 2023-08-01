@@ -1,8 +1,8 @@
 import Carousel from "@/components/Carousel";
-import { MovieData } from "@/types/types";
+import { MovieDataType } from "@/types/types";
 
 type Props = {
-  trending : MovieData
+  trending : MovieDataType
 };
 
 const Trending = ({ trending }: Props) => {
