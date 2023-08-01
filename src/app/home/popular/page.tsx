@@ -1,6 +1,9 @@
 import Carousel from "@/components/Carousel";
+import { MovieData } from "@/types/types";
 
-type Props = {};
+type Props = {
+  popular: MovieData;
+};
 
 const Popular = ({popular}: Props) => {
   return (

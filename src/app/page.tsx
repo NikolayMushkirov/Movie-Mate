@@ -1,12 +1,32 @@
-
-
 import HomePage from "./home/page";
 
-export default function Home() {
+import {
+  getPopularData,
+  getTopRatedData,
+  getTrendingData,
+  getUpcomingData,
+} from "./api/getMoviesData";
 
+export default async function Main() {
+  const trendingData = getTrendingData();
+  const popularData = getPopularData();
+  const topRatedData = getTopRatedData();
+  const upComingData = getUpcomingData();
+  const [trending, popular, topRated, upcoming] = await Promise.all([
+    trendingData,
+    popularData,
+    topRatedData,
+    upComingData,
+  ]);
   return (
-    <div >
-      <HomePage />
+    <div>
+      <HomePage
+        trending={trending}
+        popular={popular}
+        topRated={topRated}
+        upcoming={upcoming}
+      />
+      {/* <Details /> */}
     </div>
   );
 }

@@ -10,7 +10,7 @@ const CircularRating = ({ rating }: Props) => {
     backgroundColor: "white",
     textColor: "black",
     textSize: "2.1rem",
-    fontWeight:'bold',
+    fontWeight: "bold",
     pathColor: rating < 5 ? "red" : rating < 7 ? "orange" : "green",
   };
   return (
@@ -18,7 +18,7 @@ const CircularRating = ({ rating }: Props) => {
       <CircularProgressbar
         value={rating}
         maxValue={10}
-        text={rating}
+        text={rating.toString()}
         background
         styles={buildStyles(customStyles)}
       />

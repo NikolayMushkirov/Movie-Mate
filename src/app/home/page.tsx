@@ -1,31 +1,21 @@
 import Trending from "./trending/page";
-import {
-  getPopularData,
-  getTopRatedData,
-  getTrendingData,
-  getUpcomingData,
-} from "../api/getMoviesData";
+
 import Popular from "./popular/page";
 import TopRated from "./top-rated/page";
 import Hero from "./hero/page";
+import { MovieData } from "@/types/types";
 
-type Props = {};
+type Props = {
+  upcoming: MovieData;
+  trending: MovieData;
+  popular: MovieData;
+  topRated: MovieData;
+};
 
-const HomePage = async (props: Props) => {
-  const trendingData = getTrendingData();
-  const popularData = getPopularData();
-  const topRatedData = getTopRatedData();
-  const upComingData = getUpcomingData();
-  const [trending, popular, topRated, upcoming] = await Promise.all([
-    trendingData,
-    popularData,
-    topRatedData,
-    upComingData,
-  ]);
-
+const HomePage = ({ upcoming, trending, popular, topRated }: Props) => {
   return (
-    <main className=" flex flex-col justify-center items-center gap-24">
-      <Hero upcoming = {upcoming}/>
+    <main className=" flex flex-col justify-center items-center gap-14">
+      <Hero upcoming={upcoming} />
       <Trending trending={trending} />
       <Popular popular={popular} />
       <TopRated topRated={topRated} />

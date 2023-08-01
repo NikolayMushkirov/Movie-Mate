@@ -2,7 +2,7 @@ import Image from "next/image";
 import CircularRating from "./CircularRating";
 type Props = {
   title: string;
-  poster_path: string;
+  poster_path: string | undefined;
   vote_average: number;
   release_date: string;
 };
