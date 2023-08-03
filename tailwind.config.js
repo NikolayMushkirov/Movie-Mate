@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        1200: '1200px'
+      },
       colors: {
         "main-bg-color": "#04152D",
       },
@@ -18,6 +21,11 @@ module.exports = {
         'gradient':
           "linear-gradient(180deg, rgba(4, 21, 45, 0) 0%, #04152d 79.17%)",
       },
+    },
+    variants: {
+      fill: ['hover', 'focus'],
+      polygon: ['hover', 'focus'],
+      circle: ['hover', 'focus'],
     },
   },
   plugins: [],

@@ -7,7 +7,7 @@ type Props = {
 
 const Popular = ({popular}: Props) => {
   return (
-    <section className="w-5/6">
+    <section >
       <h2 className="mb-6 text-2xl font-bold">Popular</h2>
         <Carousel movieData = {popular}/>
     </section>

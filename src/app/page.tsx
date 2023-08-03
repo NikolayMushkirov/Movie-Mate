@@ -6,6 +6,7 @@ import {
   getTrendingData,
   getUpcomingData,
 } from "./api/getMoviesData";
+import ContentWrapper from "@/components/ContentWrapper";
 
 export default async function Main() {
   const trendingData = getTrendingData();
@@ -19,14 +20,13 @@ export default async function Main() {
     upComingData,
   ]);
   return (
-    <div>
+    <>
       <HomePage
         trending={trending}
         popular={popular}
         topRated={topRated}
         upcoming={upcoming}
       />
-      {/* <Details /> */}
-    </div>
+    </>
   );
 }

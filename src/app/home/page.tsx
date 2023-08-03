@@ -4,6 +4,7 @@ import Popular from "./popular/page";
 import TopRated from "./top-rated/page";
 import Hero from "./hero/page";
 import { MovieDataType } from "@/types/types";
+import ContentWrapper from "@/components/ContentWrapper";
 
 type Props = {
   upcoming: MovieDataType;
@@ -14,7 +15,7 @@ type Props = {
 
 const HomePage = ({ upcoming, trending, popular, topRated }: Props) => {
   return (
-    <main className=" flex flex-col justify-center items-center gap-14">
+    <main className="w-full flex flex-col gap-14">
       <Hero upcoming={upcoming} />
       <Trending trending={trending} />
       <Popular popular={popular} />

@@ -11,10 +11,11 @@ const PlayIcon = () => {
         viewBox="0 0 213.7 213.7"
         enableBackground="new 0 0 213.7 213.7"
         xmlSpace="preserve"
+        className="play-icon-svg"
       >
         <polygon
-          className="triangle"
-          fill="#ffffff"
+          className="play-icon-triangle"
+          fill="none"
           strokeWidth="7"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -22,9 +23,9 @@ const PlayIcon = () => {
           points="73.5,62.5 148.5,105.8 73.5,149.1 "
         ></polygon>
         <circle
-          className="circle"
+          className="play-icon-circle"
           fill="none"
-          stroke="#ffffff"
+          stroke="none"
           strokeWidth="7"
           strokeLinecap="round"
           strokeLinejoin="round"

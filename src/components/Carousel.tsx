@@ -15,8 +15,8 @@ type Props = {
 const Carousel = ({ movieData }: Props) => {
   return (
     <Swiper
-      slidesPerView={6}
-      spaceBetween={30}
+      slidesPerView={5}
+      spaceBetween={25}
       navigation={true}
       pagination={{
         clickable: true,
@@ -24,16 +24,14 @@ const Carousel = ({ movieData }: Props) => {
       modules={[Pagination, Navigation]}
     >
       {movieData.results.map((movie) => (
-        <SwiperSlide key={movie.id} style={{ width: "15%" }}>
-
-            <MovieCard
-              title={movie.title}
-              poster_path={movie.poster_path}
-              vote_average={movie.vote_average}
-              release_date={movie.release_date}
-              movie_id = {movie.id}
-            />
-
+        <SwiperSlide key={movie.id}>
+          <MovieCard
+            title={movie.title}
+            poster_path={movie.poster_path}
+            vote_average={movie.vote_average}
+            release_date={movie.release_date}
+            movie_id={movie.id}
+          />
         </SwiperSlide>
       ))}
     </Swiper>

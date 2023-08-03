@@ -31,7 +31,7 @@ const MovieCard = ({
           src={`https://image.tmdb.org/t/p/original${poster_path}`}
           width={500}
           height={500}
-          alt="Picture of the author"
+          alt="Poster"
         />
         <div className="w-14 relative -top-7 left-2">
           <CircularRating rating={vote_average} customStyles = {customStyles}/>

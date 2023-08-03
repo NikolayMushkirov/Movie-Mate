@@ -8,7 +8,7 @@
   --background-end-rgb: 255, 255, 255;
   --gradient: linear-gradient(98.37deg, #f89e00 0.99%, #da2f68 100%);
   --main-bg-color: #04152d;
-  --sec-bg-color: #020C1B;
+  --sec-bg-color: #020c1b;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,4 +22,41 @@
 body {
   color: rgb(var(--foreground-rgb));
   background: var(--main-bg-color);
+}
+
+.wrapper {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.play-icon-svg {
+  width: 75px;
+}
+
+.play-icon-triangle {
+  stroke-dasharray: 240;
+  stroke-dashoffset: 480;
+  stroke: white;
+  transform: translateY(0);
+  transition: all 0.5s ease-in-out;
+}
+
+.play-icon-circle {
+  stroke: white;
+  stroke-dasharray: 650;
+  stroke-dashoffset: 1300;
+  transition: all 0.5s ease-in-out;
+}
+
+.play-icon-box:hover .play-icon-triangle {
+  stroke-dashoffset: 0;
+  opacity: 1;
+  stroke: rgb(125 211 252);
+  animation: trailorPlay 0.7s ease-in-out;
+}
+
+.play-icon-box:hover .play-icon-circle {
+  stroke-dashoffset: 0;
+  stroke: rgb(125 211 252);
 }
