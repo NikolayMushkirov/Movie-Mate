@@ -1,19 +1,21 @@
 import Image from "next/image";
-import CircularRating from "./CircularRating";
-type Props = {
-  title: string;
-  poster_path: string | undefined;
-  vote_average: number;
-  release_date: string;
-  movie_id: number | string;
-};
+import CircularRating from "../CircularRating";
+
 import Link from "next/link";
+
+import placeholder from '../../assets/no-poster.png'
+
+import { MovieInfoType } from "@/types/types";
+
+type Props = MovieInfoType
+
+
 const MovieCard = ({
   title,
   poster_path,
   vote_average,
   release_date,
-  movie_id,
+  id,
 }: Props) => {
 
   const customStyles = {
@@ -25,10 +27,10 @@ const MovieCard = ({
   };
 
   return (
-    <Link href={`/details/${movie_id}`}>
+    <Link href={`/details/${id}`}>
       <div className="flex  flex-col   relative">
         <Image
-          src={`https://image.tmdb.org/t/p/original${poster_path}`}
+          src={poster_path ? `https://image.tmdb.org/t/p/original${poster_path}` : placeholder}
           width={500}
           height={500}
           alt="Poster"

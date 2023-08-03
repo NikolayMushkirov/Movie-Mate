@@ -56,7 +56,6 @@ const getMovieDetailsData = async (id: string) => {
   return response.json();
 };
 const getMovieCastData = async (id: string) => {
-
   const url = `https://api.themoviedb.org/3/movie/${id}/credits?language=en-US`;
   const response = await fetch(url, {
     method: "GET",

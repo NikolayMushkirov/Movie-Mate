@@ -4,7 +4,7 @@ import Popular from "./popular/page";
 import TopRated from "./top-rated/page";
 import Hero from "./hero/page";
 import { MovieDataType } from "@/types/types";
-import ContentWrapper from "@/components/ContentWrapper";
+
 
 type Props = {
   upcoming: MovieDataType;

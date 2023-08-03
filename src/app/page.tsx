@@ -6,7 +6,6 @@ import {
   getTrendingData,
   getUpcomingData,
 } from "./api/getMoviesData";
-import ContentWrapper from "@/components/ContentWrapper";
 
 export default async function Main() {
   const trendingData = getTrendingData();

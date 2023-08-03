@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        1200: '1200px'
+        lgScreen: '1200px',
       },
       colors: {
         "main-bg-color": "#04152D",
