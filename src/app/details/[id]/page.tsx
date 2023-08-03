@@ -2,13 +2,18 @@ import Image from "next/image";
 
 import CircularRating from "@/components/CircularRating";
 
-import { getMovieCastData, getMovieDetailsData } from "@/app/api/getMoviesData";
+import {
+  getMovieCastData,
+  getMovieDetailsData,
+  getMovieSimilarData,
+} from "@/app/api/getMoviesData";
 
 import { MovieDetailsType } from "@/types/types";
 import PlayIcon from "@/components/PlayIcon";
 import { CrewType } from "@/types/cast.types";
 
 import TopCast from "./TopCast";
+import Similar from "./Similar";
 
 type Props = {
   params: {
@@ -19,9 +24,11 @@ type Props = {
 const Details = async ({ params: { id } }: Props) => {
   const movieDetailsData = getMovieDetailsData(id);
   const movieCastData = getMovieCastData(id);
-  const [movieDetails, movieCast] = await Promise.all([
+  const movieSimilarData = getMovieSimilarData(id);
+  const [movieDetails, movieCast, movieSimilar] = await Promise.all([
     movieDetailsData,
     movieCastData,
+    movieSimilarData,
   ]);
   const {
     poster_path,
@@ -52,13 +59,14 @@ const Details = async ({ params: { id } }: Props) => {
   };
 
   return (
-    <div className="mt-24">
+    <section className="mt-24 flex flex-col gap-10">
       <div className="flex gap-16">
         <Image
           src={`https://image.tmdb.org/t/p/original${poster_path}`}
           alt="poster"
           width={350}
           height={300}
+          className="max-w-[350px] w-full "
         />
         <div className="max-w-2xl flex flex-col justify-between ">
           <div>
@@ -114,7 +122,8 @@ const Details = async ({ params: { id } }: Props) => {
       </div>
 
       <TopCast movieCast={movieCast} />
-    </div>
+      <Similar movieSimilar={movieSimilar} />
+    </section>
   );
 };
 

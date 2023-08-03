@@ -44,6 +44,7 @@ const getUpcomingData = async () => {
   });
   return response.json();
 };
+
 const getMovieDetailsData = async (id: string) => {
   const url = `https://api.themoviedb.org/3/movie/${id}`;
   const response = await fetch(url, {
@@ -55,6 +56,18 @@ const getMovieDetailsData = async (id: string) => {
   });
   return response.json();
 };
+const getMovieSimilarData = async (id: string) => {
+  const url = `https://api.themoviedb.org/3/movie/${id}/similar`;
+  const response = await fetch(url, {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      Authorization: `Bearer ${key}`,
+    },
+  });
+  return response.json();
+};
+
 const getMovieCastData = async (id: string) => {
   const url = `https://api.themoviedb.org/3/movie/${id}/credits?language=en-US`;
   const response = await fetch(url, {
@@ -73,5 +86,6 @@ export {
   getTopRatedData,
   getUpcomingData,
   getMovieDetailsData,
+  getMovieSimilarData,
   getMovieCastData,
 };
