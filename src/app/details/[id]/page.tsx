@@ -44,9 +44,9 @@ const Details = async ({ params: { id } }: Props) => {
   movieVideos.videos = movieVideos.results;
   delete movieVideos.results;
 
-  console.log(movieVideos, "video");
   const {
     poster_path,
+    backdrop_path,
     title,
     tagline,
     vote_average,
@@ -73,8 +73,19 @@ const Details = async ({ params: { id } }: Props) => {
     pathColor: vote_average < 5 ? "red" : vote_average < 7 ? "orange" : "green",
   };
 
+  const bgImage = `https://image.tmdb.org/t/p/original/${backdrop_path}`;
+
+  console.log(bgImage, "image");
+
   return (
-    <section className="mt-24 flex flex-col gap-10">
+    <section className=" mt-24 flex flex-col gap-10">
+      <div
+        className="-z-30 absolute w-full min-h-full  top-0 left-0  bg-cover bg-no-repeat bg-center opacity-50"
+        style={{
+          backgroundImage: `url(${bgImage})`,
+        }}
+      ></div>
+      <div className="-z-30 absolute bottom-0 left-0 h-full w-full bg-gradient"></div>
       <div className="flex gap-16">
         <Image
           src={`https://image.tmdb.org/t/p/original${poster_path}`}
@@ -82,11 +93,12 @@ const Details = async ({ params: { id } }: Props) => {
           width={350}
           height={300}
           className="max-w-[350px] w-full "
+          loading="lazy"
         />
         <div className="max-w-2xl flex flex-col justify-between ">
           <div>
             <h3 className="text-4xl mb-1">{title}</h3>
-            <h4 className="text-xl text-gray-400 italic">{tagline} </h4>
+            <h4 className="text-xl text-gray-200 italic">{tagline} </h4>
           </div>
           <div className="flex gap-7">
             <div className="w-20">
@@ -110,27 +122,27 @@ const Details = async ({ params: { id } }: Props) => {
             <div className="flex gap-5">
               <p className="flex items-center gap-3 font-bold text-lg">
                 Status:
-                <span className="font-normal text-gray-400">{status}</span>
+                <span className="font-normal text-gray-200">{status}</span>
               </p>
               <p className="flex items-center gap-3 font-bold text-lg">
                 Release Date:
-                <span className="font-normal text-gray-400">
+                <span className="font-normal text-gray-200">
                   {release_date}
                 </span>
               </p>
               <p className="flex items-center gap-3 font-bold text-lg">
                 Runtime:
-                <span className="font-normal text-gray-400">{runtime}</span>
+                <span className="font-normal text-gray-200">{runtime}</span>
               </p>
             </div>
 
             <p className="flex items-center gap-3 font-bold text-lg">
               Director:
-              <span className="font-normal text-gray-400">{director}</span>
+              <span className="font-normal text-gray-200">{director}</span>
             </p>
             <p className="flex items-center gap-3 font-bold text-lg">
               Writer:
-              <span className="font-normal text-gray-400">{writer}</span>
+              <span className="font-normal text-gray-200">{writer}</span>
             </p>
           </div>
         </div>

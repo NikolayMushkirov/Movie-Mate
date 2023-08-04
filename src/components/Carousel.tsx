@@ -27,6 +27,7 @@ const Carousel = ({ data }: Props) => {
         clickable: true,
       }}
       modules={[Pagination]}
+      className="cursor-pointer"
     >
       {data?.results &&
         data.results.map((movie: MovieInfoType) => (

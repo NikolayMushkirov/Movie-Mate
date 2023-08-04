@@ -42,7 +42,7 @@ const MovieCard = ({
         </div>
 
         <div className="w-14 relative -top-7 left-2">
-          {/* <CircularRating rating={vote_average} customStyles={customStyles} /> */}
+          <CircularRating rating={vote_average} customStyles={customStyles} />
         </div>
         <div className="justify-self-start">
           <h3 className="text-xl font-bold">{title}</h3>

@@ -30,9 +30,6 @@ body {
   margin: 0 auto;
 }
 
-.small-play-icon-svg {
-  width: 50px;
-}
 
 .play-icon-svg {
   width: 75px;
@@ -63,4 +60,38 @@ body {
 .play-icon-box:hover .play-icon-circle {
   stroke-dashoffset: 0;
   stroke: rgb(125 211 252);
+}
+
+
+.small-play-icon-svg {
+  width: 50px;
+}
+
+.small-play-icon-triangle {
+  stroke-dasharray: 240;
+  stroke-dashoffset: 480;
+  stroke: white;
+  transform: translateY(0);
+  transition: all 0.5s ease-in-out;
+}
+
+.small-play-icon-circle {
+  stroke: white;
+  stroke-dasharray: 650;
+  stroke-dashoffset: 1300;
+  transition: all 0.5s ease-in-out;
+}
+
+.small-play-icon-box:hover .small-play-icon-triangle {
+  stroke-dashoffset: 0;
+  opacity: 1;
+  stroke: rgb(125 212 252);
+  animation: trailorPlay 0.7s ease-in-out;
+  filter: brightness(1);
+}
+
+.small-play-icon-box:hover .small-play-icon-circle {
+  stroke-dashoffset: 0;
+  stroke: rgb(125, 212, 252);
+  filter: brightness(1);
 }

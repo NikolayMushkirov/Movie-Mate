@@ -14,7 +14,7 @@ const SmallPlayIcon = () => {
       className="small-play-icon-svg"
     >
       <polygon
-        className="play-icon-triangle"
+        className="small-play-icon-triangle"
         fill="none"
         strokeWidth="7"
         strokeLinecap="round"
@@ -23,7 +23,7 @@ const SmallPlayIcon = () => {
         points="73.5,62.5 148.5,105.8 73.5,149.1 "
       ></polygon>
       <circle
-        className="play-icon-circle"
+        className="small-play-icon-circle"
         fill="none"
         stroke="none"
         strokeWidth="7"

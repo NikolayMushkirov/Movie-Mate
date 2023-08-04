@@ -17,7 +17,7 @@ const Hero = ({ upcoming }: Props) => {
           backgroundImage: `url(${bgImage})`,
         }}
       ></div>
-      <div className="absolute bottom-0 h-[400px] w-full bg-gradient"></div>
+      <div className="absolute bottom-0 left-0 h-[400px] w-full bg-gradient"></div>
       <SearchForm />
     </section>
   );

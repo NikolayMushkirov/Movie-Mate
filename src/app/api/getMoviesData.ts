@@ -1,7 +1,7 @@
 const key = process.env.NEXT_PUBLIC_TMDB_KEY;
 
 const getTrendingData = async () => {
-  const url = "https://api.themoviedb.org/3/movie/now_playing";
+  const url = "https://api.themoviedb.org/3/trending/movie/week";
   const response = await fetch(url, {
     method: "GET",
     headers: {
@@ -36,11 +36,13 @@ const getTopRatedData = async () => {
 const getUpcomingData = async () => {
   const url = "https://api.themoviedb.org/3/movie/upcoming";
   const response = await fetch(url, {
+    cache:'no-store',
     method: "GET",
     headers: {
       accept: "application/json",
       Authorization: `Bearer ${key}`,
     },
+
   });
   return response.json();
 };

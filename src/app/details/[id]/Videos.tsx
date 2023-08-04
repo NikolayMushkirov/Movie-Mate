@@ -5,7 +5,7 @@ type Props = { movieVideos: VideoType };
 
 const Videos = ({ movieVideos }: Props) => {
   return (
-    <div>
+    <div className="">
       <h2 className="mb-6 text-2xl">Videos</h2>
       <Carousel data={movieVideos} />
     </div>
