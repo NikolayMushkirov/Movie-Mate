@@ -7,6 +7,7 @@ import {
   getMovieDetailsData,
   getMovieSimilarData,
   getMovieRecommendationsData,
+  getMovieVideosData,
 } from "@/app/api/getMoviesData";
 
 import { MovieDetailsType } from "@/types/types";
@@ -16,6 +17,7 @@ import { CrewType } from "@/types/cast.types";
 import TopCast from "./TopCast";
 import Similar from "./Similar";
 import Recommendations from "./Recommendations";
+import Videos from "./Videos";
 
 type Props = {
   params: {
@@ -27,13 +29,22 @@ const Details = async ({ params: { id } }: Props) => {
   const movieDetailsData = getMovieDetailsData(id);
   const movieCastData = getMovieCastData(id);
   const movieSimilarData = getMovieSimilarData(id);
-  const movieRecomendData = getMovieRecommendationsData(id)
-  const [movieDetails, movieCast, movieSimilar, movieRecomend] = await Promise.all([
-    movieDetailsData,
-    movieCastData,
-    movieSimilarData,
-    movieRecomendData,
-  ]);
+  const movieRecomendData = getMovieRecommendationsData(id);
+  const movieVideosData = getMovieVideosData(id);
+
+  const [movieDetails, movieCast, movieSimilar, movieRecomend, movieVideos] =
+    await Promise.all([
+      movieDetailsData,
+      movieCastData,
+      movieSimilarData,
+      movieRecomendData,
+      movieVideosData,
+    ]);
+
+  movieVideos.videos = movieVideos.results;
+  delete movieVideos.results;
+
+  console.log(movieVideos, "video");
   const {
     poster_path,
     title,
@@ -125,9 +136,10 @@ const Details = async ({ params: { id } }: Props) => {
         </div>
       </div>
 
+      <Videos movieVideos={movieVideos} />
       <TopCast movieCast={movieCast} />
       <Similar movieSimilar={movieSimilar} />
-      <Recommendations movieRecomend = {movieRecomend}/>
+      <Recommendations movieRecomend={movieRecomend} />
     </section>
   );
 };

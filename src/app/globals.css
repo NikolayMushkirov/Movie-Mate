@@ -30,6 +30,10 @@ body {
   margin: 0 auto;
 }
 
+.small-play-icon-svg {
+  width: 50px;
+}
+
 .play-icon-svg {
   width: 75px;
 }

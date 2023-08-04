@@ -19,6 +19,7 @@ const ProfileCard = ({ name, character, profile_path }: Props) => {
           width={200}
           height={200}
           className="rounded-2xl"
+          loading="lazy"
         />
       </div>
 

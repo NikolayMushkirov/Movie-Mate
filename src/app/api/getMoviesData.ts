@@ -90,6 +90,17 @@ const getMovieCastData = async (id: string) => {
   });
   return response.json();
 };
+const getMovieVideosData = async (id: string) => {
+  const url = `https://api.themoviedb.org/3/movie/${id}/videos`;
+  const response = await fetch(url, {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      Authorization: `Bearer ${key}`,
+    },
+  });
+  return response.json();
+};
 
 export {
   getTrendingData,
@@ -100,4 +111,5 @@ export {
   getMovieSimilarData,
   getMovieRecommendationsData,
   getMovieCastData,
+  getMovieVideosData,
 };
