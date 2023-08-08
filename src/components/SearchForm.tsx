@@ -1,18 +1,20 @@
 "use client";
 
+import { getSearchMultiData } from "@/app/api/getMoviesData";
+import { useState } from "react";
+
 type Props = {};
 
-const SearchForm = (props: Props) => {
+const SearchForm = () => {
   return (
-    <form className="z-20 w-full flex justify-center">
+    <form action="/search" className="z-20 w-full flex justify-center">
       <input
+        name="search"
         className="bg-white w-1/2 p-5 pl-6 rounded-tl-full rounded-bl-full text-black text-xl  placeholder-gray-900 outline-none"
         placeholder="Enter movie title"
       />
-      <button
-        className="w-1/6 bg-gradient-main rounded-tr-full rounded-br-full"
-        onClick={(e) => e.preventDefault()}
-      >
+
+      <button className="w-1/6 bg-gradient-main rounded-tr-full rounded-br-full">
         Search
       </button>
     </form>

@@ -1,8 +1,8 @@
 import SearchForm from "@/components/SearchForm";
-import {  MovieDataType } from "@/types/types";
+import { MovieDataType } from "@/types/types";
 
 type Props = {
-  upcoming : MovieDataType;
+  upcoming: MovieDataType;
 };
 
 const Hero = ({ upcoming }: Props) => {

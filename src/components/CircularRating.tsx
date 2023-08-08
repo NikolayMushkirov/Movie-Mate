@@ -11,15 +11,13 @@ type Props = {
 
 const CircularRating = ({ rating, customStyles }: Props) => {
   return (
-
-      <CircularProgressbar
-        value={rating}
-        maxValue={10}
-        text={rating.toFixed(1)}
-        background
-        styles={customStyles && buildStyles(customStyles)}
-      />
-
+    <CircularProgressbar
+      value={rating && rating}
+      maxValue={10}
+      text={rating?.toFixed(1)}
+      background
+      styles={customStyles && buildStyles(customStyles)}
+    />
   );
 };
 

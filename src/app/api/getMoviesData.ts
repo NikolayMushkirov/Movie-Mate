@@ -1,7 +1,7 @@
 const key = process.env.NEXT_PUBLIC_TMDB_KEY;
 
-const getTrendingData = async () => {
-  const url = "https://api.themoviedb.org/3/trending/movie/week";
+const getTrendingData = async (timeWindow: string) => {
+  const url = `https://api.themoviedb.org/3/trending/movie/${timeWindow}`;
   const response = await fetch(url, {
     method: "GET",
     headers: {
@@ -36,13 +36,11 @@ const getTopRatedData = async () => {
 const getUpcomingData = async () => {
   const url = "https://api.themoviedb.org/3/movie/upcoming";
   const response = await fetch(url, {
-    cache:'no-store',
     method: "GET",
     headers: {
       accept: "application/json",
       Authorization: `Bearer ${key}`,
     },
-
   });
   return response.json();
 };
@@ -58,6 +56,7 @@ const getMovieDetailsData = async (id: string) => {
   });
   return response.json();
 };
+
 const getMovieSimilarData = async (id: string) => {
   const url = `https://api.themoviedb.org/3/movie/${id}/similar`;
   const response = await fetch(url, {
@@ -69,6 +68,7 @@ const getMovieSimilarData = async (id: string) => {
   });
   return response.json();
 };
+
 const getMovieRecommendationsData = async (id: string) => {
   const url = `https://api.themoviedb.org/3/movie/${id}/recommendations`;
   const response = await fetch(url, {
@@ -92,8 +92,21 @@ const getMovieCastData = async (id: string) => {
   });
   return response.json();
 };
+
 const getMovieVideosData = async (id: string) => {
   const url = `https://api.themoviedb.org/3/movie/${id}/videos`;
+  const response = await fetch(url, {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      Authorization: `Bearer ${key}`,
+    },
+  });
+  return response.json();
+};
+
+const getSearchMultiData = async (searchValue: string) => {
+  const url = `https://api.themoviedb.org/3/search/multi?query=${searchValue}`;
   const response = await fetch(url, {
     method: "GET",
     headers: {
@@ -114,4 +127,5 @@ export {
   getMovieRecommendationsData,
   getMovieCastData,
   getMovieVideosData,
+  getSearchMultiData,
 };

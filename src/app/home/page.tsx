@@ -13,11 +13,11 @@ type Props = {
   topRated: MovieDataType;
 };
 
-const HomePage = ({ upcoming, trending, popular, topRated }: Props) => {
+const HomePage = ({  popular, topRated }: Props) => {
   return (
     <main className="w-full flex flex-col gap-14">
-      <Hero upcoming={upcoming} />
-      <Trending trending={trending} />
+      <Hero upcoming={popular} />
+      <Trending  />
       <Popular popular={popular} />
       <TopRated topRated={topRated} />
     </main>
