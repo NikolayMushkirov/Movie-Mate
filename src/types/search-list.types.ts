@@ -1,4 +1,4 @@
-export type MovieOrTVShowType = {
+export type MovieAndTVShowResultsType = {
     adult?: false;
     backdrop_path?: string | null;
     id: number;
@@ -18,3 +18,8 @@ export type MovieOrTVShowType = {
     release_date?: string;
     video?: boolean;
   };
+
+  export type MovieAndTVShowType = {
+    page?: number;
+    results: MovieAndTVShowResultsType[]
+  }

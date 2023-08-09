@@ -1,31 +1,60 @@
 "use client";
-
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+
+import { useInView } from "react-intersection-observer";
 import { getSearchMultiData } from "../api/getMoviesData";
+
 import MovieCard from "@/components/cards/MovieCard";
 
-
-type Props = {};
+import { MovieAndTVShowType } from "@/types/search-list.types";
 
 const SearchResults = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<MovieAndTVShowType>({ results: [] });
+  const [pageNum, setPageNum] = useState(1);
   const searchParams = useSearchParams();
+  const { ref, inView } = useInView();
 
-  const search = searchParams.get("search");
+  const searchValue = searchParams.get("search");
+
+  const initialFetchData = () => {
+    searchValue &&
+      getSearchMultiData(searchValue, pageNum).then((respData) => {
+        setData(respData);
+        setPageNum((prev) => prev + 1);
+      });
+  };
+
+  const nextPageFetchData = () => {
+    searchValue &&
+      getSearchMultiData(searchValue, pageNum).then((respData) => {
+        if (data?.results) {
+          setData({
+            ...data,
+            results: [...data.results, ...respData.results],
+          });
+        } else {
+          setData(respData);
+        }
+        setPageNum((prev) => prev + 1);
+      });
+  };
 
   useEffect(() => {
-    getSearchMultiData(search).then((movieData) => {
-      setData(movieData);
-    });
-  }, [search]);
+    setPageNum(1);
+    initialFetchData();
+  }, [searchValue]);
 
-  console.log(data, "data");
+  useEffect(() => {
+    if (inView) {
+      nextPageFetchData();
+    }
+  }, [inView]);
 
   return (
     <section>
-      <h2 className="mt-28  text-5xl">Search results</h2>
-      <div className="mt-10 grid grid-cols-5 gap-6">
+      <h2 className="mt-28 mb-10 text-5xl">Search results</h2>
+      <div className=" grid grid-cols-5 gap-6">
         {data?.results?.map((item) => (
           <MovieCard
             key={item.id}
@@ -37,6 +66,7 @@ const SearchResults = () => {
           />
         ))}
       </div>
+      <div ref={ref}></div>
     </section>
   );
 };

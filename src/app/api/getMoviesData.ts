@@ -105,8 +105,8 @@ const getMovieVideosData = async (id: string) => {
   return response.json();
 };
 
-const getSearchMultiData = async (searchValue: string) => {
-  const url = `https://api.themoviedb.org/3/search/multi?query=${searchValue}`;
+const getSearchMultiData = async (searchValue: string , page: number) => {
+  const url = `https://api.themoviedb.org/3/search/multi?query=${searchValue}&page=${page}`;
   const response = await fetch(url, {
     method: "GET",
     headers: {
