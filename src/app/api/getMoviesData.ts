@@ -11,8 +11,8 @@ const getTrendingData = async (timeWindow: string) => {
   });
   return response.json();
 };
-const getPopularData = async () => {
-  const url = "https://api.themoviedb.org/3/movie/popular";
+const getPopularData = async (mediaType : string) => {
+  const url = `https://api.themoviedb.org/3/${mediaType}/popular`;
   const response = await fetch(url, {
     method: "GET",
     headers: {
@@ -22,8 +22,8 @@ const getPopularData = async () => {
   });
   return response.json();
 };
-const getTopRatedData = async () => {
-  const url = "https://api.themoviedb.org/3/movie/top_rated";
+const getTopRatedData = async (mediaType : string) => {
+  const url = `https://api.themoviedb.org/3/${mediaType}/top_rated`;
   const response = await fetch(url, {
     method: "GET",
     headers: {

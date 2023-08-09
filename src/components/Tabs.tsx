@@ -8,7 +8,9 @@ type Props = {
 };
 
 const Tabs = ({ leftTabName, rightTabName, onTabChange }: Props) => {
-  const [selectedTab, setSelectedTab] = useState(leftTabName);
+  const [selectedTab, setSelectedTab] = useState("leftTab");
+
+  console.log(selectedTab, "tab");
 
   const switchActiveTab = (e: React.MouseEvent<HTMLSpanElement>) => {
     if (selectedTab !== e.target.id) {
@@ -20,11 +22,11 @@ const Tabs = ({ leftTabName, rightTabName, onTabChange }: Props) => {
   };
 
   return (
-    <div className="flex gap-3">
+    <div className="h-9 flex">
       <span
-        id={leftTabName}
-        className={`h-11 px-10 flex items-center text-xl select-none rounded-full transition-all duration-400   cursor-pointer ${
-          selectedTab === `${leftTabName}`
+        id="leftTab"
+        className={`w-32 p-5 flex items-center justify-center  text-lg select-none rounded-l-full transition-all duration-400   cursor-pointer ${
+          selectedTab === `leftTab`
             ? "bg-gradient-main text-white"
             : "bg-white text-black"
         }  `}
@@ -33,9 +35,9 @@ const Tabs = ({ leftTabName, rightTabName, onTabChange }: Props) => {
         {leftTabName}
       </span>
       <span
-        id={rightTabName}
-        className={`h-11 px-10 flex items-center text-xl select-none rounded-full transition-all duration-400   cursor-pointer ${
-          selectedTab === `${rightTabName}`
+        id="rightTab"
+        className={`w-32 p-5 flex items-center justify-center text-lg select-none rounded-r-full transition-all duration-400   cursor-pointer ${
+          selectedTab === `rightTab`
             ? "bg-gradient-main text-white"
             : "bg-white text-black"
         }   `}
