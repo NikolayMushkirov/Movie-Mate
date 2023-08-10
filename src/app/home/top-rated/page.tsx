@@ -11,8 +11,6 @@ const TopRated = () => {
   const [mediaType, setMediaType] = useState("movie");
   const [topRatedData, setTopRatedData] = useState([]);
 
-  console.log(mediaType, "media");
-
   const onTabChange = (tab: string): void => {
     setMediaType(tab === "leftTab" ? "tv" : "movie");
   };

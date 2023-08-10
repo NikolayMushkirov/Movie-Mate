@@ -11,8 +11,6 @@ const Popular = () => {
   const [mediaType, setMediaType] = useState("movie");
   const [popularData, setPopularData] = useState([]);
 
-  console.log(mediaType, 'media');
-
   const onTabChange = (tab: string): void => {
     setMediaType(tab === "leftTab" ? "tv" : "movie");
   };

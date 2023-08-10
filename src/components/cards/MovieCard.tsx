@@ -32,13 +32,15 @@ const MovieCard = ({
           <Image
             src={
               poster_path
-                ? `https://image.tmdb.org/t/p/original${poster_path}`
+                ? `https://image.tmdb.org/t/p/w500${poster_path}`
                 : placeholder
             }
             width={500}
             height={500}
             alt="Poster"
             loading="lazy"
+            className="transition-opacity opacity-0 duration-700"
+            onLoadingComplete={(img) => img.classList.remove('opacity-0' )}
           />
         </div>
 

@@ -1,31 +1,31 @@
 "use client";
+
 import React, { useState } from "react";
 
 type Props = {
   leftTabName: string;
   rightTabName: string;
-  onTabChange: Function;
+  onTabChange: (tab: string) => void;
 };
 
 const Tabs = ({ leftTabName, rightTabName, onTabChange }: Props) => {
   const [selectedTab, setSelectedTab] = useState("leftTab");
 
-  console.log(selectedTab, "tab");
-
-  const switchActiveTab = (e: React.MouseEvent<HTMLSpanElement>) => {
-    if (selectedTab !== e.target.id) {
+  const switchActiveTab = (e: React.MouseEvent<HTMLElement>) => {
+    const target = e.target as HTMLSpanElement;
+    if (selectedTab !== target.id) {
       setTimeout(() => {
-        setSelectedTab(e.target.id);
-      }, 300);
+        setSelectedTab(target.id);
+      }, 200);
     }
     onTabChange(selectedTab);
   };
 
   return (
-    <div className="h-9 flex">
+    <div className="flex">
       <span
         id="leftTab"
-        className={`w-32 p-5 flex items-center justify-center  text-lg select-none rounded-l-full transition-all duration-400   cursor-pointer ${
+        className={`w-32 p-[5px] flex items-center justify-center   select-none rounded-l-full transition-all duration-400   cursor-pointer ${
           selectedTab === `leftTab`
             ? "bg-gradient-main text-white"
             : "bg-white text-black"
@@ -36,7 +36,7 @@ const Tabs = ({ leftTabName, rightTabName, onTabChange }: Props) => {
       </span>
       <span
         id="rightTab"
-        className={`w-32 p-5 flex items-center justify-center text-lg select-none rounded-r-full transition-all duration-400   cursor-pointer ${
+        className={`w-32 p- flex items-center justify-center  select-none rounded-r-full transition-all duration-400   cursor-pointer ${
           selectedTab === `rightTab`
             ? "bg-gradient-main text-white"
             : "bg-white text-black"

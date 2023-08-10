@@ -6,7 +6,6 @@ import { getTrendingData } from "@/app/api/getMoviesData";
 import Carousel from "@/components/Carousel";
 import Tabs from "@/components/Tabs";
 
-
 const Trending = () => {
   const [timeWindow, setTimeWindow] = useState("day");
   const [trendingData, setTrendingData] = useState([]);
