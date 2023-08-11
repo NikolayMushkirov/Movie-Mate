@@ -38,6 +38,7 @@ const Carousel = ({ data }: Props) => {
               vote_average={movie.vote_average}
               release_date={movie.release_date}
               id={movie.id}
+              genre_ids={movie.genre_ids}
             />
           </SwiperSlide>
         ))}

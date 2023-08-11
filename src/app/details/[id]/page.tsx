@@ -18,6 +18,7 @@ import TopCast from "./TopCast";
 import Similar from "./Similar";
 import Recommendations from "./Recommendations";
 import Videos from "./Videos";
+import Genres from "@/components/Genres";
 
 type Props = {
   params: {
@@ -54,6 +55,7 @@ const Details = async ({ params: { id } }: Props) => {
     release_date,
     status,
     runtime,
+    genres,
   }: MovieDetailsType = movieDetails;
 
   const director = movieCast.crew
@@ -66,6 +68,8 @@ const Details = async ({ params: { id } }: Props) => {
     .map((field: CrewType) => field.name)
     .join(", ");
 
+  const genresIds = genres && genres.map((genre) => genre.id);
+
   const customStyles = {
     backgroundColor: "transparent",
     textColor: "white",
@@ -74,8 +78,6 @@ const Details = async ({ params: { id } }: Props) => {
   };
 
   const bgImage = `https://image.tmdb.org/t/p/original/${backdrop_path}`;
-
-  console.log(bgImage, "image");
 
   return (
     <section className=" mt-24 flex flex-col gap-10">
@@ -100,6 +102,7 @@ const Details = async ({ params: { id } }: Props) => {
             <h3 className="text-4xl mb-1">{title}</h3>
             <h4 className="text-xl text-gray-200 italic">{tagline} </h4>
           </div>
+          <Genres genre_ids={genresIds} />
           <div className="flex gap-7">
             <div className="w-20">
               <CircularRating
