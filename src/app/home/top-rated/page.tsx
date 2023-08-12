@@ -2,23 +2,30 @@
 
 import { useState, useEffect } from "react";
 
-import { getTopRatedData } from "@/app/api/getMoviesData";
+import { fetchMovieData } from "@/app/api/fetchMovieData";
 
 import Carousel from "@/components/Carousel";
 import Tabs from "@/components/Tabs";
 
+import { MovieDataType } from "@/types/types";
+
 const TopRated = () => {
   const [mediaType, setMediaType] = useState("movie");
-  const [topRatedData, setTopRatedData] = useState([]);
+  const [topRatedData, setTopRatedData] = useState<MovieDataType[]>([]);
 
   const onTabChange = (tab: string): void => {
     setMediaType(tab === "leftTab" ? "tv" : "movie");
   };
 
+  const getTopRatedData = async () => {
+    const data: MovieDataType[] = await fetchMovieData(
+      `${mediaType}/top_rated`
+    );
+    setTopRatedData(data);
+  };
+
   useEffect(() => {
-    getTopRatedData(mediaType).then((res) => {
-      setTopRatedData(res);
-    });
+    getTopRatedData();
   }, [mediaType]);
 
   return (

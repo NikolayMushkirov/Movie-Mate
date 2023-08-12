@@ -1,14 +1,17 @@
 import SearchForm from "@/components/SearchForm";
+
+import { fetchMovieData } from "@/app/api/fetchMovieData";
+
 import { MovieDataType } from "@/types/types";
 
-type Props = {
-  upcoming: MovieDataType;
-};
-
-const Hero = ({ upcoming }: Props) => {
+const Hero = async () => {
+  const trendingData: MovieDataType = await fetchMovieData(
+    `trending/movie/week`
+  );
   const bgImage = `https://image.tmdb.org/t/p/original${
-    upcoming.results[Math.floor(Math.random() * 20)].backdrop_path
+    trendingData.results[Math.floor(Math.random() * 20)].backdrop_path
   }`;
+
   return (
     <section className=" min-h-[900px] w-full flex flex-col items-center justify-center ">
       <div

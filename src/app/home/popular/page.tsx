@@ -5,20 +5,25 @@ import { useState, useEffect } from "react";
 import Carousel from "@/components/Carousel";
 import Tabs from "@/components/Tabs";
 
-import { getPopularData } from "@/app/api/getMoviesData";
+import { fetchMovieData } from "@/app/api/fetchMovieData";
+
+import { MovieDataType } from "@/types/types";
 
 const Popular = () => {
   const [mediaType, setMediaType] = useState("movie");
-  const [popularData, setPopularData] = useState([]);
+  const [popularData, setPopularData] = useState<MovieDataType[]>([]);
 
   const onTabChange = (tab: string): void => {
     setMediaType(tab === "leftTab" ? "tv" : "movie");
   };
 
+  const getPopularData = async () => {
+    const data: MovieDataType[] = await fetchMovieData(`${mediaType}/popular`);
+    setPopularData(data);
+  };
+
   useEffect(() => {
-    getPopularData(mediaType).then((res) => {
-      setPopularData(res);
-    });
+    getPopularData();
   }, [mediaType]);
 
   return (

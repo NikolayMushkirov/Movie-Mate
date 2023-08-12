@@ -3,7 +3,8 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { useInView } from "react-intersection-observer";
-import { getSearchMultiData } from "../api/getMoviesData";
+
+import { fetchMovieData } from "../api/fetchMovieData";
 
 import MovieCard from "@/components/cards/MovieCard";
 
@@ -17,27 +18,24 @@ const SearchResults = () => {
 
   const searchValue = searchParams.get("search");
 
-  const initialFetchData = () => {
-    searchValue &&
-      getSearchMultiData(searchValue, pageNum).then((respData) => {
-        setData(respData);
-        setPageNum((prev) => prev + 1);
-      });
+  const initialFetchData = async () => {
+    const initData = await fetchMovieData(
+      `search/multi?query=${searchValue}&page=${pageNum}`
+    );
+    setData(initData);
+    setPageNum((prev) => prev + 1);
   };
 
-  const nextPageFetchData = () => {
-    searchValue &&
-      getSearchMultiData(searchValue, pageNum).then((respData) => {
-        if (data?.results) {
-          setData({
-            ...data,
-            results: [...data.results, ...respData.results],
-          });
-        } else {
-          setData(respData);
-        }
-        setPageNum((prev) => prev + 1);
-      });
+  const nextPageFetchData = async () => {
+    const nextPageData = await fetchMovieData(
+      `search/multi?query=${searchValue}&page=${pageNum}`
+    );
+    if (data.results) {
+      setData({ ...data, results: [...data.results, ...nextPageData.results] });
+    } else {
+      setData(nextPageData);
+    }
+    setPageNum((prev) => prev + 1);
   };
 
   useEffect(() => {
@@ -63,6 +61,7 @@ const SearchResults = () => {
             vote_average={item.vote_average}
             release_date={item.release_date}
             id={item.id}
+            genre_ids={item.genre_ids}
           />
         ))}
       </div>

@@ -4,16 +4,16 @@ import Link from "next/link";
 
 import { FaSearch } from "react-icons/fa";
 
-import useScrollDirection from "@/hooks/useScrollDirection";
+import { useScrollDirection } from "@/hooks/useScrollDirection";
 
 const Header = () => {
   const scrollDirection = useScrollDirection();
 
   return (
     <header
-      className={`fixed ${
-        scrollDirection === "down" ? "-top-40" : "top-0"
-      } top-0 left-0 w-full p-3 z-10 transition-all duration-500 bg-main-bg-color/40 `}
+      className={`fixed  ${
+        scrollDirection === "down" ? "-top-20" : "top-0"
+      } left-0 w-full p-3 z-10 transition-all duration-500 bg-main-bg-color/40 `}
     >
       <div className="lg-wrapper top-32  flex justify-between ">
         <Link href={"/"}>

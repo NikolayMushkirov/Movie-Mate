@@ -24,7 +24,8 @@ const useScrollDirection = () => {
       window.removeEventListener("scroll", updateScrollDirection); // clean up
     };
   }, [scrollDirection]);
+
   return scrollDirection;
 };
 
-export default useScrollDirection;
+export  {useScrollDirection};

@@ -2,14 +2,14 @@ import Carousel from "@/components/Carousel";
 import { CastType } from "@/types/cast.types";
 
 type Props = {
-    movieCast : CastType
+  cast: CastType;
 };
 
-const TopCast = ({movieCast}: Props) => {
+const TopCast = ({ cast }: Props) => {
   return (
     <div>
       <h2 className="mb-6 text-2xl">Top Cast</h2>
-      <Carousel data={movieCast} />
+      <Carousel data={cast} />
     </div>
   );
 };

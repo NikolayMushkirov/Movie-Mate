@@ -1,6 +1,6 @@
 "use client";
 
-import { getSearchMultiData } from "@/app/api/getMoviesData";
+import { getSearchMultiData } from "@/app/api/getMoviesLists";
 import { useState } from "react";
 
 type Props = {};

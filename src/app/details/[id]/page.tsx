@@ -1,24 +1,18 @@
 import Image from "next/image";
 
+import { fetchMovieData } from "@/app/api/fetchMovieData";
+
 import CircularRating from "@/components/CircularRating";
-
-import {
-  getMovieCastData,
-  getMovieDetailsData,
-  getMovieSimilarData,
-  getMovieRecommendationsData,
-  getMovieVideosData,
-} from "@/app/api/getMoviesData";
-
-import { MovieDetailsType } from "@/types/types";
 import PlayIcon from "@/components/PlayIcon";
-import { CrewType } from "@/types/cast.types";
+import Genres from "@/components/Genres";
 
 import TopCast from "./TopCast";
 import Similar from "./Similar";
 import Recommendations from "./Recommendations";
 import Videos from "./Videos";
-import Genres from "@/components/Genres";
+
+import { MovieDetailsType } from "@/types/types";
+import { CrewType } from "@/types/cast.types";
 
 type Props = {
   params: {
@@ -27,23 +21,21 @@ type Props = {
 };
 
 const Details = async ({ params: { id } }: Props) => {
-  const movieDetailsData = getMovieDetailsData(id);
-  const movieCastData = getMovieCastData(id);
-  const movieSimilarData = getMovieSimilarData(id);
-  const movieRecomendData = getMovieRecommendationsData(id);
-  const movieVideosData = getMovieVideosData(id);
+  const endpoints = [
+    `movie/${id}`,
+    `movie/${id}/similar`,
+    `movie/${id}/recommendations`,
+    `movie/${id}/credits`,
+    `movie/${id}/videos`,
+  ];
 
-  const [movieDetails, movieCast, movieSimilar, movieRecomend, movieVideos] =
-    await Promise.all([
-      movieDetailsData,
-      movieCastData,
-      movieSimilarData,
-      movieRecomendData,
-      movieVideosData,
-    ]);
+  const requests = endpoints.map((endpoint) => fetchMovieData(endpoint));
 
-  movieVideos.videos = movieVideos.results;
-  delete movieVideos.results;
+  const [details, similar, recommendations, credits, videos] =
+    await Promise.all(requests);
+
+  videos.videos = videos.results;
+  delete videos.results;
 
   const {
     poster_path,
@@ -56,19 +48,19 @@ const Details = async ({ params: { id } }: Props) => {
     status,
     runtime,
     genres,
-  }: MovieDetailsType = movieDetails;
+  }: MovieDetailsType = details;
 
-  const director = movieCast.crew
+  const director = credits.crew
     .filter((item: CrewType) => item.job === "Director")
     .map((field: CrewType) => field.name)
     .join(", ");
 
-  const writer = movieCast.crew
+  const writer = credits.crew
     .filter((item: CrewType) => item.job === "Writer")
     .map((field: CrewType) => field.name)
     .join(", ");
 
-  const genresIds = genres && genres.map((genre) => genre.id);
+  const genresIds = genres?.map((genre) => genre.id);
 
   const customStyles = {
     backgroundColor: "transparent",
@@ -151,10 +143,10 @@ const Details = async ({ params: { id } }: Props) => {
         </div>
       </div>
 
-      <Videos movieVideos={movieVideos} />
-      <TopCast movieCast={movieCast} />
-      <Similar movieSimilar={movieSimilar} />
-      <Recommendations movieRecomend={movieRecomend} />
+      <Videos videos={videos} />
+      <TopCast cast={credits} />
+      <Similar similar={similar} />
+      <Recommendations recommendations={recommendations} />
     </section>
   );
 };
