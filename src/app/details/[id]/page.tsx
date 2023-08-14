@@ -5,9 +5,11 @@ import Similar from "./Similar";
 import Recommendations from "./Recommendations";
 import Videos from "./Videos";
 
-import { CrewType } from "@/types/cast.types";
+import { CreditsType, CrewType } from "@/types/cast.types";
 
 import DetailsHero from "./DetailsHero";
+import { DetailsType, MovieDataType } from "@/types/types";
+import { VideosType } from "@/types/video.types";
 
 type Props = {
   params: {
@@ -16,7 +18,7 @@ type Props = {
 };
 
 const Details = async ({ params: { id } }: Props) => {
-  const endpoints = [
+  const endpoints: string[] = [
     `movie/${id}`,
     `movie/${id}/similar`,
     `movie/${id}/recommendations`,
@@ -27,24 +29,33 @@ const Details = async ({ params: { id } }: Props) => {
   const requests = endpoints.map((endpoint) => fetchMovieData(endpoint));
 
   const [details, similar, recommendations, credits, videos] =
-    await Promise.all(requests);
-
-  videos.videos = videos.results;
-  delete videos.results;
+    (await Promise.all(requests)) as [
+      DetailsType,
+      MovieDataType,
+      MovieDataType,
+      CreditsType,
+      VideosType
+    ];
 
   const director = credits.crew
     .filter((item: CrewType) => item.job === "Director")
     .map((field: CrewType) => field.name)
     .join(", ");
 
-  const writer = credits.crew
-    .filter((item: CrewType) => item.job === "Writer")
+  const screenWriter = credits.crew
+    .filter(
+      (item: CrewType) => item.job === "Screenplay" || item.job === "Writer"
+    )
     .map((field: CrewType) => field.name)
     .join(", ");
 
   return (
     <section className=" mt-24 flex flex-col gap-10">
-      <DetailsHero details={details} director={director} writer={writer} />
+      <DetailsHero
+        details={details}
+        director={director}
+        screenWriter={screenWriter}
+      />
       <Videos videos={videos} />
       <TopCast cast={credits} />
       <Similar similar={similar} />

@@ -19,7 +19,7 @@ export type MovieInfoType = {
   vote_count?: number;
 };
 
-export type MovieDetailsType = {
+export type DetailsType = {
   adult?: boolean;
   backdrop_path: string;
   belongs_to_collection?: null | object;

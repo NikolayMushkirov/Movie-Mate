@@ -1,8 +1,8 @@
 import Carousel from "@/components/Carousel";
-import { CastType } from "@/types/cast.types";
+import {  CreditsType } from "@/types/cast.types";
 
 type Props = {
-  cast: CastType;
+  cast: CreditsType;
 };
 
 const TopCast = ({ cast }: Props) => {

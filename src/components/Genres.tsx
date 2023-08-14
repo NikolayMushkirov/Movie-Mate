@@ -1,5 +1,5 @@
 type Props = {
-  genre_ids: number[];
+  genre_ids?: number[] ;
 };
 
 type GenreType = {
@@ -120,18 +120,18 @@ const genresData: Record<number, GenreType> = {
 
 const Genres = ({ genre_ids }: Props) => {
 
-  const slicedGenres = genre_ids && genre_ids.slice(0, 2);
+  const slicedGenres = genre_ids?.slice(0, 2);
 
   return (
     <div className="flex gap-2 ">
-      {genre_ids && slicedGenres?.map((g) => {
-        if (!genresData[g]?.name) return <span>Not found</span>;
+      {slicedGenres?.map((genreId) => {
+        if (!genresData[genreId]?.name) return <span>Not found</span>;
         return (
           <span
-            key={g}
+            key={genreId}
             className="p-1 text-sm whitespace-nowrap bg-sky-700 rounded-sm cursor-pointer"
           >
-            {genresData[g]?.name}
+            {genresData[genreId]?.name}
           </span>
         );
       })}

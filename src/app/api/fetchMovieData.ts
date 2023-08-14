@@ -1,6 +1,6 @@
 const key = process.env.NEXT_PUBLIC_TMDB_KEY;
 
-const fetchMovieData = async (url: string) => {
+const fetchMovieData = async <T>(url: string): Promise<T> => {
   const baseUrl = `https://api.themoviedb.org/3/` + url;
 
   const headers = new Headers();
@@ -14,7 +14,7 @@ const fetchMovieData = async (url: string) => {
   }
 
   try {
-    return await response.json();
+    return await response.json() as T;
   } catch (error) {
     throw new Error("Failed to parse response from TMDB API");
   }

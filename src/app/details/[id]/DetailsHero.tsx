@@ -2,16 +2,15 @@ import Image from "next/image";
 import PlayIcon from "@/components/PlayIcon";
 import Genres from "@/components/Genres";
 import CircularRating from "@/components/CircularRating";
-import { MovieDetailsType } from "@/types/types";
-import { CrewType } from "@/types/cast.types";
+import { DetailsType } from "@/types/types";
 
 type Props = {
-  details: MovieDetailsType;
+  details: DetailsType;
   director: string;
-  writer: string;
+  screenWriter: string;
 };
 
-const DetailsHero = ({ details, director, writer }: Props) => {
+const DetailsHero = ({ details, director, screenWriter }: Props) => {
   const {
     poster_path,
     backdrop_path,
@@ -44,20 +43,22 @@ const DetailsHero = ({ details, director, writer }: Props) => {
       ></div>
       <div className="-z-30 absolute bottom-0 left-0 h-full w-full bg-gradient"></div>
       <div className="flex gap-16">
-        <Image
-          src={`https://image.tmdb.org/t/p/w500${poster_path}`}
-          alt="poster"
-          width={350}
-          height={300}
-          className="max-w-[350px] w-full "
-          loading="lazy"
-        />
-        <div className="max-w-2xl flex flex-col justify-between">
-          <div className="mb-1">
+        <div className="flex-shrink-0 overflow-hidden">
+          <Image
+            src={`https://image.tmdb.org/t/p/original${poster_path}`}
+            alt="poster"
+            width={500}
+            height={500}
+            className="max-w-[350px] w-full "
+            loading="lazy"
+          />
+        </div>
+        <div className="max-w-2xl flex flex-col justify-start gap-4">
+          <div>
             <h3 className="text-4xl mb-1">{title}</h3>
             <h4 className="text-xl text-gray-200 italic">{tagline} </h4>
           </div>
-          <div className="mb-3">
+          <div>
             <Genres genre_ids={genresIds} />
           </div>
           <div className="flex gap-7">
@@ -96,13 +97,13 @@ const DetailsHero = ({ details, director, writer }: Props) => {
               </p>
             </div>
 
-            <p className="flex items-center gap-3 font-bold text-lg">
+            <p className="flex  gap-3 font-bold text-lg">
               Director:
               <span className="font-normal text-gray-200">{director}</span>
             </p>
-            <p className="flex items-center gap-3 font-bold text-lg">
-              Writer:
-              <span className="font-normal text-gray-200">{writer}</span>
+            <p className="flex gap-3 font-bold text-lg">
+              Screenwriter:
+              <span className="font-normal text-gray-200">{screenWriter}</span>
             </p>
           </div>
         </div>
