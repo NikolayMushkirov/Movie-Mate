@@ -5,14 +5,13 @@ import { Pagination } from "swiper/modules";
 
 import MovieCard from "@/components/cards/MovieCard";
 
-import { MovieInfoType } from "@/types/types";
-
 import "swiper/css";
 import "swiper/css/navigation";
 import ProfileCard from "./cards/ProfileCard";
 import { CastType } from "@/types/cast.types";
 import VideoCard from "./cards/VideoCard";
 import { VideoType } from "@/types/video.types";
+import { MovieAndTVShowType } from "@/types/types";
 
 type Props = {
   data: any;
@@ -29,19 +28,20 @@ const Carousel = ({ data }: Props) => {
       modules={[Pagination]}
       className="cursor-pointer"
     >
-      {data?.results &&
-        data.results.map((movie: MovieInfoType) => (
-          <SwiperSlide key={movie.id}>
-            <MovieCard
-              title={movie.title}
-              poster_path={movie.poster_path}
-              vote_average={movie.vote_average}
-              release_date={movie.release_date}
-              id={movie.id}
-              genre_ids={movie.genre_ids}
-            />
-          </SwiperSlide>
-        ))}
+      {data?.results?.map((movie: MovieAndTVShowType) => (
+        <SwiperSlide key={movie.id}>
+          <MovieCard
+            title={movie.title}
+            name={movie.name}
+            poster_path={movie.poster_path}
+            vote_average={movie.vote_average}
+            release_date={movie.release_date}
+            first_air_date={movie.first_air_date}
+            id={movie.id}
+            genre_ids={movie.genre_ids}
+          />
+        </SwiperSlide>
+      ))}
 
       {data?.cast &&
         data.cast.map((actor: CastType) => (
@@ -55,7 +55,7 @@ const Carousel = ({ data }: Props) => {
         ))}
 
       {data?.videos &&
-        data.videos.map((video : VideoType) => (
+        data.videos.map((video: VideoType) => (
           <SwiperSlide key={video.id}>
             <VideoCard videoKey={video.key} videoName={video.name} />
           </SwiperSlide>

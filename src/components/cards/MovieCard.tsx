@@ -5,16 +5,18 @@ import Link from "next/link";
 
 import placeholder from "../../assets/no-poster.png";
 
-import { MovieInfoType } from "@/types/types";
+import { MovieAndTVShowType } from "@/types/types";
 import Genres from "../Genres";
 
-type Props = MovieInfoType;
+type Props = MovieAndTVShowType;
 
 const MovieCard = ({
+  name,
   title,
   poster_path,
   vote_average,
   release_date,
+  first_air_date,
   id,
   genre_ids,
 }: Props) => {
@@ -27,7 +29,7 @@ const MovieCard = ({
   };
 
   return (
-    <Link href={`/details/${id}`}>
+    <Link href={title ? `/details/movie/${id}` : `/details/tv-show/${id}`}>
       <div className="flex  flex-col   relative">
         <div className="h-[320px]  overflow-hidden">
           <Image
@@ -45,7 +47,7 @@ const MovieCard = ({
           />
         </div>
 
-        <div >
+        <div>
           <div className="w-14 relative -top-7 left-2">
             <CircularRating rating={vote_average} customStyles={customStyles} />
           </div>
@@ -55,8 +57,8 @@ const MovieCard = ({
         </div>
 
         <div className="justify-self-start">
-          <h3 className="text-xl font-bold">{title}</h3>
-          <p>{release_date}</p>
+          <h3 className="text-xl font-bold">{title || name}</h3>
+          <p>{release_date || first_air_date}</p>
         </div>
       </div>
     </Link>

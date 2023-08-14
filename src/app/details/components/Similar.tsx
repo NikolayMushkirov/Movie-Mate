@@ -1,8 +1,9 @@
 import Carousel from "@/components/Carousel";
-import { MovieDataType } from "@/types/types";
+import { MovieAndTVShowType } from "@/types/types";
+
 
 type Props = {
-  similar : MovieDataType
+  similar : MovieAndTVShowType
 };
 
 const Similar = ({similar}: Props) => {

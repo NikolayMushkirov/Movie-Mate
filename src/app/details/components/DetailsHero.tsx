@@ -2,25 +2,29 @@ import Image from "next/image";
 import PlayIcon from "@/components/PlayIcon";
 import Genres from "@/components/Genres";
 import CircularRating from "@/components/CircularRating";
-import { DetailsType } from "@/types/types";
+import { DetailsType } from "@/types/details.types";
 
 type Props = {
   details: DetailsType;
-  director: string;
-  screenWriter: string;
+  director?: string;
+  screenWriter?: string;
+  creators?: string[];
 };
 
-const DetailsHero = ({ details, director, screenWriter }: Props) => {
+const DetailsHero = ({ details, director, screenWriter, creators }: Props) => {
   const {
     poster_path,
     backdrop_path,
     title,
+    name,
     tagline,
     vote_average,
     overview,
     release_date,
+    first_air_date,
     status,
     runtime,
+    episode_run_time,
     genres,
   } = details;
 
@@ -45,7 +49,7 @@ const DetailsHero = ({ details, director, screenWriter }: Props) => {
       <div className="flex gap-16">
         <div className="flex-shrink-0 overflow-hidden">
           <Image
-            src={`https://image.tmdb.org/t/p/original${poster_path}`}
+            src={`https://image.tmdb.org/t/p/w500${poster_path}`}
             alt="poster"
             width={500}
             height={500}
@@ -55,7 +59,7 @@ const DetailsHero = ({ details, director, screenWriter }: Props) => {
         </div>
         <div className="max-w-2xl flex flex-col justify-start gap-4">
           <div>
-            <h3 className="text-4xl mb-1">{title}</h3>
+            <h3 className="text-4xl mb-1">{name || title}</h3>
             <h4 className="text-xl text-gray-200 italic">{tagline} </h4>
           </div>
           <div>
@@ -88,23 +92,39 @@ const DetailsHero = ({ details, director, screenWriter }: Props) => {
               <p className="flex items-center gap-3 font-bold text-lg">
                 Release Date:
                 <span className="font-normal text-gray-200">
-                  {release_date}
+                  {release_date || first_air_date}
                 </span>
               </p>
+
               <p className="flex items-center gap-3 font-bold text-lg">
                 Runtime:
-                <span className="font-normal text-gray-200">{runtime}</span>
+                <span className="font-normal text-gray-200">
+                  {runtime || episode_run_time[0]}
+                </span>
               </p>
             </div>
 
-            <p className="flex  gap-3 font-bold text-lg">
-              Director:
-              <span className="font-normal text-gray-200">{director}</span>
-            </p>
-            <p className="flex gap-3 font-bold text-lg">
-              Screenwriter:
-              <span className="font-normal text-gray-200">{screenWriter}</span>
-            </p>
+            {director ? (
+              <p className="flex  gap-3 font-bold text-lg">
+                Director:
+                <span className="font-normal text-gray-200">{director}</span>
+              </p>
+            ) : (
+              <p className="flex  gap-3 font-bold text-lg">
+                Creators:
+                <span className="font-normal text-gray-200">
+                  {creators?.map((name: string) => name).join(", ")}
+                </span>
+              </p>
+            )}
+            {screenWriter && (
+              <p className="flex gap-3 font-bold text-lg">
+                Screenwriter:
+                <span className="font-normal text-gray-200">
+                  {screenWriter}
+                </span>
+              </p>
+            )}
           </div>
         </div>
       </div>

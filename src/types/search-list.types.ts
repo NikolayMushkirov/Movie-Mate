@@ -19,7 +19,7 @@ export type MovieAndTVShowResultsType = {
     video?: boolean;
   };
 
-  export type MovieAndTVShowType = {
+  export type MovieAndTVShowSearchType = {
     page?: number;
     results: MovieAndTVShowResultsType[]
   }

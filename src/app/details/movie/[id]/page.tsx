@@ -1,15 +1,16 @@
 import { fetchMovieData } from "@/app/api/fetchMovieData";
 
-import TopCast from "./TopCast";
-import Similar from "./Similar";
-import Recommendations from "./Recommendations";
-import Videos from "./Videos";
+import TopCast from "../../components/TopCast";
+import Similar from "../../components/Similar";
+import Recommendations from "../../components/Recommendations";
+import Videos from "../../components/Videos";
 
 import { CreditsType, CrewType } from "@/types/cast.types";
 
-import DetailsHero from "./DetailsHero";
-import { DetailsType, MovieDataType } from "@/types/types";
+import DetailsHero from "../../components/DetailsHero";
+import { MovieInfoType } from "@/types/types";
 import { VideosType } from "@/types/video.types";
+import { DetailsType } from "@/types/details.types";
 
 type Props = {
   params: {
@@ -31,8 +32,8 @@ const Details = async ({ params: { id } }: Props) => {
   const [details, similar, recommendations, credits, videos] =
     (await Promise.all(requests)) as [
       DetailsType,
-      MovieDataType,
-      MovieDataType,
+      MovieInfoType,
+      MovieInfoType,
       CreditsType,
       VideosType
     ];

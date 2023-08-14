@@ -1,8 +1,8 @@
 import Carousel from "@/components/Carousel";
-import { MovieDataType } from "@/types/types";
+import { MovieAndTVShowType } from "@/types/types";
 
 type Props = {
-  recommendations: MovieDataType;
+  recommendations: MovieAndTVShowType;
 };
 
 const Recommendations = ({ recommendations }: Props) => {
