@@ -36,7 +36,7 @@ const Popular = () => {
           onTabChange={onTabChange}
         />
       </div>
-      <Carousel data={popularData} />
+      <Carousel data={popularData} renderData = 'movie'/>
     </section>
   );
 };

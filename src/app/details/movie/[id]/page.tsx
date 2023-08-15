@@ -18,7 +18,7 @@ type Props = {
   };
 };
 
-const Details = async ({ params: { id } }: Props) => {
+const MovieDetails = async ({ params: { id } }: Props) => {
   const endpoints: string[] = [
     `movie/${id}`,
     `movie/${id}/similar`,
@@ -65,4 +65,4 @@ const Details = async ({ params: { id } }: Props) => {
   );
 };
 
-export default Details;
+export default MovieDetails;

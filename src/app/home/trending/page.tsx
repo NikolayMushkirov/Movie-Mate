@@ -37,7 +37,7 @@ const Trending = () => {
           onTabChange={onTabChange}
         />
       </div>
-      <Carousel data={trendingData} />
+      <Carousel data={trendingData}  renderData = 'movie'/>
     </section>
   );
 };

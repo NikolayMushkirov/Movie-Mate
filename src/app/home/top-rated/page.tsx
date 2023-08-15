@@ -38,7 +38,7 @@ const TopRated = () => {
           onTabChange={onTabChange}
         />
       </div>
-      <Carousel data={topRatedData} />
+      <Carousel data={topRatedData} renderData = 'movie' />
     </section>
   );
 };

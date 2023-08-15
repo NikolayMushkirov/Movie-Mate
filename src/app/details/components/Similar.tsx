@@ -10,7 +10,7 @@ const Similar = ({similar}: Props) => {
   return (
     <div>
       <h2 className="mb-6 text-2xl">Similar Movies</h2>
-      <Carousel data={similar} />
+      <Carousel data={similar} renderData = 'movie'/>
     </div>
   );
 };
