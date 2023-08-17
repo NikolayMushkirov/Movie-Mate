@@ -1,14 +1,23 @@
 import Carousel from "@/components/Carousel";
 
-import { MovieInfoType } from "@/types/types";
+import { MovieAndTVShowType } from "@/types/types";
 
-type Props = { combinedCredits: MovieInfoType };
+type Props = {
+  combinedCredits: {
+    cast: MovieAndTVShowType[];
+    crew: MovieAndTVShowType[];
+  };
+};
 
 const PersonMovieList = ({ combinedCredits }: Props) => {
+  const sortedCombinedCredits = combinedCredits.cast?.sort(
+    (a, b) => b.vote_count - a.vote_count
+  );
+
   return (
     <div className="">
       <h2 className="mb-6 text-2xl">Movie List</h2>
-      <Carousel data={combinedCredits} renderData="personMovies" />
+      <Carousel data={sortedCombinedCredits} renderData="personMovies" />
     </div>
   );
 };

@@ -14,7 +14,7 @@ const fetchMovieData = async <T>(url: string): Promise<T> => {
   }
 
   try {
-    return await response.json() as T;
+    return (await response.json()) as T;
   } catch (error) {
     throw new Error("Failed to parse response from TMDB API");
   }

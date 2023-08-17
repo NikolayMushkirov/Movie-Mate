@@ -32,16 +32,7 @@ const Carousel = ({ data, renderData }: Props) => {
       {renderData === "movie" &&
         data.results?.map((movie: MovieAndTVShowType) => (
           <SwiperSlide key={movie.id}>
-            <MovieCard
-              title={movie.title}
-              name={movie.name}
-              poster_path={movie.poster_path}
-              vote_average={movie.vote_average}
-              release_date={movie.release_date}
-              first_air_date={movie.first_air_date}
-              id={movie.id}
-              genre_ids={movie.genre_ids}
-            />
+            <MovieCard data={movie} />
           </SwiperSlide>
         ))}
 
@@ -58,18 +49,9 @@ const Carousel = ({ data, renderData }: Props) => {
         ))}
 
       {renderData === "personMovies" &&
-        data.cast?.map((movie: MovieAndTVShowType) => (
+        data?.map((movie: MovieAndTVShowType) => (
           <SwiperSlide key={movie.id}>
-            <MovieCard
-              title={movie.title}
-              name={movie.name}
-              poster_path={movie.poster_path}
-              vote_average={movie.vote_average}
-              release_date={movie.release_date}
-              first_air_date={movie.first_air_date}
-              id={movie.id}
-              genre_ids={movie.genre_ids}
-            />
+            <MovieCard data={movie} />
           </SwiperSlide>
         ))}
 

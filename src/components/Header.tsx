@@ -23,7 +23,7 @@ const Header = () => {
         </Link>
 
         <nav className="flex items-center  gap-5">
-          <Link href="/movies" className="text-lg">
+          <Link href="discover/movies" className="text-lg">
             Movies
           </Link>
           <Link href="/tvshows" className="text-lg">

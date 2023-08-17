@@ -15,7 +15,9 @@ const PersonImages = async ({ searchParams }: Props) => {
 
   return (
     <section className="mt-24 ">
-      <h2 className="mb-4 text-xl font-semibold">{personImages.profiles.length} photos</h2>
+      <h2 className="mb-4 text-xl font-semibold">
+        {personImages.profiles.length} photos
+      </h2>
       <div className="grid grid-cols-3 gap-4">
         {personImages.profiles.map((img, index) => (
           <Image

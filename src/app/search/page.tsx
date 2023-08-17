@@ -54,15 +54,7 @@ const SearchResults = () => {
       <h2 className="mt-28 mb-10 text-5xl">Search results</h2>
       <div className=" grid grid-cols-5 gap-6">
         {data?.results?.map((item) => (
-          <MovieCard
-            key={item.id}
-            title={item.title}
-            poster_path={item.poster_path}
-            vote_average={item.vote_average}
-            release_date={item.release_date}
-            id={item.id}
-            genre_ids={item.genre_ids}
-          />
+          <MovieCard key={item.id} data={item} />
         ))}
       </div>
       <div ref={ref}></div>

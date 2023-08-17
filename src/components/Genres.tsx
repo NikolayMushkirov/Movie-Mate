@@ -6,7 +6,7 @@ type GenreType = {
   id: number;
   name: string;
 };
-const genresData: Record<number, GenreType> = {
+export const genresData: Record<number, GenreType> = {
   28: {
     id: 28,
     name: "Action",

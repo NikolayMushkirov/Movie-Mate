@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import Image from "next/image";
 import CircularRating from "../CircularRating";
@@ -10,18 +10,21 @@ import placeholder from "../../assets/no-poster.png";
 import { MovieAndTVShowType } from "@/types/types";
 import Genres from "../Genres";
 
-type Props = MovieAndTVShowType;
+type Props = {
+  data : MovieAndTVShowType
+};
 
-const MovieCard = ({
-  name,
-  title,
-  poster_path,
-  vote_average,
-  release_date,
-  first_air_date,
-  id,
-  genre_ids,
-}: Props) => {
+const MovieCard = ({ data }: Props) => {
+  const {
+    name,
+    title,
+    poster_path,
+    vote_average,
+    release_date,
+    first_air_date,
+    id,
+    genre_ids,
+  } = data;
   const customStyles = {
     backgroundColor: "white",
     textColor: "black",
