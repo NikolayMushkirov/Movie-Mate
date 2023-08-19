@@ -23,12 +23,10 @@ const Header = () => {
         </Link>
 
         <nav className="flex items-center  gap-5">
-          <Link href="discover/movies" className="text-lg">
-            Movies
+          <Link href="discover" className="text-lg">
+            Discover
           </Link>
-          <Link href="/tvshows" className="text-lg">
-            TV Shows
-          </Link>
+
           <FaSearch className="text-lg cursor-pointer" />
         </nav>
       </div>
