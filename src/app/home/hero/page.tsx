@@ -2,7 +2,7 @@ import SearchForm from "@/components/SearchForm";
 
 import { fetchMovieData } from "@/app/api/fetchMovieData";
 
-import { MovieDataType } from "@/types/types";
+import { MovieDataType } from "@/types/movieAndTV.types";
 
 const Hero = async () => {
   const trendingData: MovieDataType = await fetchMovieData(

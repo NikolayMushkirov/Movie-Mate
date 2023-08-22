@@ -7,11 +7,12 @@ import Link from "next/link";
 
 import placeholder from "../../assets/no-poster.png";
 
-import { MovieAndTVShowType } from "@/types/types";
+import { MovieAndTVShowType } from "@/types/movieAndTV.types";
 import Genres from "../Genres";
+import { MovieAndTVShowSearchResultsType } from "@/types/search.types";
 
 type Props = {
-  data : MovieAndTVShowType
+  data: MovieAndTVShowType & MovieAndTVShowSearchResultsType;
 };
 
 const MovieCard = ({ data }: Props) => {

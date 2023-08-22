@@ -1,12 +1,13 @@
+import Image from "next/image";
+import Link from "next/link";
+
 import { fetchMovieData } from "@/app/api/fetchMovieData";
 
-import { PersonType } from "@/types/person.types";
-import Image from "next/image";
-import PersonMovieList from "./PersonMovieList";
-import { MovieAndTVShowType } from "@/types/types";
+import PersonMovieList from "../../_components/PersonMovieList";
+import PersonInfo from "../../_components/PersonInfo";
 
-import Link from "next/link";
-import PersonInfo from "./PersonInfo";
+import { MovieAndTVShowType } from "@/types/movieAndTV.types";
+import { PersonType } from "@/types/person.types";
 
 type Props = {
   params: {

@@ -1,12 +1,12 @@
-export type MovieAndTVShowResultsType = {
+export type MovieAndTVShowSearchResultsType = {
     adult?: false;
-    backdrop_path?: string | null;
+    backdrop_path?: string ;
     id: number;
     name?: string;
     original_language?: string;
     original_name?: string;
     overview?: string;
-    poster_path: string | null;
+    poster_path: string ;
     media_type?: "tv" | "movie";
     genre_ids?: number[];
     popularity?: number;
@@ -21,5 +21,5 @@ export type MovieAndTVShowResultsType = {
 
   export type MovieAndTVShowSearchType = {
     page?: number;
-    results: MovieAndTVShowResultsType[]
+    results: MovieAndTVShowSearchResultsType[]
   }

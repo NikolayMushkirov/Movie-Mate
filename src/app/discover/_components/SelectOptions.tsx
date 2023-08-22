@@ -1,13 +1,12 @@
 "use client";
 
-import { useState } from "react";
 import Select, { StylesConfig } from "react-select";
+import { GenresDataType } from "./Discover";
 
-type Props = {};
-
-type SelectedOptionType = {
-  label: string;
-  value: string;
+type Props = {
+  genresData: GenresDataType;
+  handleChangeGenres: () => void;
+  handleChangeMediaType: () => void;
 };
 
 const SelectOptions = ({
@@ -15,16 +14,16 @@ const SelectOptions = ({
   handleChangeGenres,
   handleChangeMediaType,
 }: Props) => {
-  const [menuIsOpen, setMenuIsOpen] = useState(false);
-
   const mediaTypeOptions = [
     { value: "movie", label: "Movie" },
     { value: "tv", label: "TV Show" },
   ];
 
-  const genreOptions = genresData.genres?.map((genre) => {
+  const genreOptions = genresData?.genres?.map((genre) => {
     return { value: genre.id, label: genre.name };
   });
+
+  console.log(genreOptions, "genre options");
 
   const customStyles: StylesConfig = {
     option: (defaultStyles, state) => ({
@@ -51,19 +50,12 @@ const SelectOptions = ({
       color: "#fff",
       backgroundColor: " #354D73",
       fontSize: "1rem",
-      overflow: "hidden",
-      opacity: menuIsOpen ? 1 : 0,
-      transition: "all 0.2s ease-out",
-      visibility: menuIsOpen ? "visible" : "hidden",
     }),
   };
 
   return (
     <div className="flex gap-3">
-      <div
-        className="w-[300px]"
-        onClick={() => setMenuIsOpen(!menuIsOpen)}
-      >
+      <div className="w-[300px]">
         <Select
           defaultValue={{
             label: mediaTypeOptions[0].label,
@@ -72,16 +64,14 @@ const SelectOptions = ({
           options={mediaTypeOptions}
           onChange={handleChangeMediaType}
           styles={customStyles}
-          menuIsOpen
         />
       </div>
       <div className="w-[300px]">
         <Select
-          options={genreOptions && genreOptions}
+          options={genreOptions}
           onChange={handleChangeGenres}
           styles={customStyles}
-          isMulti={true}
-
+          isMulti
         />
       </div>
     </div>

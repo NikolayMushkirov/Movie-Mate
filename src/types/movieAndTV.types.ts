@@ -1,13 +1,9 @@
-export type MovieDataType = {
-  results: MovieInfoType[];
-};
-
 export type MovieAndTVShowType = MovieInfoType & TVShowInfoType;
 
 export type MovieInfoType = {
   adult?: boolean;
   backdrop_path?: string;
-  genre_ids: number[];
+  genre_ids?: number[];
   id: number;
   original_language?: string;
   original_title?: string;
@@ -24,7 +20,7 @@ export type MovieInfoType = {
 export type TVShowInfoType = {
   backdrop_path?: string;
   first_air_date?: string;
-  genre_ids: number[];
+  genre_ids?: number[];
   id: number;
   name?: string;
   origin_country?: string[];

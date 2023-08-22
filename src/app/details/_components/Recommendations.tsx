@@ -1,5 +1,5 @@
 import Carousel from "@/components/Carousel";
-import { MovieAndTVShowType } from "@/types/types";
+import { MovieAndTVShowType } from "@/types/movieAndTV.types";
 
 type Props = {
   recommendations: MovieAndTVShowType;

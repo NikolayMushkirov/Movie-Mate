@@ -6,7 +6,7 @@ import { fetchMovieData } from "@/app/api/fetchMovieData";
 import Carousel from "@/components/Carousel";
 import Tabs from "@/components/Tabs";
 
-import { MovieDataType } from "@/types/types";
+import { MovieDataType } from "@/types/movieAndTV.types";
 
 const Trending = () => {
   const [timeWindow, setTimeWindow] = useState("day");

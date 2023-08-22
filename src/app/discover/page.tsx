@@ -1,12 +1,10 @@
 import Discover from "./_components/Discover";
 
-type Props = {};
-
-const page = (props: Props) => {
+const page = () => {
   return (
-    <div>
+    <section>
       <Discover />
-    </div>
+    </section>
   );
 };
 

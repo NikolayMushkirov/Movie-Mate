@@ -1,14 +1,14 @@
 import { fetchMovieData } from "@/app/api/fetchMovieData";
 
-import TopCast from "../../components/TopCast";
-import Similar from "../../components/Similar";
-import Recommendations from "../../components/Recommendations";
-import Videos from "../../components/Videos";
+import TopCast from "../../_components/TopCast";
+import Similar from "../../_components/Similar";
+import Recommendations from "../../_components/Recommendations";
+import Videos from "../../_components/Videos";
 
 import { CreditsType } from "@/types/cast.types";
 
-import DetailsHero from "../../components/DetailsHero";
-import { TVShowInfoType } from "@/types/types";
+import DetailsHero from "../../_components/DetailsHero";
+import { TVShowInfoType } from "@/types/movieAndTV.types";
 import { VideosType } from "@/types/video.types";
 import { DetailsType } from "@/types/details.types";
 

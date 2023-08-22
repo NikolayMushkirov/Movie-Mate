@@ -8,15 +8,20 @@ import { fetchMovieData } from "../../api/fetchMovieData";
 
 import MovieCard from "@/components/cards/MovieCard";
 
-import { MovieAndTVShowType } from "@/types/types";
+import { MovieAndTVShowType } from "@/types/movieAndTV.types";
 import SelectOptions from "./SelectOptions";
 
-type GenresDataType = {
+export type GenresDataType = {
   genres: { id: number; name: string }[];
 };
 
-type DiscoverDataType = {
+export type DiscoverDataType = {
   results: MovieAndTVShowType[];
+};
+
+export type SelectedOptionType = {
+  label: string;
+  value: string;
 };
 
 const Discover = () => {
@@ -51,14 +56,16 @@ const Discover = () => {
     setPageNum((prev) => prev + 1);
   };
 
-  const handleChangeGenres = (selectedOption: SelectedOptionType[]) => {
-    const selectedValues = selectedOption.map((option) => option.value);
-    setSelectedGenres(selectedValues);
+  const handleChangeGenres = (selectedOption?: SelectedOptionType[] | null) => {
+    const selectedValues = selectedOption?.map((option) => option.value);
+    if (selectedValues) setSelectedGenres(selectedValues);
     setPageNum(1);
   };
 
-  const handleChangeMediaType = (selectedOption: SelectedOptionType) => {
-    setMediaType(selectedOption.value);
+  const handleChangeMediaType = (
+    selectedOption?: SelectedOptionType | null
+  ) => {
+    if (selectedOption) setMediaType(selectedOption.value);
     setPageNum(1);
   };
 
@@ -88,7 +95,7 @@ const Discover = () => {
     <>
       <div className="mt-24 ">
         <div className="mb-6 flex justify-between">
-          <h2 className="text-xl font-bold">Discover</h2>
+          <h2 className="text-xl font-bold">Discover new Movies and TV shows</h2>
           <SelectOptions
             genresData={genresData}
             handleChangeGenres={handleChangeGenres}

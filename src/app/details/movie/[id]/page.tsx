@@ -1,14 +1,14 @@
 import { fetchMovieData } from "@/app/api/fetchMovieData";
 
-import TopCast from "../../components/TopCast";
-import Similar from "../../components/Similar";
-import Recommendations from "../../components/Recommendations";
-import Videos from "../../components/Videos";
+import TopCast from "../../_components/TopCast";
+import Similar from "../../_components/Similar";
+import Recommendations from "../../_components/Recommendations";
+import Videos from "../../_components/Videos";
 
 import { CreditsType, CrewType } from "@/types/cast.types";
 
-import DetailsHero from "../../components/DetailsHero";
-import { MovieInfoType } from "@/types/types";
+import DetailsHero from "../../_components/DetailsHero";
+import { MovieInfoType } from "@/types/movieAndTV.types";
 import { VideosType } from "@/types/video.types";
 import { DetailsType } from "@/types/details.types";
 
@@ -57,7 +57,7 @@ const MovieDetails = async ({ params: { id } }: Props) => {
         director={director}
         screenWriter={screenWriter}
       />
-      <Videos videos={videos} />
+      <Videos videos={videos} videoId= {id}/>
       <TopCast cast={credits} />
       <Similar similar={similar} />
       <Recommendations recommendations={recommendations} />

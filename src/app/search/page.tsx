@@ -8,10 +8,10 @@ import { fetchMovieData } from "../api/fetchMovieData";
 
 import MovieCard from "@/components/cards/MovieCard";
 
-import { MovieAndTVShowType } from "@/types/search-list.types";
+import { MovieAndTVShowSearchType } from "@/types/search.types";
 
 const SearchResults = () => {
-  const [data, setData] = useState<MovieAndTVShowType>({ results: [] });
+  const [data, setData] = useState<MovieAndTVShowSearchType>({ results: [] });
   const [pageNum, setPageNum] = useState(1);
   const searchParams = useSearchParams();
   const { ref, inView } = useInView();
@@ -19,7 +19,7 @@ const SearchResults = () => {
   const searchValue = searchParams.get("search");
 
   const initialFetchData = async () => {
-    const initData = await fetchMovieData(
+    const initData: MovieAndTVShowSearchType = await fetchMovieData(
       `search/multi?query=${searchValue}&page=${pageNum}`
     );
     setData(initData);
@@ -27,7 +27,7 @@ const SearchResults = () => {
   };
 
   const nextPageFetchData = async () => {
-    const nextPageData = await fetchMovieData(
+    const nextPageData: MovieAndTVShowSearchType = await fetchMovieData(
       `search/multi?query=${searchValue}&page=${pageNum}`
     );
     if (data.results) {
@@ -51,7 +51,7 @@ const SearchResults = () => {
 
   return (
     <section>
-      <h2 className="mt-28 mb-10 text-5xl">Search results</h2>
+      <h2 className="mt-28 mb-10 text-4xl">Search results</h2>
       <div className=" grid grid-cols-5 gap-6">
         {data?.results?.map((item) => (
           <MovieCard key={item.id} data={item} />

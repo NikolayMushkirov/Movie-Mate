@@ -1,6 +1,6 @@
 "use client";
 
-import { customStylesType } from "@/types/types";
+import { customStylesType } from "@/types/movieAndTV.types";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 

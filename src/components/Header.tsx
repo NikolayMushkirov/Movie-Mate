@@ -15,7 +15,7 @@ const Header = () => {
         scrollDirection === "down" ? "-top-20" : "top-0"
       } left-0 w-full p-3 z-10 transition-all duration-500 bg-main-bg-color/40 `}
     >
-      <div className="lg-wrapper top-32  flex justify-between ">
+      <div className="lg-wrapper top-32  flex justify-between items-center">
         <Link href={"/"}>
           <h1 className="text-4xl bg-gradient-main text-transparent bg-clip-text">
             Movie App
@@ -23,8 +23,8 @@ const Header = () => {
         </Link>
 
         <nav className="flex items-center  gap-5">
-          <Link href="discover" className="text-lg">
-            Discover
+          <Link href="discover" className="text-xl">
+          Discover new Movies & TV
           </Link>
 
           <FaSearch className="text-lg cursor-pointer" />

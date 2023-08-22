@@ -7,7 +7,7 @@ import Tabs from "@/components/Tabs";
 
 import { fetchMovieData } from "@/app/api/fetchMovieData";
 
-import { MovieDataType } from "@/types/types";
+import { MovieDataType } from "@/types/movieAndTV.types";
 
 const Popular = () => {
   const [mediaType, setMediaType] = useState("movie");

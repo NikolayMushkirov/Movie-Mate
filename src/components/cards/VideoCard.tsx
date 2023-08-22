@@ -1,13 +1,27 @@
+"use client";
+import { useState } from "react";
 import Image from "next/image";
 
 import SmallPlayIcon from "../SmallPlayIcon";
+import VideoPopup from "../VideoPopup";
 
-type Props = { videoKey: string; videoName: string };
+type Props = {
+  videoKey: string;
+  videoName: string;
+  handleOpenPopup?: () => void;
+};
 
-const VideoCard = ({ videoKey, videoName }: Props) => {
+const VideoCard = ({ videoKey, videoName , handleOpenPopup, handleSetVideoId}: Props) => {
+
   return (
-    <>
-      <div className="small-play-icon-box relative mb-6  transition duration-300 ease-in-out transform hover:opacity-75 hover:filter hover:brightness-75">
+    <div >
+      <div
+        onClick={() => {
+          handleSetVideoId(videoKey)
+          handleOpenPopup()
+        }}
+        className=" small-play-icon-box  mb-6  transition duration-300 ease-in-out transform hover:opacity-75 hover:filter hover:brightness-75"
+      >
         <Image
           src={`https://img.youtube.com/vi/${videoKey}/mqdefault.jpg`}
           alt="video image"
@@ -21,7 +35,8 @@ const VideoCard = ({ videoKey, videoName }: Props) => {
         </div>
       </div>
       <p>{videoName}</p>
-    </>
+
+    </div>
   );
 };
 
