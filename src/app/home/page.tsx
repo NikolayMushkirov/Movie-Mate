@@ -1,8 +1,7 @@
-import Trending from "./trending/page";
-
-import Popular from "./popular/page";
-import TopRated from "./top-rated/page";
-import Hero from "./hero/page";
+import Hero from "./_components/Hero";
+import Popular from "./_components/Popular";
+import TopRated from "./_components/TopRated";
+import Trending from "./_components/Trending";
 
 const HomePage = async () => {
   return (

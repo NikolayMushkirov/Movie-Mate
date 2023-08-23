@@ -21,7 +21,7 @@ const Videos = ({ videos }: Props) => {
     setIsOpen(false);
   };
 
-  const handleSetVideoId = (videoId) => setVideoId(videoId);
+  const handleSetVideoId = (videoId : string) => setVideoId(videoId);
 
   return (
     <div className="">

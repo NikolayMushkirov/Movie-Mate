@@ -10,7 +10,7 @@ const ProfileCard = ({ name, character, profile_path,id }: Props) => {
   return (
     <Link href={`/details/person/${id}`}>
       <div className="text-center">
-        <div className="mb-3  w-[400px] h-[250px]  overflow-hidden ">
+        <div className="mb-3  w-[400px] h-[300px]  overflow-hidden ">
           <Image
             src={
               profile_path
@@ -20,7 +20,7 @@ const ProfileCard = ({ name, character, profile_path,id }: Props) => {
             alt="profile photo"
             width={200}
             height={200}
-            className="rounded-2xl"
+            className="rounded-lg"
             loading="lazy"
           />
         </div>

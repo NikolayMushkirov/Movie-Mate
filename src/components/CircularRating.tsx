@@ -1,12 +1,19 @@
 "use client";
 
-import { customStylesType } from "@/types/movieAndTV.types";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
+type CustomStylesType = {
+  backgroundColor: string;
+  textColor: string;
+  textSize: string;
+  fontWeight: string;
+  pathColor: string;
+};
+
 type Props = {
   rating: number;
-  customStyles: customStylesType;
+  customStyles: CustomStylesType;
 };
 
 const CircularRating = ({ rating, customStyles }: Props) => {

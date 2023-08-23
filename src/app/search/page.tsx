@@ -7,11 +7,14 @@ import { useInView } from "react-intersection-observer";
 import { fetchMovieData } from "../api/fetchMovieData";
 
 import MovieCard from "@/components/cards/MovieCard";
+import { MovieAndTVShowType } from "@/types/movieAndTV.types";
 
-import { MovieAndTVShowSearchType } from "@/types/search.types";
+type SearchResultsType = {
+  results: MovieAndTVShowType[];
+};
 
 const SearchResults = () => {
-  const [data, setData] = useState<MovieAndTVShowSearchType>({ results: [] });
+  const [data, setData] = useState<SearchResultsType>({ results: [] });
   const [pageNum, setPageNum] = useState(1);
   const searchParams = useSearchParams();
   const { ref, inView } = useInView();
@@ -19,7 +22,7 @@ const SearchResults = () => {
   const searchValue = searchParams.get("search");
 
   const initialFetchData = async () => {
-    const initData: MovieAndTVShowSearchType = await fetchMovieData(
+    const initData: SearchResultsType = await fetchMovieData(
       `search/multi?query=${searchValue}&page=${pageNum}`
     );
     setData(initData);
@@ -27,7 +30,7 @@ const SearchResults = () => {
   };
 
   const nextPageFetchData = async () => {
-    const nextPageData: MovieAndTVShowSearchType = await fetchMovieData(
+    const nextPageData: SearchResultsType = await fetchMovieData(
       `search/multi?query=${searchValue}&page=${pageNum}`
     );
     if (data.results) {

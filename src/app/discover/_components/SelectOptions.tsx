@@ -61,6 +61,7 @@ const SelectOptions = ({
             label: mediaTypeOptions[0].label,
             value: mediaTypeOptions[0].value,
           }}
+          placeholder = 'Select Media Type'
           options={mediaTypeOptions}
           onChange={handleChangeMediaType}
           styles={customStyles}
@@ -68,6 +69,7 @@ const SelectOptions = ({
       </div>
       <div className="w-[300px]">
         <Select
+          placeholder = 'Select Genres'
           options={genreOptions}
           onChange={handleChangeGenres}
           styles={customStyles}

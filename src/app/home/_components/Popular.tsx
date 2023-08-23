@@ -7,18 +7,18 @@ import Tabs from "@/components/Tabs";
 
 import { fetchMovieData } from "@/app/api/fetchMovieData";
 
-import { MovieDataType } from "@/types/movieAndTV.types";
+import { MovieAndTVShowType } from "@/types/movieAndTV.types";
 
 const Popular = () => {
   const [mediaType, setMediaType] = useState("movie");
-  const [popularData, setPopularData] = useState<MovieDataType[]>([]);
+  const [popularData, setPopularData] = useState<MovieAndTVShowType[]>([]);
 
   const onTabChange = (tab: string): void => {
     setMediaType(tab === "leftTab" ? "tv" : "movie");
   };
 
   const getPopularData = async () => {
-    const data: MovieDataType[] = await fetchMovieData(`${mediaType}/popular`);
+    const data: MovieAndTVShowType[] = await fetchMovieData(`${mediaType}/popular`);
     setPopularData(data);
   };
 

@@ -1,24 +1,26 @@
-"use client";
-import { useState } from "react";
 import Image from "next/image";
 
 import SmallPlayIcon from "../SmallPlayIcon";
-import VideoPopup from "../VideoPopup";
 
 type Props = {
   videoKey: string;
   videoName: string;
-  handleOpenPopup?: () => void;
+  handleOpenPopup: () => void;
+  handleSetVideoId: (_videoKey: string) => void;
 };
 
-const VideoCard = ({ videoKey, videoName , handleOpenPopup, handleSetVideoId}: Props) => {
-
+const VideoCard = ({
+  videoKey,
+  videoName,
+  handleOpenPopup,
+  handleSetVideoId,
+}: Props) => {
   return (
-    <div >
+    <div>
       <div
         onClick={() => {
-          handleSetVideoId(videoKey)
-          handleOpenPopup()
+          handleSetVideoId(videoKey);
+          handleOpenPopup();
         }}
         className=" small-play-icon-box  mb-6  transition duration-300 ease-in-out transform hover:opacity-75 hover:filter hover:brightness-75"
       >
@@ -35,7 +37,6 @@ const VideoCard = ({ videoKey, videoName , handleOpenPopup, handleSetVideoId}: P
         </div>
       </div>
       <p>{videoName}</p>
-
     </div>
   );
 };

@@ -13,10 +13,8 @@ const VideoPopup = ({ videoKey, isOpen, handleClosePopup }: Props) => {
   const modalRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
     const handleOutsideClick = (e: MouseEvent) => {
-      console.log(modalRef, "ref");
       if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
         handleClosePopup();
-        console.log(e, "eee");
       }
     };
     document.addEventListener("mousedown", handleOutsideClick);
@@ -39,10 +37,10 @@ const VideoPopup = ({ videoKey, isOpen, handleClosePopup }: Props) => {
               height="100%"
             />
             <button
-              className="bg-sky-600 hover:bg-sky-900 text-white font-bold py-2 px-4 rounded mt-4"
+              className="bg-sky-600 hover:bg-sky-900  text-white font-bold py-2 px-4 rounded mt-4"
               onClick={handleClosePopup}
             >
-              Close Popup
+              Close
             </button>
           </div>
         </div>

@@ -1,10 +1,3 @@
-"use client";
-
-import { getSearchMultiData } from "@/app/api/getMoviesLists";
-import { useState } from "react";
-
-type Props = {};
-
 const SearchForm = () => {
   return (
     <form action="/search" className="z-20 w-full flex justify-center">

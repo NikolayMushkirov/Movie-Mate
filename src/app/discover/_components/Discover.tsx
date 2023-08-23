@@ -95,7 +95,9 @@ const Discover = () => {
     <>
       <div className="mt-24 ">
         <div className="mb-6 flex justify-between">
-          <h2 className="text-xl font-bold">Discover new Movies and TV shows</h2>
+          <h2 className="text-xl font-bold">
+            Discover new Movies and TV shows
+          </h2>
           <SelectOptions
             genresData={genresData}
             handleChangeGenres={handleChangeGenres}

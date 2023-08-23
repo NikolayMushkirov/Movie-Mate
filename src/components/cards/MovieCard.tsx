@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import CircularRating from "../CircularRating";
 
@@ -9,10 +7,9 @@ import placeholder from "../../assets/no-poster.png";
 
 import { MovieAndTVShowType } from "@/types/movieAndTV.types";
 import Genres from "../Genres";
-import { MovieAndTVShowSearchResultsType } from "@/types/search.types";
 
 type Props = {
-  data: MovieAndTVShowType & MovieAndTVShowSearchResultsType;
+  data: MovieAndTVShowType;
 };
 
 const MovieCard = ({ data }: Props) => {

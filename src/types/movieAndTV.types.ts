@@ -1,6 +1,4 @@
-export type MovieAndTVShowType = MovieInfoType & TVShowInfoType;
-
-export type MovieInfoType = {
+export type MovieAndTVShowType = {
   adult?: boolean;
   backdrop_path?: string;
   genre_ids?: number[];
@@ -15,27 +13,10 @@ export type MovieInfoType = {
   video?: boolean;
   vote_average: number;
   vote_count: number;
-};
-
-export type TVShowInfoType = {
-  backdrop_path?: string;
   first_air_date?: string;
-  genre_ids?: number[];
-  id: number;
   name?: string;
-  origin_country?: string[];
-  original_language?: string;
-  original_name?: string;
-  overview?: string;
-  popularity?: number;
-  poster_path: string;
-  vote_average: number;
-  vote_count?: number;
+  origin_country?: string;
+  media_type?: "tv" | "movie";
 };
 
-export type customStylesType = {
-  backgroundColor: string;
-  textColor: string;
-  textSize: string;
-  pathColor: string;
-};
+

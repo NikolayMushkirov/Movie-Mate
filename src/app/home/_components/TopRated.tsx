@@ -6,19 +6,20 @@ import { fetchMovieData } from "@/app/api/fetchMovieData";
 
 import Carousel from "@/components/Carousel";
 import Tabs from "@/components/Tabs";
+import { MovieAndTVShowType } from "@/types/movieAndTV.types";
 
-import { MovieDataType } from "@/types/movieAndTV.types";
+
 
 const TopRated = () => {
   const [mediaType, setMediaType] = useState("movie");
-  const [topRatedData, setTopRatedData] = useState<MovieDataType[]>([]);
+  const [topRatedData, setTopRatedData] = useState<MovieAndTVShowType[]>([]);
 
   const onTabChange = (tab: string): void => {
     setMediaType(tab === "leftTab" ? "tv" : "movie");
   };
 
   const getTopRatedData = async () => {
-    const data: MovieDataType[] = await fetchMovieData(
+    const data: MovieAndTVShowType[] = await fetchMovieData(
       `${mediaType}/top_rated`
     );
     setTopRatedData(data);

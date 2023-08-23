@@ -5,19 +5,18 @@ import { fetchMovieData } from "@/app/api/fetchMovieData";
 
 import Carousel from "@/components/Carousel";
 import Tabs from "@/components/Tabs";
-
-import { MovieDataType } from "@/types/movieAndTV.types";
+import { MovieAndTVShowType } from "@/types/movieAndTV.types";
 
 const Trending = () => {
   const [timeWindow, setTimeWindow] = useState("day");
-  const [trendingData, setTrendingData] = useState<MovieDataType[]>([]);
+  const [trendingData, setTrendingData] = useState<MovieAndTVShowType[]>([]);
 
   const onTabChange = (tab: string): void => {
     setTimeWindow(tab === "leftTab" ? "week" : "day");
   };
 
   const getTrendingData = async () => {
-    const data: MovieDataType[] = await fetchMovieData(
+    const data: MovieAndTVShowType[] = await fetchMovieData(
       `trending/movie/${timeWindow}`
     );
     setTrendingData(data);
@@ -37,7 +36,7 @@ const Trending = () => {
           onTabChange={onTabChange}
         />
       </div>
-      <Carousel data={trendingData}  renderData = 'movie'/>
+      <Carousel data={trendingData} renderData="movie" />
     </section>
   );
 };
