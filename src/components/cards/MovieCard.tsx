@@ -23,6 +23,7 @@ const MovieCard = ({ data }: Props) => {
     id,
     genre_ids,
   } = data;
+
   const customStyles = {
     backgroundColor: "white",
     textColor: "black",
@@ -52,7 +53,7 @@ const MovieCard = ({ data }: Props) => {
 
         <div>
           <div className="w-14 relative -top-7 left-2">
-            <CircularRating rating={vote_average} customStyles={customStyles} />
+            <CircularRating rating={vote_average}   vote_average={vote_average}/>
           </div>
           <div className="relative -top-4 ">
             <Genres genre_ids={genre_ids} />

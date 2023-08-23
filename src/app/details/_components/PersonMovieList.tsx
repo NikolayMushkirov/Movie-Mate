@@ -14,6 +14,8 @@ const PersonMovieList = ({ combinedCredits }: Props) => {
     (a, b) => b.vote_count - a.vote_count
   );
 
+
+
   return (
     <div className="">
       <h2 className="mb-6 text-2xl">Movie List</h2>

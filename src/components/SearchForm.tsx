@@ -7,7 +7,7 @@ const SearchForm = () => {
         placeholder="Enter movie title"
       />
 
-      <button className="w-1/6 bg-gradient-main rounded-tr-full rounded-br-full">
+      <button className="w-1/6 bg-gradient-main rounded-tr-full rounded-br-full text-xl">
         Search
       </button>
     </form>

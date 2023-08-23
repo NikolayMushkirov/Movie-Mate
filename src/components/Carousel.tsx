@@ -2,19 +2,22 @@
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
-
-import MovieCard from "@/components/cards/MovieCard";
-
 import "swiper/css";
 import "swiper/css/navigation";
+
+import MovieCard from "@/components/cards/MovieCard";
 import ProfileCard from "./cards/ProfileCard";
+
 import { CastType } from "@/types/cast.types";
-import VideoCard from "./cards/VideoCard";
-import { VideoType } from "@/types/video.types";
 import { MovieAndTVShowType } from "@/types/movieAndTV.types";
 
+type DataPropsType = {
+  results: MovieAndTVShowType[];
+  cast?: CastType[];
+};
+
 type Props = {
-  data: any;
+  data: DataPropsType  ;
   renderData: string;
 };
 
@@ -26,10 +29,8 @@ const Carousel = ({ data, renderData }: Props) => {
       pagination={{
         clickable: true,
       }}
-
       modules={[Pagination]}
       className="cursor-pointer"
-      style={{ position: "static" }}
     >
       {renderData === "movie" &&
         data.results?.map((movie: MovieAndTVShowType) => (
@@ -56,13 +57,6 @@ const Carousel = ({ data, renderData }: Props) => {
             <MovieCard data={movie} />
           </SwiperSlide>
         ))}
-
-      {/* {renderData === "video" &&
-        data.results?.map((video: VideoType) => (
-          <SwiperSlide  key={video.id} >
-            <VideoCard videoKey={video.key} videoName={video.name} />
-          </SwiperSlide>
-        ))} */}
     </Swiper>
   );
 };

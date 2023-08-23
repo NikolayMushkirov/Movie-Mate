@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import SmallPlayIcon from "../SmallPlayIcon";
+import SmallPlayIcon from "../playIcons/SmallPlayIcon";
 
 type Props = {
   videoKey: string;

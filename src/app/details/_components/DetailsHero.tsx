@@ -1,5 +1,5 @@
 import Image from "next/image";
-import PlayIcon from "@/components/PlayIcon";
+import PlayIcon from "@/components/playIcons/PlayIcon";
 import Genres from "@/components/Genres";
 import CircularRating from "@/components/CircularRating";
 import { DetailsType } from "@/types/details.types";
@@ -29,13 +29,6 @@ const DetailsHero = ({ details, director, screenWriter, creators }: Props) => {
   } = details;
 
   const genresIds = genres?.map((genre) => genre.id);
-
-  const customStyles = {
-    backgroundColor: "transparent",
-    textColor: "white",
-    textSize: "2.3rem",
-    pathColor: vote_average < 5 ? "red" : vote_average < 7 ? "orange" : "green",
-  };
 
   return (
     <>
@@ -69,7 +62,7 @@ const DetailsHero = ({ details, director, screenWriter, creators }: Props) => {
             <div className="w-20">
               <CircularRating
                 rating={vote_average}
-                customStyles={customStyles}
+                vote_average={vote_average}
               />
             </div>
             <div className="play-icon-box flex items-center gap-5 cursor-pointer  hover:text-sky-300">

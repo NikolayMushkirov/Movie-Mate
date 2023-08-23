@@ -1,5 +1,5 @@
 type Props = {
-  genre_ids?: number[] ;
+  genre_ids?: number[];
 };
 
 type GenreType = {
@@ -119,7 +119,6 @@ export const genresData: Record<number, GenreType> = {
 };
 
 const Genres = ({ genre_ids }: Props) => {
-
   const slicedGenres = genre_ids?.slice(0, 2);
 
   return (

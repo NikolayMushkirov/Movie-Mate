@@ -18,7 +18,7 @@ const Header = () => {
       <div className="lg-wrapper top-32  flex justify-between items-center">
         <Link href={"/"}>
           <h1 className="text-4xl bg-gradient-main text-transparent bg-clip-text">
-            Movie App
+            Movie Mate
           </h1>
         </Link>
 
