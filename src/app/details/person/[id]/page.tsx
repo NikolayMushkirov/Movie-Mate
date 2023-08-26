@@ -37,7 +37,7 @@ const PersonDetails = async ({ params: { id } }: Props) => {
         <div className="flex-shrink-0 overflow-hidden">
           <Link
             href={{
-              pathname: `/details/person/${id}/images`,
+              pathname: `/details/person/${id}/photos`,
               query: { personId: id },
             }}
           >

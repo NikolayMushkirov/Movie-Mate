@@ -4,13 +4,12 @@ import TopCast from "../../_components/TopCast";
 import Similar from "../../_components/Similar";
 import Recommendations from "../../_components/Recommendations";
 import Videos from "../../_components/Videos";
+import DetailsHero from "../../_components/DetailsHero";
 
 import { CreditsType } from "@/types/cast.types";
-
-import DetailsHero from "../../_components/DetailsHero";
-import { TVShowInfoType } from "@/types/movieAndTV.types";
 import { VideosType } from "@/types/video.types";
 import { DetailsType } from "@/types/details.types";
+import { MovieAndTVShowType } from "@/types/movieAndTV.types";
 
 type Props = {
   params: {
@@ -32,8 +31,8 @@ const TVDetails = async ({ params: { id } }: Props) => {
   const [details, similar, recommendations, credits, videos] =
     (await Promise.all(requests)) as [
       DetailsType,
-      TVShowInfoType,
-      TVShowInfoType,
+      MovieAndTVShowType,
+      MovieAndTVShowType,
       CreditsType,
       VideosType
     ];

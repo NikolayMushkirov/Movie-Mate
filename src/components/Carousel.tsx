@@ -1,7 +1,7 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
+
 import "swiper/css";
 import "swiper/css/navigation";
 
@@ -11,36 +11,55 @@ import ProfileCard from "./cards/ProfileCard";
 import { CastType } from "@/types/cast.types";
 import { MovieAndTVShowType } from "@/types/movieAndTV.types";
 
-type DataPropsType = {
-  results: MovieAndTVShowType[];
-  cast?: CastType[];
-};
+type DataType = MovieAndTVShowType[] | CastType[];
+type ContentNameType = "movie" | "cast";
 
 type Props = {
-  data: DataPropsType  ;
-  renderData: string;
+  contentData: DataType;
+  contentName: ContentNameType;
 };
 
-const Carousel = ({ data, renderData }: Props) => {
-  return (
-    <Swiper
-      slidesPerView={5}
-      spaceBetween={25}
-      pagination={{
-        clickable: true,
-      }}
-      modules={[Pagination]}
-      className="cursor-pointer"
-    >
-      {renderData === "movie" &&
-        data.results?.map((movie: MovieAndTVShowType) => (
+const checkContentType = (
+  data: DataType,
+  contentName: ContentNameType
+): data is MovieAndTVShowType[] => {
+  if (contentName === "movie") {
+    return true;
+  }
+  return false;
+};
+
+const Carousel = ({ contentData, contentName }: Props) => {
+  if (checkContentType(contentData, contentName)) {
+    return (
+      <Swiper
+        slidesPerView={5}
+        spaceBetween={25}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[]}
+        className="cursor-pointer"
+      >
+        {contentData.map((movie) => (
           <SwiperSlide key={movie.id}>
             <MovieCard data={movie} />
           </SwiperSlide>
         ))}
-
-      {renderData === "cast" &&
-        data.cast.map((actor: CastType) => (
+      </Swiper>
+    );
+  } else if (contentName === "cast") {
+    return (
+      <Swiper
+        slidesPerView={5}
+        spaceBetween={25}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[]}
+        className="cursor-pointer"
+      >
+        {contentData.map((actor) => (
           <SwiperSlide key={actor.id}>
             <ProfileCard
               name={actor.name}
@@ -50,15 +69,9 @@ const Carousel = ({ data, renderData }: Props) => {
             />
           </SwiperSlide>
         ))}
-
-      {renderData === "personMovies" &&
-        data?.map((movie: MovieAndTVShowType) => (
-          <SwiperSlide key={movie.id}>
-            <MovieCard data={movie} />
-          </SwiperSlide>
-        ))}
-    </Swiper>
-  );
+      </Swiper>
+    );
+  }
 };
 
 export default Carousel;

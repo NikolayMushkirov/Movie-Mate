@@ -9,16 +9,22 @@ import { fetchMovieData } from "@/app/api/fetchMovieData";
 
 import { MovieAndTVShowType } from "@/types/movieAndTV.types";
 
+type PopularDataType = {
+  results: MovieAndTVShowType[];
+};
+
 const Popular = () => {
   const [mediaType, setMediaType] = useState("movie");
-  const [popularData, setPopularData] = useState<MovieAndTVShowType[]>([]);
+  const [popularData, setPopularData] = useState<PopularDataType>({
+    results: [],
+  });
 
   const onTabChange = (tab: string): void => {
     setMediaType(tab === "leftTab" ? "tv" : "movie");
   };
 
   const getPopularData = async () => {
-    const data: MovieAndTVShowType[] = await fetchMovieData(`${mediaType}/popular`);
+    const data: PopularDataType = await fetchMovieData(`${mediaType}/popular`);
     setPopularData(data);
   };
 
@@ -36,7 +42,7 @@ const Popular = () => {
           onTabChange={onTabChange}
         />
       </div>
-      <Carousel data={popularData} renderData = 'movie'/>
+      <Carousel contentData={popularData.results} contentName="movie" />
     </section>
   );
 };

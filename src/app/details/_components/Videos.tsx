@@ -3,11 +3,11 @@
 import VideoPopup from "@/components/VideoPopup";
 import VideoCard from "@/components/cards/VideoCard";
 
-import { VideoType, VideosType } from "@/types/video.types";
+import { VideoType } from "@/types/video.types";
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-type Props = { videos: VideosType };
+type Props = { videos: { results: VideoType[] } };
 
 const Videos = ({ videos }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,7 +21,7 @@ const Videos = ({ videos }: Props) => {
     setIsOpen(false);
   };
 
-  const handleSetVideoId = (videoId : string) => setVideoId(videoId);
+  const handleSetVideoId = (videoId: string) => setVideoId(videoId);
 
   return (
     <div className="">

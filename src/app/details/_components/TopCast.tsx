@@ -1,15 +1,17 @@
 import Carousel from "@/components/Carousel";
-import {  CreditsType } from "@/types/cast.types";
+import { CastType } from "@/types/cast.types";
 
 type Props = {
-  cast: CreditsType;
+  cast: {
+    cast: CastType[];
+  };
 };
 
 const TopCast = ({ cast }: Props) => {
   return (
     <div>
       <h2 className="mb-6 text-2xl">Top Cast</h2>
-      <Carousel data={cast} renderData = 'cast'/>
+      <Carousel contentData={cast.cast} contentName="cast" />
     </div>
   );
 };

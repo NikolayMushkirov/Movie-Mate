@@ -24,14 +24,6 @@ const MovieCard = ({ data }: Props) => {
     genre_ids,
   } = data;
 
-  const customStyles = {
-    backgroundColor: "white",
-    textColor: "black",
-    textSize: "2.1rem",
-    fontWeight: "bold",
-    pathColor: vote_average < 5 ? "red" : vote_average < 7 ? "orange" : "green",
-  };
-
   return (
     <Link href={title ? `/details/movie/${id}` : `/details/tv-show/${id}`}>
       <div className="flex  flex-col   relative">
@@ -53,7 +45,7 @@ const MovieCard = ({ data }: Props) => {
 
         <div>
           <div className="w-14 relative -top-7 left-2">
-            <CircularRating rating={vote_average}   vote_average={vote_average}/>
+            <CircularRating rating={vote_average} vote_average={vote_average} />
           </div>
           <div className="relative -top-4 ">
             <Genres genre_ids={genre_ids} />
