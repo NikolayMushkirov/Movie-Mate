@@ -1,17 +1,21 @@
 import Image from "next/image";
-import PlayIcon from "@/components/playIcons/PlayIcon";
+
 import Genres from "@/components/Genres";
 import CircularRating from "@/components/CircularRating";
+import WatchTrailer from "./WatchTrailer";
+
 import { DetailsType } from "@/types/details.types";
+
 
 type Props = {
   details: DetailsType;
   director?: string;
   screenWriter?: string;
   creators?: string[];
+  videoTrailerKey? : string
 };
 
-const DetailsHero = ({ details, director, screenWriter, creators }: Props) => {
+const DetailsHero = ({ details, director, screenWriter, creators, videoTrailerKey }: Props) => {
   const {
     poster_path,
     backdrop_path,
@@ -65,12 +69,7 @@ const DetailsHero = ({ details, director, screenWriter, creators }: Props) => {
                 vote_average={vote_average}
               />
             </div>
-            <div className="play-icon-box flex items-center gap-5 cursor-pointer  hover:text-sky-300">
-              <PlayIcon />
-              <span className="text-xl transition-all ease-in-out duration-700">
-                Watch Trailer
-              </span>
-            </div>
+            <WatchTrailer videoTrailerKey = {videoTrailerKey}/>
           </div>
           <div>
             <h3 className="text-2xl mb-1">Overview</h3>

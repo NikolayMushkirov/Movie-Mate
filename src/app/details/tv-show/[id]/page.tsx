@@ -9,7 +9,7 @@ import DetailsHero from "../../_components/DetailsHero";
 import { CreditsType } from "@/types/cast.types";
 import { VideosType } from "@/types/video.types";
 import { DetailsType } from "@/types/details.types";
-import { MovieAndTVShowType } from "@/types/movieAndTV.types";
+import { MovieAndTVShowResultsType } from "@/types/movieAndTV.types";
 
 type Props = {
   params: {
@@ -31,13 +31,17 @@ const TVDetails = async ({ params: { id } }: Props) => {
   const [details, similar, recommendations, credits, videos] =
     (await Promise.all(requests)) as [
       DetailsType,
-      MovieAndTVShowType,
-      MovieAndTVShowType,
+      MovieAndTVShowResultsType,
+      MovieAndTVShowResultsType,
       CreditsType,
       VideosType
     ];
 
   const creators = details?.created_by?.map((creator) => creator.name);
+
+  const videoTrailerKey = videos.results.find(
+    (video) => video.name === "Main Trailer" || video.type === "Trailer"
+  )?.key;
 
   return (
     <section className=" mt-24 flex flex-col gap-10">

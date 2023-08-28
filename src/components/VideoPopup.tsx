@@ -3,8 +3,9 @@
 import { useRef, useEffect } from "react";
 
 import ReactPlayer from "react-player/youtube";
+
 type Props = {
-  videoKey: number | string;
+  videoKey?: number | string;
   isOpen: Boolean;
   handleClosePopup: () => void;
 };

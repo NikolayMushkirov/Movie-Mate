@@ -23,8 +23,6 @@ const SelectOptions = ({
     return { value: genre.id, label: genre.name };
   });
 
-  console.log(genreOptions, "genre options");
-
   const customStyles: StylesConfig = {
     option: (defaultStyles, state) => ({
       ...defaultStyles,
@@ -61,7 +59,7 @@ const SelectOptions = ({
             label: mediaTypeOptions[0].label,
             value: mediaTypeOptions[0].value,
           }}
-          placeholder = 'Select Media Type'
+          placeholder="Select Media Type"
           options={mediaTypeOptions}
           onChange={handleChangeMediaType}
           styles={customStyles}
@@ -69,7 +67,7 @@ const SelectOptions = ({
       </div>
       <div className="w-[300px]">
         <Select
-          placeholder = 'Select Genres'
+          placeholder="Select Genres"
           options={genreOptions}
           onChange={handleChangeGenres}
           styles={customStyles}

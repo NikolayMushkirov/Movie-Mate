@@ -19,4 +19,6 @@ export type MovieAndTVShowType = {
   media_type?: "tv" | "movie";
 };
 
-
+export type MovieAndTVShowResultsType = {
+  results: MovieAndTVShowType[];
+};

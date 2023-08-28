@@ -1,28 +1,23 @@
 "use client";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import usePopup from "@/hooks/usePopup";
 
 import VideoPopup from "@/components/VideoPopup";
 import VideoCard from "@/components/cards/VideoCard";
 
 import { VideoType } from "@/types/video.types";
-import { useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
 
 type Props = { videos: { results: VideoType[] } };
 
 const Videos = ({ videos }: Props) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [videoId, setVideoId] = useState("");
-
-  const handleOpenPopup = () => {
-    setIsOpen(true);
-  };
-
-  const handleClosePopup = () => {
-    setIsOpen(false);
-  };
-
-  const handleSetVideoId = (videoId: string) => setVideoId(videoId);
-
+  const {
+    isOpen,
+    videoKey,
+    handleOpenPopup,
+    handleClosePopup,
+    handleSetVideoKey,
+  } = usePopup();
   return (
     <div className="">
       <h2 className="mb-6 text-2xl">Videos</h2>
@@ -41,13 +36,13 @@ const Videos = ({ videos }: Props) => {
               videoKey={video.key}
               videoName={video.name}
               handleOpenPopup={handleOpenPopup}
-              handleSetVideoId={handleSetVideoId}
+              handleSetVideoKey={handleSetVideoKey}
             />
           </SwiperSlide>
         ))}
       </Swiper>
       <VideoPopup
-        videoKey={videoId}
+        videoKey={videoKey}
         isOpen={isOpen}
         handleClosePopup={handleClosePopup}
       />

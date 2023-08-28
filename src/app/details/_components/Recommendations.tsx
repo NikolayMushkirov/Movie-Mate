@@ -6,7 +6,6 @@ type Props = {
 };
 
 const Recommendations = ({ recommendations }: Props) => {
-  console.log(recommendations, "recomend");
   return (
     <div>
       <h2 className="mb-6 text-2xl">Recommendations</h2>

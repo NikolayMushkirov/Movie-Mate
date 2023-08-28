@@ -56,6 +56,13 @@ const Discover = () => {
     setPageNum((prev) => prev + 1);
   };
 
+  const getGenresData = async () => {
+    const data: GenresDataType = await fetchMovieData(
+      `genre/${mediaType}/list`
+    );
+    setGenresData(data);
+  };
+
   const handleChangeGenres = (selectedOption?: SelectedOptionType[] | null) => {
     const selectedValues = selectedOption?.map((option) => option.value);
     if (selectedValues) setSelectedGenres(selectedValues);
@@ -69,13 +76,6 @@ const Discover = () => {
     setPageNum(1);
   };
 
-  const getGenresData = async () => {
-    const data: GenresDataType = await fetchMovieData(
-      `genre/${mediaType}/list`
-    );
-    setGenresData(data);
-  };
-
   useEffect(() => {
     setPageNum(1);
     getInitialDiscoverData();
@@ -83,7 +83,7 @@ const Discover = () => {
 
   useEffect(() => {
     getGenresData();
-  }, [mediaType, selectedGenres]);
+  }, [mediaType]);
 
   useEffect(() => {
     if (inView) {
@@ -96,7 +96,7 @@ const Discover = () => {
       <div className="mt-24 ">
         <div className="mb-6 flex justify-between">
           <h2 className="text-xl font-bold">
-            Discover new Movies and TV shows
+            Discover new Movies and TV Shows
           </h2>
           <SelectOptions
             genresData={genresData}

@@ -12,6 +12,6 @@ export type VideoType = {
 };
 
 export type VideosType = {
-  results?: VideoType;
-  videos?: VideoType;
+  results: VideoType[];
+
 };

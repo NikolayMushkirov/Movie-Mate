@@ -6,20 +6,20 @@ type Props = {
   videoKey: string;
   videoName: string;
   handleOpenPopup: () => void;
-  handleSetVideoId: (_videoKey: string) => void;
+  handleSetVideoKey: (_videoKey: string) => void;
 };
 
 const VideoCard = ({
   videoKey,
   videoName,
   handleOpenPopup,
-  handleSetVideoId,
+  handleSetVideoKey,
 }: Props) => {
   return (
     <div>
       <div
         onClick={() => {
-          handleSetVideoId(videoKey);
+          handleSetVideoKey(videoKey);
           handleOpenPopup();
         }}
         className=" small-play-icon-box  mb-6  transition duration-300 ease-in-out transform hover:opacity-75 hover:filter hover:brightness-75"

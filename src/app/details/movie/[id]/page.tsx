@@ -4,11 +4,10 @@ import TopCast from "../../_components/TopCast";
 import Similar from "../../_components/Similar";
 import Recommendations from "../../_components/Recommendations";
 import Videos from "../../_components/Videos";
+import DetailsHero from "../../_components/DetailsHero";
 
 import { CreditsType, CrewType } from "@/types/cast.types";
-
-import DetailsHero from "../../_components/DetailsHero";
-import { MovieInfoType } from "@/types/movieAndTV.types";
+import { MovieAndTVShowResultsType } from "@/types/movieAndTV.types";
 import { VideosType } from "@/types/video.types";
 import { DetailsType } from "@/types/details.types";
 
@@ -32,8 +31,8 @@ const MovieDetails = async ({ params: { id } }: Props) => {
   const [details, similar, recommendations, credits, videos] =
     (await Promise.all(requests)) as [
       DetailsType,
-      MovieInfoType,
-      MovieInfoType,
+      MovieAndTVShowResultsType,
+      MovieAndTVShowResultsType,
       CreditsType,
       VideosType
     ];
@@ -50,14 +49,19 @@ const MovieDetails = async ({ params: { id } }: Props) => {
     .map((field: CrewType) => field.name)
     .join(", ");
 
+  const videoTrailerKey = videos.results.find(
+    (video) => video.name === "Main Trailer" || video.type === "Trailer"
+  )?.key;
+
   return (
     <section className=" mt-24 flex flex-col gap-10">
       <DetailsHero
         details={details}
         director={director}
         screenWriter={screenWriter}
+        videoTrailerKey={videoTrailerKey}
       />
-      <Videos videos={videos} videoId= {id}/>
+      <Videos videos={videos} />
       <TopCast cast={credits} />
       <Similar similar={similar} />
       <Recommendations recommendations={recommendations} />

@@ -13,11 +13,11 @@ const Header = () => {
     <header
       className={`fixed  ${
         scrollDirection === "down" ? "-top-20" : "top-0"
-      } left-0 w-full p-3 z-10 transition-all duration-500 bg-main-bg-color/40 `}
+      } left-0 w-full p-3 z-10 transition-all duration-500 bg-main-bg-color/20 `}
     >
       <div className="lg-wrapper top-32  flex justify-between items-center">
         <Link href={"/"}>
-          <h1 className="text-4xl bg-gradient-main text-transparent bg-clip-text">
+          <h1 className="text-4xl bg-cyan-400 text-transparent bg-clip-text">
             Movie Mate
           </h1>
         </Link>
