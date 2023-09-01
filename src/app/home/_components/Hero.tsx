@@ -1,7 +1,6 @@
-import SearchForm from "@/components/SearchForm";
+import SearchForm from "@/components/search/SearchForm";
 
 import { fetchMovieData } from "@/app/api/fetchMovieData";
-
 import { MovieAndTVShowType } from "@/types/movieAndTV.types";
 
 type MovieDataType = {
