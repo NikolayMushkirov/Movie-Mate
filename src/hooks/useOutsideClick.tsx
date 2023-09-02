@@ -1,11 +1,6 @@
-import React, { useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 
-type Props = {
-  handleClose: () => void;
-  children: React.ReactNode;
-};
-
-const UseOutsideClick = ({ handleClose, children }: Props) => {
+const useOutsideClick = (handleClose: () => void) => {
   const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -20,7 +15,7 @@ const UseOutsideClick = ({ handleClose, children }: Props) => {
     };
   }, [ref]);
 
-  return <div ref={ref}>{children}</div>;
+  return ref;
 };
 
-export default UseOutsideClick;
+export default useOutsideClick;

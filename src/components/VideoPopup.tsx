@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import useOutsideClick from "@/hooks/useOutsideClick";
 
 import ReactPlayer from "react-player/youtube";
 
@@ -11,25 +11,15 @@ type Props = {
 };
 
 const VideoPopup = ({ videoKey, isOpen, handleClosePopup }: Props) => {
-  const modalRef = useRef<HTMLDivElement | null>(null);
-  useEffect(() => {
-    const handleOutsideClick = (e: MouseEvent) => {
-      if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
-        handleClosePopup();
-      }
-    };
-    document.addEventListener("mousedown", handleOutsideClick);
-    return () => {
-      document.removeEventListener("mousedown", handleOutsideClick);
-    };
-  }, [modalRef]);
+  const modalRef = useOutsideClick(handleClosePopup);
+
   return (
     <>
       {isOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center">
+        <div className="fixed   inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center">
           <div
             ref={modalRef}
-            className="  w-3/4 h-3/4 bg-gray-900 p-4 z-50 flex flex-col justify-center items-center"
+            className="w-4/5 h-3/4 bg-gray-900 p-4 z-50 flex flex-col justify-center items-center"
           >
             <ReactPlayer
               url={`https://www.youtube.com/watch?v=${videoKey}`}

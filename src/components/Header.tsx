@@ -1,6 +1,6 @@
 "use client";
-import { Transition } from "@tailwindui/react";
 import Link from "next/link";
+import { Transition } from "@tailwindui/react";
 
 import { FaSearch } from "react-icons/fa";
 
@@ -8,11 +8,10 @@ import useScrollDirection from "@/hooks/useScrollDirection";
 import useSearchBar from "@/hooks/useSearchBar";
 
 import SearchBar from "./search/SearchBar";
-import UseOutsideClick from "@/hooks/useOutsideClick";
 
 const Header = () => {
-  const scrollDirection = useScrollDirection();
   const { isOpen, handleToggle } = useSearchBar();
+  const scrollDirection = useScrollDirection();
 
   return (
     <header
@@ -45,9 +44,7 @@ const Header = () => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <UseOutsideClick handleClose={handleToggle}>
-              <SearchBar />
-            </UseOutsideClick>
+            <SearchBar handleToggle={handleToggle} />
           </Transition>
         </nav>
       </div>

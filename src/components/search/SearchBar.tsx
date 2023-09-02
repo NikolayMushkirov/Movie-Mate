@@ -1,6 +1,13 @@
-const SearchBar = () => {
+import useOutsideClick from "@/hooks/useOutsideClick";
+
+type Props = {
+  handleToggle: () => void;
+};
+
+const SearchBar = ({ handleToggle }: Props) => {
+  const ref = useOutsideClick(handleToggle);
   return (
-    <div>
+    <div ref={ref}>
       <form action="/search">
         <input
           name="search"

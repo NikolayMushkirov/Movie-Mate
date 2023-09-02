@@ -45,7 +45,11 @@ const TVDetails = async ({ params: { id } }: Props) => {
 
   return (
     <section className=" mt-24 flex flex-col gap-10">
-      <DetailsHero details={details} creators={creators} />
+      <DetailsHero
+        details={details}
+        creators={creators}
+        videoTrailerKey={videoTrailerKey}
+      />
       <Videos videos={videos} />
       <TopCast cast={credits} />
       <Similar similar={similar} />
