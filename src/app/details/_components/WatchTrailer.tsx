@@ -1,6 +1,6 @@
 "use client";
 
-import VideoPopup from "@/components/VideoPopup";
+import VideoPopup from "@/components/popup/VideoPopup";
 import PlayIcon from "@/components/playIcons/PlayIcon";
 import usePopup from "@/hooks/usePopup";
 

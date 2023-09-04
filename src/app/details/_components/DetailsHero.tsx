@@ -75,7 +75,6 @@ const DetailsHero = ({
           <div className="flex gap-7">
             <div className="w-20">
               <CircularRating
-                rating={vote_average}
                 vote_average={vote_average}
               />
             </div>

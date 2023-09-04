@@ -45,7 +45,7 @@ const MovieCard = ({ data }: Props) => {
 
         <div>
           <div className="w-14 relative -top-7 left-2">
-            <CircularRating rating={vote_average} vote_average={vote_average} />
+            <CircularRating  vote_average={vote_average} />
           </div>
           <div className="relative -top-4 ">
             <Genres genre_ids={genre_ids} />

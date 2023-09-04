@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import usePopup from "@/hooks/usePopup";
 
-import VideoPopup from "@/components/VideoPopup";
+import VideoPopup from "@/components/popup/VideoPopup";
 import VideoCard from "@/components/cards/VideoCard";
 
 import { VideoType } from "@/types/video.types";

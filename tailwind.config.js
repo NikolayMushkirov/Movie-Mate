@@ -12,6 +12,7 @@ module.exports = {
       },
       colors: {
         "main-bg-color": "#04152D",
+        "second-bg-color" : "#0b1d37"
       },
       backgroundImage: {
         "gradient-main": "linear-gradient(to right, #2E3192   , #1BFFFF )",

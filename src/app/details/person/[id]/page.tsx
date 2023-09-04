@@ -6,8 +6,7 @@ import { fetchMovieData } from "@/app/api/fetchMovieData";
 import PersonMovieList from "../../_components/PersonMovieList";
 import PersonInfo from "../../_components/PersonInfo";
 
-import { MovieAndTVShowType } from "@/types/movieAndTV.types";
-import { PersonType } from "@/types/person.types";
+import { PersonMovieType, PersonType } from "@/types/person.types";
 import PersonBio from "../../_components/PersonBio";
 
 type Props = {
@@ -17,8 +16,8 @@ type Props = {
 };
 
 type CombinedCreditsType = {
-  cast: MovieAndTVShowType[];
-  crew: MovieAndTVShowType[];
+  cast: PersonMovieType[];
+  crew: PersonMovieType[];
 };
 
 const PersonDetails = async ({ params: { id } }: Props) => {
