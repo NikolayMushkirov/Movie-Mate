@@ -27,7 +27,7 @@ const Header = () => {
         </Link>
 
         <nav className="flex items-center  gap-5">
-          <Link href="/discover" className="text-xl hover:text-cyan-500">
+          <Link href="/discover" className="text-xl font-medium hover:text-cyan-500">
             Discover new Movies & TV
           </Link>
           <FaSearch

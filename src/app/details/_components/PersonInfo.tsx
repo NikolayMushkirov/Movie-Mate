@@ -1,37 +1,59 @@
-"use client";
-
-import { useState } from "react";
+import { PersonType } from "@/types/person.types";
 
 type Props = {
-  paragraphs: string[];
-  name: string;
+  personData: PersonType;
+  knownCredits: number;
 };
 
-const PersonInfo = ({ paragraphs, name }: Props) => {
-  const [expanded, setExpanded] = useState(true);
+const PersonInfo = ({ personData, knownCredits }: Props) => {
+  const {
+    known_for_department,
+    gender,
+    birthday,
+    place_of_birth,
+    also_known_as,
+  } = personData;
+  const personGender = gender === 2 ? "Male" : "Female";
 
-  const toggleExpanded = () => {
-    setExpanded(!expanded);
-  };
   return (
-    <div className=" flex flex-col justify-start gap-4">
-      <h2 className="text-3xl font-bold">{name}</h2>
-      <div>
-        <h4 className="mb-2 text-xl font-semibold">Biography</h4>
-        <div className="">
-          {expanded ? (
-            <p className="mb-4 text-lg">{paragraphs[0]}</p>
-          ) : (
-            paragraphs.map((paragraph: string, index: number) => (
-              <p className="mb-4 text-lg" key={index}>
-                {paragraph}
-              </p>
-            ))
-          )}
-        </div>
-        <span className="italic cursor-pointer" onClick={toggleExpanded}>
-          {expanded ? "Read more" : ""}
-        </span>
+    <div className="flex flex-col gap-6">
+      <h2 className="text-2xl font-semibold">Personal Info</h2>
+      <div className="flex flex-col gap-1">
+        <h4 className=" text-xl font-semibold"> Known For </h4>
+        <span className="text-lg font-medium">{known_for_department}</span>
+      </div>
+
+      <div className="flex flex-col gap-1">
+        <h4 className="text-xl font-semibold">Known Credits</h4>
+        <span className="text-lg font-medium">{knownCredits}</span>
+      </div>
+
+      <div className="flex flex-col gap-1">
+        <h4 className=" text-xl font-semibold">Gender</h4>
+        <span className="text-lg font-medium">{personGender}</span>
+      </div>
+
+      <div className="flex flex-col gap-1">
+        <h4 className=" text-xl font-semibold">Birthday</h4>
+        <span className="text-lg font-medium">{birthday}</span>
+      </div>
+
+      <div className="flex flex-col gap-1">
+        <h4 className=" text-xl font-semibold">Place of Birth</h4>
+        <span className="text-lg font-medium">{place_of_birth}</span>
+      </div>
+
+      <div className="flex flex-col gap-1">
+        <h4 className=" text-xl font-semibold">
+          Also Known As
+          <div className="flex flex-col gap-2">
+            {also_known_as?.map((name) => (
+              <span key={name} className="text-lg font-medium">
+                {name}
+              </span>
+            ))}
+          </div>
+        </h4>
       </div>
     </div>
   );

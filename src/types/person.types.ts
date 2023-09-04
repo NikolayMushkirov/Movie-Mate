@@ -1,3 +1,5 @@
+import { MovieAndTVShowType } from "./movieAndTV.types";
+
 export type PersonType = {
   adult?: boolean;
   also_known_as?: string[];
@@ -27,3 +29,7 @@ export type PersonImageType = {
   vote_count: number;
   width: number;
 };
+
+export type PersonMovieType =  MovieAndTVShowType & {
+  character : string
+}

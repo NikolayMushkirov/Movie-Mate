@@ -4,18 +4,25 @@ import Genres from "@/components/Genres";
 import CircularRating from "@/components/CircularRating";
 import WatchTrailer from "./WatchTrailer";
 
-import { DetailsType } from "@/types/details.types";
+import placeholder from "../../../assets/no-poster.png";
 
+import { DetailsType } from "@/types/details.types";
 
 type Props = {
   details: DetailsType;
   director?: string;
   screenWriter?: string;
   creators?: string[];
-  videoTrailerKey? : string
+  videoTrailerKey?: string;
 };
 
-const DetailsHero = ({ details, director, screenWriter, creators, videoTrailerKey }: Props) => {
+const DetailsHero = ({
+  details,
+  director,
+  screenWriter,
+  creators,
+  videoTrailerKey,
+}: Props) => {
   const {
     poster_path,
     backdrop_path,
@@ -28,7 +35,6 @@ const DetailsHero = ({ details, director, screenWriter, creators, videoTrailerKe
     first_air_date,
     status,
     runtime,
-    episode_run_time,
     genres,
   } = details;
 
@@ -44,12 +50,16 @@ const DetailsHero = ({ details, director, screenWriter, creators, videoTrailerKe
       ></div>
       <div className="-z-30 absolute bottom-0 left-0 h-full w-full bg-gradient"></div>
       <div className="flex gap-16">
-        <div className="flex-shrink-0 overflow-hidden">
+        <div className=" flex-shrink-0 overflow-hidden">
           <Image
-            src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+            src={
+              poster_path
+                ? `https://image.tmdb.org/t/p/w500${poster_path}`
+                : placeholder
+            }
             alt="poster"
-            width={500}
-            height={500}
+            width={350}
+            height={200}
             className="max-w-[350px] w-full "
             loading="lazy"
           />
@@ -69,7 +79,7 @@ const DetailsHero = ({ details, director, screenWriter, creators, videoTrailerKe
                 vote_average={vote_average}
               />
             </div>
-            <WatchTrailer videoTrailerKey = {videoTrailerKey}/>
+            <WatchTrailer videoTrailerKey={videoTrailerKey} />
           </div>
           <div>
             <h3 className="text-2xl mb-1">Overview</h3>
@@ -90,9 +100,7 @@ const DetailsHero = ({ details, director, screenWriter, creators, videoTrailerKe
 
               <p className="flex items-center gap-3 font-bold text-lg">
                 Runtime:
-                <span className="font-normal text-gray-200">
-                  {runtime || episode_run_time[0]}
-                </span>
+                <span className="font-normal text-gray-200">{runtime}</span>
               </p>
             </div>
 

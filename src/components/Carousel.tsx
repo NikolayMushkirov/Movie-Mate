@@ -17,6 +17,7 @@ type ContentNameType = "movie" | "cast";
 type Props = {
   contentData: DataType;
   contentName: ContentNameType;
+  slidesPerView? : number
 };
 
 const checkContentType = (
@@ -29,11 +30,11 @@ const checkContentType = (
   return false;
 };
 
-const Carousel = ({ contentData, contentName }: Props) => {
+const Carousel = ({ contentData, contentName, slidesPerView = 5 }: Props) => {
   if (checkContentType(contentData, contentName)) {
     return (
       <Swiper
-        slidesPerView={5}
+        slidesPerView={slidesPerView}
         spaceBetween={25}
         pagination={{
           clickable: true,

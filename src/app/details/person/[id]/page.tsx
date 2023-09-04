@@ -8,6 +8,7 @@ import PersonInfo from "../../_components/PersonInfo";
 
 import { MovieAndTVShowType } from "@/types/movieAndTV.types";
 import { PersonType } from "@/types/person.types";
+import PersonBio from "../../_components/PersonBio";
 
 type Props = {
   params: {
@@ -21,13 +22,13 @@ type CombinedCreditsType = {
 };
 
 const PersonDetails = async ({ params: { id } }: Props) => {
-  const person: PersonType = await fetchMovieData(`person/${id}`);
+  const personData: PersonType = await fetchMovieData(`person/${id}`);
 
   const combinedCredits: CombinedCreditsType = await fetchMovieData(
     `person/${id}/combined_credits`
   );
 
-  const { name, biography, profile_path } = person;
+  const { name, biography, profile_path } = personData;
 
   const paragraphs = biography.split("\n\n");
 
@@ -49,13 +50,17 @@ const PersonDetails = async ({ params: { id } }: Props) => {
               className="max-w-[350px] w-full mb-6 rounded-lg"
               priority={true}
             />
-            <span className="font-semibold text-xl">View all photos</span>
           </Link>
+          <PersonInfo
+            personData={personData}
+            knownCredits={combinedCredits.cast.length}
+          />
         </div>
-        <PersonInfo paragraphs={paragraphs} name={name} />
+        <div className="flex flex-col gap-6 w-[90%]">
+          <PersonBio paragraphs={paragraphs} name={name} />
+          <PersonMovieList combinedCredits={combinedCredits} />
+        </div>
       </div>
-
-      <PersonMovieList combinedCredits={combinedCredits} />
     </div>
   );
 };
