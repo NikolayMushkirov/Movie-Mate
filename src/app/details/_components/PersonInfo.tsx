@@ -13,47 +13,41 @@ const PersonInfo = ({ personData, knownCredits }: Props) => {
     place_of_birth,
     also_known_as,
   } = personData;
-  const personGender = gender === 2 ? "Male" : "Female";
+
+  const genderMap: Record<number, string> = {
+    1: "Female",
+    2: "Male",
+  };
+
+  const personGender = genderMap[gender as keyof typeof genderMap];
+
+  const infoItems = [
+    { label: "Known For", value: known_for_department },
+    { label: "Known Credits", value: knownCredits },
+    { label: "Gender", value: personGender },
+    { label: "Birthday", value: birthday },
+    { label: "Place of Birth", value: place_of_birth },
+  ];
 
   return (
     <div className="flex flex-col gap-6">
       <h2 className="text-2xl font-semibold">Personal Info</h2>
-      <div className="flex flex-col gap-1">
-        <h4 className=" text-xl font-semibold"> Known For </h4>
-        <span className="text-lg font-medium">{known_for_department}</span>
-      </div>
+      {infoItems.map((infoItem, index) => (
+        <div key={index} className="flex flex-col gap-1">
+          <h4 className=" text-xl font-semibold">{infoItem.label}</h4>
+          <span className="text-lg font-medium">{infoItem.value}</span>
+        </div>
+      ))}
 
       <div className="flex flex-col gap-1">
-        <h4 className="text-xl font-semibold">Known Credits</h4>
-        <span className="text-lg font-medium">{knownCredits}</span>
-      </div>
-
-      <div className="flex flex-col gap-1">
-        <h4 className=" text-xl font-semibold">Gender</h4>
-        <span className="text-lg font-medium">{personGender}</span>
-      </div>
-
-      <div className="flex flex-col gap-1">
-        <h4 className=" text-xl font-semibold">Birthday</h4>
-        <span className="text-lg font-medium">{birthday}</span>
-      </div>
-
-      <div className="flex flex-col gap-1">
-        <h4 className=" text-xl font-semibold">Place of Birth</h4>
-        <span className="text-lg font-medium">{place_of_birth}</span>
-      </div>
-
-      <div className="flex flex-col gap-1">
-        <h4 className=" text-xl font-semibold">
-          Also Known As
-          <div className="flex flex-col gap-2">
-            {also_known_as?.map((name) => (
-              <span key={name} className="text-lg font-medium">
-                {name}
-              </span>
-            ))}
-          </div>
-        </h4>
+        <h4 className=" text-xl font-semibold">Also Known As</h4>
+        <div className="flex flex-col gap-2">
+          {also_known_as?.map((name) => (
+            <span key={name} className="text-lg font-medium">
+              {name}
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   );

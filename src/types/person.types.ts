@@ -6,7 +6,7 @@ export type PersonType = {
   biography: string;
   birthday: string;
   deathday?: null;
-  gender?: number;
+  gender: number;
   homepage?: string;
   id: number;
   imdb_id?: string;

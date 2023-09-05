@@ -27,6 +27,25 @@ const PersonDetails = async ({ params: { id } }: Props) => {
     `person/${id}/combined_credits`
   );
 
+  const sortedCombinedCredits = combinedCredits.cast
+    ?.flat()
+    .sort((a, b): number => {
+      const { release_date: aReleaseDate, first_air_date: aFirstAirDate } = a;
+      const { release_date: bReleaseDate, first_air_date: bFirstAirDate } = b;
+
+      if (aReleaseDate && bReleaseDate) {
+        return (
+          Number(bReleaseDate.slice(0, 4)) - Number(aReleaseDate.slice(0, 4))
+        );
+      }
+      if (aFirstAirDate && bFirstAirDate) {
+        return (
+          Number(bFirstAirDate.slice(0, 4)) - Number(aFirstAirDate.slice(0, 4))
+        );
+      }
+      return 0;
+    });
+
   const { name, biography, profile_path } = personData;
 
   const paragraphs = biography.split("\n\n");
@@ -57,7 +76,7 @@ const PersonDetails = async ({ params: { id } }: Props) => {
         </div>
         <div className="flex flex-col gap-6 w-[90%]">
           <PersonBio paragraphs={paragraphs} name={name} />
-          <PersonMovieList combinedCredits={combinedCredits} />
+          <PersonMovieList sortedCombinedCredits={sortedCombinedCredits} />
         </div>
       </div>
     </div>

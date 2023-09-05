@@ -8,13 +8,9 @@ import usePopup from "@/hooks/usePopup";
 import { useState } from "react";
 
 type Props = {
-  combinedCredits: {
-    cast: PersonMovieType[];
-    crew: PersonMovieType[];
-  };
+  sortedCombinedCredits: PersonMovieType[];
 };
-
-const PersonMovieList = ({ combinedCredits }: Props) => {
+const PersonMovieList = ({ sortedCombinedCredits }: Props) => {
   const { handleOpenPopup, handleClosePopup } = usePopup();
   const [hoveredItem, setHoveredItem] = useState<PersonMovieType | null>(null);
 
@@ -27,25 +23,6 @@ const PersonMovieList = ({ combinedCredits }: Props) => {
     setHoveredItem(null);
     handleClosePopup();
   };
-
-  const sortedCombinedCredits = combinedCredits.cast
-    ?.flat()
-    .sort((a, b): number => {
-      const { release_date: aReleaseDate, first_air_date: aFirstAirDate } = a;
-      const { release_date: bReleaseDate, first_air_date: bFirstAirDate } = b;
-
-      if (aReleaseDate && bReleaseDate) {
-        return (
-          Number(bReleaseDate.slice(0, 4)) - Number(aReleaseDate.slice(0, 4))
-        );
-      }
-      if (aFirstAirDate && bFirstAirDate) {
-        return (
-          Number(bFirstAirDate.slice(0, 4)) - Number(aFirstAirDate.slice(0, 4))
-        );
-      }
-      return 0;
-    });
 
   return (
     <div className="">
@@ -95,7 +72,7 @@ const PersonMovieList = ({ combinedCredits }: Props) => {
                     {title || name}
                   </span>
                 </Link>
-                {hoveredItem && hoveredItem.id === id && (
+                {hoveredItem?.id === id && (
                   <InfoPopup hoveredItem={hoveredItem} />
                 )}
                 <span className="text-lg font-medium">as {character}</span>
