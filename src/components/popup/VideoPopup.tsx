@@ -28,7 +28,7 @@ const VideoPopup = ({ videoKey, isOpen, handleClosePopup }: Props) => {
               height="100%"
             />
             <button
-              className="bg-sky-600 hover:bg-sky-900  text-white font-bold py-2 px-4 rounded mt-4"
+              className="transition-all duration-0 hover:duration-200 bg-sky-600 hover:bg-sky-900   text-white font-bold py-2 px-4 rounded mt-4"
               onClick={handleClosePopup}
             >
               Close

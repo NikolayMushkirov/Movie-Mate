@@ -12,20 +12,22 @@ const WatchTrailer = ({ videoTrailerKey }: Props) => {
   const { isOpen, handleOpenPopup, handleClosePopup } = usePopup();
 
   return (
-    <div
-      onClick={handleOpenPopup}
-      className="play-icon-box flex items-center gap-5 cursor-pointer  hover:text-sky-300"
-    >
-      <PlayIcon />
-      <span className="text-xl transition-all ease-in-out duration-700">
-        Watch Trailer
-      </span>
+    <>
+      <div
+        onClick={handleOpenPopup}
+        className="play-icon-box flex items-center gap-5 cursor-pointer  hover:text-sky-300"
+      >
+        <PlayIcon />
+        <span className="text-xl transition-all ease-in-out duration-700">
+          Watch Trailer
+        </span>
+      </div>
       <VideoPopup
         videoKey={videoTrailerKey}
         isOpen={isOpen}
         handleClosePopup={handleClosePopup}
       />
-    </div>
+    </>
   );
 };
 
