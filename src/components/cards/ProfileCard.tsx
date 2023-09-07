@@ -10,16 +10,16 @@ const ProfileCard = ({ name, character, profile_path,id }: Props) => {
   return (
     <Link href={`/details/person/${id}`}>
       <div className="text-center">
-        <div className="mb-3  w-[400px] h-[300px]  overflow-hidden ">
+        <div className="mb-3   h-[300px]  overflow-hidden ">
           <Image
             src={
               profile_path
-                ? `https://image.tmdb.org/t/p/w500${profile_path}`
+                ? `https://image.tmdb.org/t/p/w342${profile_path}`
                 : placeholder
             }
             alt="profile photo"
-            width={200}
-            height={200}
+            width={342}
+            height={300}
             className="rounded-lg"
             loading="lazy"
           />

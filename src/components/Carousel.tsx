@@ -17,7 +17,7 @@ type ContentNameType = "movie" | "cast";
 type Props = {
   contentData: DataType;
   contentName: ContentNameType;
-  slidesPerView? : number
+  slidesPerView?: number;
 };
 
 const checkContentType = (
@@ -35,12 +35,11 @@ const Carousel = ({ contentData, contentName, slidesPerView = 5 }: Props) => {
     return (
       <Swiper
         slidesPerView={slidesPerView}
-        spaceBetween={25}
+        spaceBetween={20}
         pagination={{
           clickable: true,
         }}
         modules={[]}
-        className="cursor-pointer"
       >
         {contentData.map((movie) => (
           <SwiperSlide key={movie.id}>
@@ -58,7 +57,6 @@ const Carousel = ({ contentData, contentName, slidesPerView = 5 }: Props) => {
           clickable: true,
         }}
         modules={[]}
-        className="cursor-pointer"
       >
         {contentData.map((actor) => (
           <SwiperSlide key={actor.id}>

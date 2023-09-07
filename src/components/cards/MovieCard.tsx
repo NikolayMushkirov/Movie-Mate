@@ -27,15 +27,15 @@ const MovieCard = ({ data }: Props) => {
   return (
     <Link href={title ? `/details/movie/${id}` : `/details/tv-show/${id}`}>
       <div className="flex  flex-col   relative">
-        <div className="h-[320px]  overflow-hidden">
+        <div className="h-[300px]  overflow-hidden">
           <Image
             src={
               poster_path
-                ? `https://image.tmdb.org/t/p/w500${poster_path}`
+                ? `https://image.tmdb.org/t/p/w342${poster_path}`
                 : placeholder
             }
-            width={500}
-            height={500}
+            width={342}
+            height={300}
             alt="Poster"
             loading="lazy"
             className="transition-opacity opacity-0 duration-700"

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { fetchMovieData } from "@/app/api/fetchMovieData";
 
 import TopCast from "../../_components/TopCast";
@@ -61,6 +63,9 @@ const MovieDetails = async ({ params: { id } }: Props) => {
         screenWriter={screenWriter}
         videoTrailerKey={videoTrailerKey}
       />
+      <Link href={`/details/reviews/${id}`}>
+        <div>Reviews</div>
+      </Link>
       <Videos videos={videos} />
       <TopCast cast={credits} />
       <Similar similar={similar} />

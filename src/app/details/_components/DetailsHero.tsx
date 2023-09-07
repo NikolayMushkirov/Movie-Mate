@@ -36,6 +36,8 @@ const DetailsHero = ({
     status,
     runtime,
     genres,
+    budget,
+    revenue,
   } = details;
 
   const genresIds = genres?.map((genre) => genre.id);
@@ -74,9 +76,7 @@ const DetailsHero = ({
           </div>
           <div className="flex gap-7">
             <div className="w-20">
-              <CircularRating
-                vote_average={vote_average}
-              />
+              <CircularRating vote_average={vote_average} />
             </div>
             <WatchTrailer videoTrailerKey={videoTrailerKey} />
           </div>
@@ -101,6 +101,27 @@ const DetailsHero = ({
                 Runtime:
                 <span className="font-normal text-gray-200">{runtime}</span>
               </p>
+            </div>
+
+            <div className="flex gap-3">
+              <div className="flex items-center gap-3">
+                <p className="font-bold text-lg">Budget</p>
+                <span className="font-normal text-gray-200">
+                  $
+                  {budget?.toLocaleString("en-US", {
+                    maximumFractionDigits: 2,
+                  })}
+                </span>
+              </div>
+              <div className="flex items-center gap-3">
+                <p className="font-bold text-lg">Revenue</p>
+                <span className="font-normal text-gray-200">
+                  $
+                  {revenue?.toLocaleString("en-US", {
+                    maximumFractionDigits: 2,
+                  })}
+                </span>
+              </div>
             </div>
 
             {director ? (
