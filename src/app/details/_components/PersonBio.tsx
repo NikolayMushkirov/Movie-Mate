@@ -8,7 +8,7 @@ type Props = {
 };
 
 const PersonBio = ({ paragraphs, name }: Props) => {
-  const [expanded, setExpanded] = useState(true);
+  const [expanded, setExpanded] = useState(false);
 
   const toggleExpanded = () => {
     setExpanded(!expanded);
@@ -19,7 +19,7 @@ const PersonBio = ({ paragraphs, name }: Props) => {
       <div>
         <h4 className="mb-2 text-2xl font-semibold">Biography</h4>
         <div className="">
-          {expanded ? (
+          {!expanded ? (
             <p className="mb-4 text-lg">{paragraphs[0]}</p>
           ) : (
             paragraphs.map((paragraph: string, index: number) => (
@@ -29,9 +29,11 @@ const PersonBio = ({ paragraphs, name }: Props) => {
             ))
           )}
         </div>
-        <span className="italic cursor-pointer" onClick={toggleExpanded}>
-          {expanded ? "Read more" : ""}
-        </span>
+        {paragraphs.at(0) !== "" && (
+          <span className="italic cursor-pointer" onClick={toggleExpanded}>
+            {!expanded ? "Read more" : ""}
+          </span>
+        )}
       </div>
     </div>
   );
