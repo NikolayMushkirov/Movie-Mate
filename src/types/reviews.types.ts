@@ -12,3 +12,7 @@ export type ReviewType = {
     updated_at: string,
     url: string,
   };
+
+  export type ReviewsType = {
+    results: ReviewType[]
+  }

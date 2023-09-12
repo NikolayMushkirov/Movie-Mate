@@ -60,9 +60,9 @@ const DetailsHero = ({
                 : placeholder
             }
             alt="poster"
-            width={350}
-            height={200}
-            className="max-w-[350px] w-full "
+            width={500}
+            height={300}
+            className="w-[400px] "
             loading="lazy"
           />
         </div>

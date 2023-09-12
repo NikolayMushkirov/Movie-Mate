@@ -12,6 +12,8 @@ import { CreditsType, CrewType } from "@/types/cast.types";
 import { MovieAndTVShowResultsType } from "@/types/movieAndTV.types";
 import { VideosType } from "@/types/video.types";
 import { DetailsType } from "@/types/details.types";
+import { ReviewsType } from "@/types/reviews.types";
+import Review from "../../_components/Review";
 
 type Props = {
   params: {
@@ -26,17 +28,19 @@ const MovieDetails = async ({ params: { id } }: Props) => {
     `movie/${id}/recommendations`,
     `movie/${id}/credits`,
     `movie/${id}/videos`,
+    `movie/${id}/reviews`,
   ];
 
   const requests = endpoints.map((endpoint) => fetchMovieData(endpoint));
 
-  const [details, similar, recommendations, credits, videos] =
+  const [details, similar, recommendations, credits, videos, reviewInfo] =
     (await Promise.all(requests)) as [
       DetailsType,
       MovieAndTVShowResultsType,
       MovieAndTVShowResultsType,
       CreditsType,
-      VideosType
+      VideosType,
+      ReviewsType
     ];
 
   const director = credits.crew
@@ -63,11 +67,18 @@ const MovieDetails = async ({ params: { id } }: Props) => {
         screenWriter={screenWriter}
         videoTrailerKey={videoTrailerKey}
       />
-      <Link href={`/details/reviews/${id}`}>
-        <div>Reviews</div>
-      </Link>
-      <Videos videos={videos} />
       <TopCast cast={credits} />
+      <>
+        <h2 className=" text-2xl">Reviews</h2>
+        {reviewInfo.results.length ? (
+          <Link href={`/details/reviews/${id}`}>
+            <Review reviewInfo={reviewInfo.results[0]} />
+          </Link>
+        ) : (
+          <p className="text-lg">No Reviews</p>
+        )}
+      </>
+      <Videos videos={videos} />
       <Similar similar={similar} />
       <Recommendations recommendations={recommendations} />
     </section>

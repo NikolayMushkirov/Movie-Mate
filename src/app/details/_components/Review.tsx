@@ -2,11 +2,14 @@ import { ReviewType } from "@/types/reviews.types";
 import Image from "next/image";
 
 type Props = {
-  reviewInfo: ReviewType;
+  reviewInfo: ReviewType | undefined;
 };
 
 const Review = ({ reviewInfo }: Props) => {
-  const { author, author_details, content, created_at,} = reviewInfo;
+  if (!reviewInfo) {
+    return ;
+  }
+  const { author, author_details, content, created_at } = reviewInfo;
   const createdDate = new Date(created_at).toLocaleDateString();
   const paragraphs = content.split("\r\n");
 
