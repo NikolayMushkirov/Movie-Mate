@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { fetchMovieData } from "@/app/api/fetchMovieData";
 
 import TopCast from "../../_components/TopCast";
@@ -5,11 +7,13 @@ import Similar from "../../_components/Similar";
 import Recommendations from "../../_components/Recommendations";
 import Videos from "../../_components/Videos";
 import DetailsHero from "../../_components/DetailsHero";
+import Review from "../../_components/Review";
 
 import { CreditsType } from "@/types/cast.types";
 import { VideosType } from "@/types/video.types";
 import { DetailsType } from "@/types/details.types";
 import { MovieAndTVShowResultsType } from "@/types/movieAndTV.types";
+import { ReviewsType } from "@/types/reviews.types";
 
 type Props = {
   params: {
@@ -24,17 +28,19 @@ const TVDetails = async ({ params: { id } }: Props) => {
     `tv/${id}/recommendations`,
     `tv/${id}/credits`,
     `tv/${id}/videos`,
+    `tv/${id}/reviews`,
   ];
 
   const requests = endpoints.map((endpoint) => fetchMovieData(endpoint));
 
-  const [details, similar, recommendations, credits, videos] =
+  const [details, similar, recommendations, credits, videos, reviews] =
     (await Promise.all(requests)) as [
       DetailsType,
       MovieAndTVShowResultsType,
       MovieAndTVShowResultsType,
       CreditsType,
-      VideosType
+      VideosType,
+      ReviewsType
     ];
 
   const creators = details?.created_by?.map((creator) => creator.name);
@@ -50,6 +56,16 @@ const TVDetails = async ({ params: { id } }: Props) => {
         creators={creators}
         videoTrailerKey={videoTrailerKey}
       />
+      <>
+        <h2 className=" text-2xl">Reviews</h2>
+        {reviews.results.length ? (
+          <Link href={`/details/reviews/${id}`}>
+            <Review reviewInfo={reviews.results[0]} />
+          </Link>
+        ) : (
+          <p className="text-lg">No Reviews</p>
+        )}
+      </>
       <Videos videos={videos} />
       <TopCast cast={credits} />
       <Similar similar={similar} />

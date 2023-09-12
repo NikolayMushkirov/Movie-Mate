@@ -7,13 +7,13 @@ import Similar from "../../_components/Similar";
 import Recommendations from "../../_components/Recommendations";
 import Videos from "../../_components/Videos";
 import DetailsHero from "../../_components/DetailsHero";
+import Review from "../../_components/Review";
 
 import { CreditsType, CrewType } from "@/types/cast.types";
 import { MovieAndTVShowResultsType } from "@/types/movieAndTV.types";
 import { VideosType } from "@/types/video.types";
 import { DetailsType } from "@/types/details.types";
 import { ReviewsType } from "@/types/reviews.types";
-import Review from "../../_components/Review";
 
 type Props = {
   params: {
@@ -33,7 +33,7 @@ const MovieDetails = async ({ params: { id } }: Props) => {
 
   const requests = endpoints.map((endpoint) => fetchMovieData(endpoint));
 
-  const [details, similar, recommendations, credits, videos, reviewInfo] =
+  const [details, similar, recommendations, credits, videos, reviews] =
     (await Promise.all(requests)) as [
       DetailsType,
       MovieAndTVShowResultsType,
@@ -70,9 +70,9 @@ const MovieDetails = async ({ params: { id } }: Props) => {
       <TopCast cast={credits} />
       <>
         <h2 className=" text-2xl">Reviews</h2>
-        {reviewInfo.results.length ? (
+        {reviews.results.length ? (
           <Link href={`/details/reviews/${id}`}>
-            <Review reviewInfo={reviewInfo.results[0]} />
+            <Review reviewInfo={reviews.results[0]} />
           </Link>
         ) : (
           <p className="text-lg">No Reviews</p>
