@@ -24,13 +24,6 @@ body {
   background: var(--main-bg-color);
 }
 
-.lg-wrapper {
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-}
-
-
 .play-icon-svg {
   width: 75px;
 }
@@ -61,7 +54,6 @@ body {
   stroke-dashoffset: 0;
   stroke: rgb(125 211 252);
 }
-
 
 .small-play-icon-svg {
   width: 50px;
@@ -96,7 +88,6 @@ body {
   filter: brightness(1);
 }
 
-
 .CircularProgressbar-text {
-    font-size: 5rem;
+  font-size: 5rem;
 }

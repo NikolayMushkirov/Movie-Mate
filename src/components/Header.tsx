@@ -19,20 +19,23 @@ const Header = () => {
         scrollDirection === "down" ? "-top-32" : "top-0"
       } left-0 w-full p-3 z-10 transition-all duration-500 bg-main-bg-color/20 `}
     >
-      <div className="lg-wrapper top-32  flex justify-between items-center">
+      <div className="max-w-[1200px]  w-full m-auto top-32  flex justify-between items-center max-sm:gap-10">
         <Link href={"/"}>
-          <h1 className="text-4xl bg-cyan-400 text-transparent bg-clip-text">
+          <h1 className="text-4xl bg-cyan-400 text-transparent bg-clip-text max-sm:text-3xl">
             MovieMate
           </h1>
         </Link>
 
-        <nav className="flex items-center  gap-5">
-          <Link href="/discover" className="text-xl font-medium hover:text-cyan-500">
+        <nav className="flex items-center gap-5  ">
+          <Link
+            href="/discover"
+            className="text-xl font-medium hover:text-cyan-500 max-sm:text-lg "
+          >
             Discover new Movies & TV
           </Link>
           <FaSearch
             onClick={handleToggle}
-            className="text-lg cursor-pointer hover:text-cyan-500"
+            className="text-lg cursor-pointer hover:text-cyan-500 max-sm:w-full"
           />
           <Transition
             className="w-[700px] absolute top-[100%] left-1/2  -translate-x-1/2 "

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import React from 'react'
+import React from "react";
 import { Inter } from "next/font/google";
 
 import Footer from "@/components/Footer";
@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="lg-wrapper">
+        <div className="max-w-[1200px] w-full m-auto max-xl:px-10 ">
           <Header />
           {children}
         </div>
