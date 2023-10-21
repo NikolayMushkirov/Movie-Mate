@@ -51,7 +51,7 @@ const DetailsHero = ({
         }}
       ></div>
       <div className="-z-30 absolute bottom-0 left-0 h-full w-full bg-gradient"></div>
-      <div className="flex gap-16">
+      <div className="flex gap-16 max-lg:gap-6 max-lg:flex-col max-lg:items-center">
         <div className=" flex-shrink-0 overflow-hidden">
           <Image
             src={
@@ -62,14 +62,14 @@ const DetailsHero = ({
             alt="poster"
             width={500}
             height={300}
-            className="w-[400px] "
+            className="w-[400px]  max-md:w-[300px]"
             loading="lazy"
           />
         </div>
-        <div className="max-w-2xl flex flex-col justify-start gap-4">
+        <div className="max-w-2xl flex flex-col justify-start gap-4  max-lg:items-center">
           <div>
-            <h3 className="text-4xl mb-1">{name || title}</h3>
-            <h4 className="text-xl text-gray-200 italic">{tagline} </h4>
+            <h3 className="text-4xl mb-1  max-lg:text-center">{name || title}</h3>
+            <h4 className="text-xl text-gray-200 italic max-lg:text-center">{tagline} </h4>
           </div>
           <div>
             <Genres genre_ids={genresIds} />
@@ -84,13 +84,13 @@ const DetailsHero = ({
             <h3 className="text-2xl mb-1">Overview</h3>
             <p className="text-lg">{overview}</p>
           </div>
-          <div className="flex flex-col gap-4">
-            <div className="flex gap-5">
+          <div className="flex flex-col gap-4 max-lg:self-start">
+            <div className="flex gap-5 max-xl:flex-col">
               <p className="flex items-center gap-3 font-bold text-lg">
                 Status:
                 <span className="font-normal text-gray-200">{status}</span>
               </p>
-              <p className="flex items-center gap-3 font-bold text-lg">
+              <p className="flex items-center gap-3 font-bold text-lg whitespace-nowrap">
                 Release Date:
                 <span className="font-normal text-gray-200">
                   {release_date || first_air_date}
