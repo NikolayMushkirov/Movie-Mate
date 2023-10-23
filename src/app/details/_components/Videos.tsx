@@ -29,6 +29,23 @@ const Videos = ({ videos }: Props) => {
         }}
         className="cursor-pointer"
         style={{ position: "static" }}
+        breakpoints={{
+          100: {
+            slidesPerView: 1,
+          },
+          450: {
+            slidesPerView: 2,
+          },
+          768: {
+            slidesPerView: 3,
+          },
+          1024: {
+            slidesPerView: 4,
+          },
+          1280: {
+            slidesPerView: 5,
+          },
+        }}
       >
         {videos.results?.map((video: VideoType) => (
           <SwiperSlide key={video.id}>

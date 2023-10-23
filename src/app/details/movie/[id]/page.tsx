@@ -60,7 +60,7 @@ const MovieDetails = async ({ params: { id } }: Props) => {
   )?.key;
 
   return (
-    <section className=" mt-24 flex flex-col gap-10">
+    <section className="mt-24 flex flex-col gap-10">
       <DetailsHero
         details={details}
         director={director}

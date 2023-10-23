@@ -26,16 +26,16 @@ const Header = () => {
           </h1>
         </Link>
 
-        <nav className="flex items-center gap-5  ">
+        <nav className="flex items-center gap-5 ">
           <Link
             href="/discover"
-            className="text-xl font-medium hover:text-cyan-500 max-sm:text-lg "
+            className="text-xl font-medium hover:text-cyan-500 max-sm:text-lg max-sm:text-center  "
           >
             Discover new Movies & TV
           </Link>
           <FaSearch
             onClick={handleToggle}
-            className="text-lg cursor-pointer hover:text-cyan-500 max-sm:w-full"
+            className="text-lg cursor-pointer hover:text-cyan-500 max-sm:hidden"
           />
           <Transition
             className="w-[700px] absolute top-[100%] left-1/2  -translate-x-1/2 "

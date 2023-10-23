@@ -29,7 +29,7 @@ const VideoCard = ({
           alt="video image"
           width={300}
           height={200}
-          className=""
+          className="min-h[200px]"
         />
 
         <div className="absolute  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ">
