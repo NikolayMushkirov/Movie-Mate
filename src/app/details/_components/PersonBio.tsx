@@ -14,10 +14,12 @@ const PersonBio = ({ paragraphs, name }: Props) => {
     setExpanded(!expanded);
   };
   return (
-    <div className=" flex flex-col justify-start gap-4">
-      <h2 className="text-3xl font-bold">{name}</h2>
+    <div className=" flex flex-col justify-start gap-4 ">
+      <h2 className="text-3xl font-bold max-lg:text-center">{name}</h2>
       <div>
-        <h4 className="mb-2 text-2xl font-semibold">Biography</h4>
+        <h4 className="mb-2 text-2xl font-semibold max-lg:text-center">
+          Biography
+        </h4>
         <div className="">
           {!expanded ? (
             <p className="mb-4 text-lg">{paragraphs[0]}</p>

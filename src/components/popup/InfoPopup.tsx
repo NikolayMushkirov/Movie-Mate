@@ -12,7 +12,7 @@ type Props = {
 
 const InfoPopup = ({ hoveredItem }: Props) => {
   return (
-    <div className="absolute z-20 -top-80 -left-96  w-[700px] h-[300px] p-4 flex gap-6 bg-cyan-800">
+    <div className="absolute z-20 -top-80 -left-96 max-lg:-left-32 max-lg:w-[550px] max-sm:w-[400px]  w-[700px] h-[300px] p-4 flex gap-6 bg-cyan-800">
       <Image
         width={185}
         height={100}

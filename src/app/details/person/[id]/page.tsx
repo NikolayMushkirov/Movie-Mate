@@ -52,7 +52,7 @@ const PersonDetails = async ({ params: { id } }: Props) => {
 
   return (
     <div className="mt-24 flex flex-col gap-8">
-      <div className=" flex gap-16">
+      <div className=" flex gap-16 max-lg:flex-col max-lg:items-center ">
         <div className="flex-shrink-0 overflow-hidden">
           <Link
             href={{

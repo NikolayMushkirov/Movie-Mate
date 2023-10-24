@@ -30,7 +30,7 @@ const PersonInfo = ({ personData, knownCredits }: Props) => {
   ];
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-6 max-lg:text-center">
       <h2 className="text-2xl font-semibold">Personal Info</h2>
       {infoItems.map((infoItem, index) => (
         <div key={index} className="flex flex-col gap-1">
@@ -39,7 +39,7 @@ const PersonInfo = ({ personData, knownCredits }: Props) => {
         </div>
       ))}
 
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col gap-1 max-lg:hidden">
         <h4 className=" text-xl font-semibold">Also Known As</h4>
         <div className="flex flex-col gap-2">
           {also_known_as?.map((name) => (
