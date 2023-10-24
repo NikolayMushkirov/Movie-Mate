@@ -34,8 +34,8 @@ const Trending = () => {
 
   return (
     <section>
-      <div className="flex justify-between items-baseline">
-        <h2 className="mb-6 text-2xl font-bold">Trending</h2>
+      <div className="flex justify-between items-baseline ">
+        <h2 className="mb-6 text-2xl font-bold max-xsm:text-xl">Trending</h2>
         <Tabs
           leftTabName={"Day"}
           rightTabName={"Week"}

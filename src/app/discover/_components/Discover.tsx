@@ -94,7 +94,7 @@ const Discover = () => {
   return (
     <>
       <div className="mt-24 ">
-        <div className="mb-6 flex justify-between">
+        <div className="mb-6 flex justify-between max-lg:flex-col max-lg:gap-4">
           <h2 className="text-xl font-bold">
             Discover new Movies and TV Shows
           </h2>
@@ -104,7 +104,7 @@ const Discover = () => {
             handleChangeMediaType={handleChangeMediaType}
           />
         </div>
-        <div className="grid grid-cols-5 gap-6">
+        <div className="grid grid-cols-5 gap-6 max-xl:grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1">
           {discoverData?.results?.map((movie) => (
             <MovieCard key={movie.id} data={movie} />
           ))}

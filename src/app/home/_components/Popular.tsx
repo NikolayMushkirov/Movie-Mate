@@ -35,7 +35,7 @@ const Popular = () => {
   return (
     <section>
       <div className="flex justify-between items-baseline">
-        <h2 className="mb-6 text-2xl font-bold">Popular</h2>
+        <h2 className="mb-6 text-2xl font-bold max-xsm:text-xl">Popular</h2>
         <Tabs
           leftTabName={"Movies"}
           rightTabName={"TV Shows"}

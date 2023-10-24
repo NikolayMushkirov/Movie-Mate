@@ -8,25 +8,30 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        lgScreen: '1200px',
+        lgScreen: "1200px",
+        'max-xl': {'max': '1279px'},
+        'max-lg': {'max': '1023px'},
+        'max-md': {'max': '767px'},
+        'max-sm': {'max': '639px'},
+        "max-xsm": { 'max': "490px" },
       },
       colors: {
         "main-bg-color": "#04152D",
-        "second-bg-color" : "#0b1d37"
+        "second-bg-color": "#0b1d37",
       },
       backgroundImage: {
         "gradient-main": "linear-gradient(to right, #2E3192   , #1BFFFF )",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-        'gradient':
+        gradient:
           "linear-gradient(180deg, rgba(4, 21, 45, 0) 0%, #04152d 79.17%)",
       },
     },
     variants: {
-      fill: ['hover', 'focus'],
-      polygon: ['hover', 'focus'],
-      circle: ['hover', 'focus'],
+      fill: ["hover", "focus"],
+      polygon: ["hover", "focus"],
+      circle: ["hover", "focus"],
     },
   },
   plugins: [],

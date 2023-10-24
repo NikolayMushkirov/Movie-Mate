@@ -55,7 +55,7 @@ const SearchResults = () => {
   return (
     <section>
       <h2 className="mt-28 mb-10 text-4xl">Search Results</h2>
-      <div className=" grid grid-cols-5 gap-6">
+      <div className=" grid grid-cols-5 gap-6 max-xl:grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 ">
         {data?.results?.map((item) => (
           <MovieCard key={item.id} data={item} />
         ))}

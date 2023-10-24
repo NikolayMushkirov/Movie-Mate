@@ -37,6 +37,7 @@ const SelectOptions = ({
       padding: "5px",
       border: "none",
       boxShadow: "none",
+      cursor: "pointer",
     }),
     singleValue: (defaultStyles) => ({
       ...defaultStyles,

@@ -29,9 +29,9 @@ const Header = () => {
         <nav className="flex items-center gap-5 ">
           <Link
             href="/discover"
-            className="text-xl font-medium hover:text-cyan-500 max-sm:text-lg max-sm:text-center  "
+            className="text-xl font-medium hover:text-cyan-500  max-sm:text-center   "
           >
-            Discover new Movies & TV
+            Discover <span className="max-xsm:hidden">new Movies & TV</span>
           </Link>
           <FaSearch
             onClick={handleToggle}
