@@ -11,7 +11,7 @@ const Hero = async () => {
   const trendingData: MovieDataType = await fetchMovieData(
     `trending/movie/week`
   );
-  const bgImage = `https://image.tmdb.org/t/p/original${
+  const bgImage = `https://image.tmdb.org/t/p/w1280${
     trendingData.results[Math.floor(Math.random() * 20)].backdrop_path
   }`;
 

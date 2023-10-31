@@ -30,7 +30,7 @@ const PersonInfo = ({ personData, knownCredits }: Props) => {
   ];
 
   return (
-    <div className="flex flex-col gap-6 max-lg:text-center">
+    <div className="flex flex-col gap-6 max-lg:text-center max-md:gap-3">
       <h2 className="text-2xl font-semibold">Personal Info</h2>
       {infoItems.map((infoItem, index) => (
         <div key={index} className="flex flex-col gap-1">

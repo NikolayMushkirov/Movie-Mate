@@ -7,7 +7,7 @@ const fetchMovieData = async <T>(url: string): Promise<T> => {
   headers.append("accept", "application/json");
   headers.append("Authorization", `Bearer ${key}`);
 
-  const response = await fetch(baseUrl, { headers });
+  const response = await fetch(baseUrl, { headers, cache: "no-cache" });
 
   if (!response.ok) {
     throw new Error("Failed to fetch data from TMDB API");

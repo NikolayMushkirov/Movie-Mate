@@ -47,7 +47,7 @@ const DetailsHero = ({
       <div
         className="-z-30 absolute w-full min-h-full  top-0 left-0  bg-cover bg-no-repeat bg-center opacity-50"
         style={{
-          backgroundImage: `url(https://image.tmdb.org/t/p/original/${backdrop_path})`,
+          backgroundImage: `url(https://image.tmdb.org/t/p/w1280/${backdrop_path})`,
         }}
       ></div>
       <div className="-z-30 absolute bottom-0 left-0 h-full w-full bg-gradient"></div>
@@ -68,8 +68,12 @@ const DetailsHero = ({
         </div>
         <div className="max-w-2xl flex flex-col justify-start gap-4  max-lg:items-center">
           <div>
-            <h3 className="text-4xl mb-1  max-lg:text-center">{name || title}</h3>
-            <h4 className="text-xl text-gray-200 italic max-lg:text-center">{tagline} </h4>
+            <h3 className="text-4xl mb-1  max-lg:text-center">
+              {name || title}
+            </h3>
+            <h4 className="text-xl text-gray-200 italic max-lg:text-center">
+              {tagline}{" "}
+            </h4>
           </div>
           <div>
             <Genres genre_ids={genresIds} />

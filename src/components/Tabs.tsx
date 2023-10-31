@@ -5,7 +5,7 @@ import React, { useState } from "react";
 type Props = {
   leftTabName: string;
   rightTabName: string;
-  onTabChange: (tab: string) => void;
+  onTabChange: (_tab: string) => void;
 };
 
 const Tabs = ({ leftTabName, rightTabName, onTabChange }: Props) => {
