@@ -16,7 +16,7 @@ const Review = ({ reviewInfo }: Props) => {
   return (
     <div className="flex flex-col gap-4">
       <div className="flex gap-4">
-        <div className="h-[70px] w-[70px] rounded-full overflow-hidden">
+        <div className="max-sm:hidden h-[70px] w-[70px] rounded-full overflow-hidden">
           {author_details.avatar_path ? (
             <Image
               src={`https://image.tmdb.org/t/p/w45/${author_details.avatar_path}`}

@@ -19,7 +19,7 @@ const ProfileCard = ({ name, character, profile_path, id }: Props) => {
           alt="profile photo"
           width={342}
           height={330}
-          className="min-h-[340px] w-full mb-2 rounded-lg"
+          className="min-h-[340px] w-full mb-2 rounded-lg max-sm:w-[250px] "
           loading="lazy"
         />
         <h2 className="text-xl font-bold">{name}</h2>

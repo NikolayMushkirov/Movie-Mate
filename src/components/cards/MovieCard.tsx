@@ -26,7 +26,7 @@ const MovieCard = ({ data }: Props) => {
 
   return (
     <Link href={title ? `/details/movie/${id}` : `/details/tv-show/${id}`}>
-      <div className="flex flex-col  relative">
+      <div className="flex flex-col relative max-sm:items-center">
         <Image
           src={
             poster_path
@@ -37,19 +37,19 @@ const MovieCard = ({ data }: Props) => {
           height={300}
           alt="Poster"
           loading="lazy"
-          className=" min-h-[340px] w-full transition-opacity opacity-0 duration-700 "
+          className="w-full min-h-[340px]   max-sm:w-[250px]  transition-opacity opacity-0 duration-700 "
           onLoadingComplete={(img) => img.classList.remove("opacity-0")}
         />
 
         <div>
-          <div className="w-14 relative -top-7 left-2">
+          <div className="w-14 relative -top-7 left-2 max-sm:left-8">
             <CircularRating vote_average={vote_average} />
           </div>
           <div className="relative -top-4 ">
             <Genres genre_ids={genre_ids} />
           </div>
         </div>
-        <div className="justify-self-start">
+        <div className="justify-self-start max-sm:flex max-sm:flex-col max-sm:items-center">
           <h3 className="text-xl font-bold">{title || name}</h3>
           <p>{release_date || first_air_date}</p>
         </div>
