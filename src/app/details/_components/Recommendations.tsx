@@ -6,7 +6,11 @@ type Props = {
 };
 
 const Recommendations = ({ recommendations }: Props) => {
+  if(!recommendations.results.length) {
+    return null
+  }
   return (
+
     <div>
       <h2 className="mb-6 text-2xl">Recommendations</h2>
       <Carousel contentData={recommendations.results} contentName="movie" />
