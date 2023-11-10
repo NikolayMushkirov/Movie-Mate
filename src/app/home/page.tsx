@@ -21,9 +21,13 @@ const HomePage = async () => {
     topRatedTVShow: await fetchMovieData(`tv/top_rated`),
   };
 
+  const bgImage  = await  `https://image.tmdb.org/t/p/w1280${
+    trendingData?.trendingWeek?.results[Math.floor(Math.random() * 20)].backdrop_path
+  }`;
+
   return (
     <main className="w-full flex flex-col gap-14">
-      <Hero  trendingWeek = {trendingData.trendingWeek}/>
+      <Hero  bgImage = {bgImage}/>
       <Trending trendingData={trendingData} />
       <Popular popularData = {popularData} />
       <TopRated  topRatedData = {topRatedData}/>

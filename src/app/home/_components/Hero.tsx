@@ -1,18 +1,10 @@
 import SearchForm from "@/components/search/SearchForm";
 
-import { MovieAndTVShowType } from "@/types/movieAndTV.types";
-
 type Props = {
-  trendingWeek: {
-    results: MovieAndTVShowType[];
-  };
+  bgImage: string;
 };
 
-const Hero = async ({ trendingWeek }: Props) => {
-  const bgImage  = await `https://image.tmdb.org/t/p/w1280${
-    trendingWeek?.results[Math.floor(Math.random() * 20)].backdrop_path
-  }`;
-
+const Hero = ({ bgImage }: Props) => {
   return (
     <section className=" min-h-[900px] w-full flex flex-col items-center justify-center ">
       <div
