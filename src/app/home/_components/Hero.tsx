@@ -8,8 +8,8 @@ type Props = {
   };
 };
 
-const Hero = ({ trendingWeek }: Props) => {
-  const bgImage = `https://image.tmdb.org/t/p/w1280${
+const Hero = async ({ trendingWeek }: Props) => {
+  const bgImage  = await `https://image.tmdb.org/t/p/w1280${
     trendingWeek?.results[Math.floor(Math.random() * 20)].backdrop_path
   }`;
 
