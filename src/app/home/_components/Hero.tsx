@@ -1,18 +1,16 @@
 import SearchForm from "@/components/search/SearchForm";
 
-import { fetchMovieData } from "@/app/api/fetchMovieData";
 import { MovieAndTVShowType } from "@/types/movieAndTV.types";
 
-type MovieDataType = {
-  results: MovieAndTVShowType[];
+type Props = {
+  trendingWeek: {
+    results: MovieAndTVShowType[];
+  };
 };
 
-const Hero = async () => {
-  const trendingData: MovieDataType = await fetchMovieData(
-    `trending/movie/week`
-  );
+const Hero = ({ trendingWeek }: Props) => {
   const bgImage = `https://image.tmdb.org/t/p/w1280${
-    trendingData.results[Math.floor(Math.random() * 20)].backdrop_path
+    trendingWeek?.results[Math.floor(Math.random() * 20)].backdrop_path
   }`;
 
   return (

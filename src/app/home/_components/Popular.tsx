@@ -1,36 +1,22 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import Carousel from "@/components/Carousel";
 import Tabs from "@/components/Tabs";
 
-import { fetchMovieData } from "@/app/api/fetchMovieData";
+import { PopularDataType } from "@/types/home.page.types";
 
-import { MovieAndTVShowType } from "@/types/movieAndTV.types";
-
-type PopularDataType = {
-  results: MovieAndTVShowType[];
+type Props = {
+  popularData: PopularDataType;
 };
 
-const Popular = () => {
+const Popular = ({ popularData }: Props) => {
   const [mediaType, setMediaType] = useState("movie");
-  const [popularData, setPopularData] = useState<PopularDataType>({
-    results: [],
-  });
 
   const onTabChange = (tab: string): void => {
     setMediaType(tab === "leftTab" ? "tv" : "movie");
   };
-
-  const getPopularData = async () => {
-    const data: PopularDataType = await fetchMovieData(`${mediaType}/popular`);
-    setPopularData(data);
-  };
-
-  useEffect(() => {
-    getPopularData();
-  }, [mediaType]);
 
   return (
     <section>
@@ -42,7 +28,14 @@ const Popular = () => {
           onTabChange={onTabChange}
         />
       </div>
-      <Carousel contentData={popularData.results} contentName="movie" />
+      <Carousel
+        contentData={
+          mediaType === "movie"
+            ? popularData.popularMovie.results
+            : popularData.popularTVShow.results
+        }
+        contentName="movie"
+      />
     </section>
   );
 };

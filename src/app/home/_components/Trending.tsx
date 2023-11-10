@@ -1,36 +1,20 @@
 "use client";
-import { useEffect, useState } from "react";
-
-import { fetchMovieData } from "@/app/api/fetchMovieData";
+import { useState } from "react";
 
 import Carousel from "@/components/Carousel";
 import Tabs from "@/components/Tabs";
-import { MovieAndTVShowType } from "@/types/movieAndTV.types";
+import { TrendingDataType } from "@/types/home.page.types";
 
-type TrendingDataType = {
-  results: MovieAndTVShowType[];
+type Props = {
+  trendingData: TrendingDataType;
 };
 
-const Trending = () => {
+const Trending = ({ trendingData }: Props) => {
   const [timeWindow, setTimeWindow] = useState("day");
-  const [trendingData, setTrendingData] = useState<TrendingDataType>({
-    results: [],
-  });
 
   const onTabChange = (tab: string): void => {
     setTimeWindow(tab === "leftTab" ? "week" : "day");
   };
-
-  const getTrendingData = async () => {
-    const data: TrendingDataType = await fetchMovieData(
-      `trending/movie/${timeWindow}`
-    );
-    setTrendingData(data);
-  };
-
-  useEffect(() => {
-    getTrendingData();
-  }, [timeWindow]);
 
   return (
     <section>
@@ -42,7 +26,14 @@ const Trending = () => {
           onTabChange={onTabChange}
         />
       </div>
-      <Carousel contentData={trendingData.results} contentName="movie" />
+      <Carousel
+        contentData={
+          timeWindow === "day"
+            ? trendingData.trendingDay.results
+            : trendingData.trendingWeek.results
+        }
+        contentName="movie"
+      />
     </section>
   );
 };

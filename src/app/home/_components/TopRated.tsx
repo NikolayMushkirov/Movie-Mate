@@ -1,37 +1,22 @@
 "use client";
 
-import { useState, useEffect } from "react";
-
-import { fetchMovieData } from "@/app/api/fetchMovieData";
+import { useState } from "react";
 
 import Carousel from "@/components/Carousel";
 import Tabs from "@/components/Tabs";
-import { MovieAndTVShowType } from "@/types/movieAndTV.types";
 
-type TopRatedDataType = {
-  results: MovieAndTVShowType[];
+import { TopRatedDataType } from "@/types/home.page.types";
+
+type Props = {
+  topRatedData: TopRatedDataType;
 };
 
-const TopRated = () => {
+const TopRated = ({ topRatedData }: Props) => {
   const [mediaType, setMediaType] = useState("movie");
-  const [topRatedData, setTopRatedData] = useState<TopRatedDataType>({
-    results: [],
-  });
 
   const onTabChange = (tab: string): void => {
     setMediaType(tab === "leftTab" ? "tv" : "movie");
   };
-
-  const getTopRatedData = async () => {
-    const data: TopRatedDataType = await fetchMovieData(
-      `${mediaType}/top_rated`
-    );
-    setTopRatedData(data);
-  };
-
-  useEffect(() => {
-    getTopRatedData();
-  }, [mediaType]);
 
   return (
     <section>
@@ -43,7 +28,14 @@ const TopRated = () => {
           onTabChange={onTabChange}
         />
       </div>
-      <Carousel contentData={topRatedData.results} contentName="movie" />
+      <Carousel
+        contentData={
+          mediaType === "movie"
+            ? topRatedData.topRatedMovie.results
+            : topRatedData.topRatedTVShow.results
+        }
+        contentName="movie"
+      />
     </section>
   );
 };
