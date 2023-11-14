@@ -48,7 +48,7 @@ const Review = ({ reviewInfo }: Props) => {
 
       <div className="flex flex-col gap-2">
         {paragraphs.map((paragraph) => (
-          <p className="leading-relaxed text-xl font-medium" key={paragraph}>
+          <p className="leading-relaxed text-lg font-medium max-xsm:text-base" key={paragraph}>
             {paragraph}
           </p>
         ))}
