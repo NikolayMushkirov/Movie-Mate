@@ -1,17 +1,21 @@
 "use client";
-import Link from "next/link";
-import { Transition } from "@tailwindui/react";
+import { useState } from "react";
 
-import { FaSearch } from "react-icons/fa";
+import Link from "next/link";
 
 import useScrollDirection from "@/hooks/useScrollDirection";
-import useSearchBar from "@/hooks/useSearchBar";
 
-import SearchBar from "./search/SearchBar";
+import MenuButton from "./buttons/MenuButton";
+import Navbar from "./Navbar";
 
 const Header = () => {
-  const { isOpen, handleToggle } = useSearchBar();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const scrollDirection = useScrollDirection();
+
+  const handleToggleMenuMode = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
     <header
@@ -25,31 +29,13 @@ const Header = () => {
             MovieMate
           </h1>
         </Link>
-
-        <nav className="flex items-center gap-5 ">
-          <Link
-            href="/discover"
-            className="text-xl font-medium hover:text-cyan-500  max-sm:text-center   "
-          >
-            Discover <span className="max-xsm:hidden">new Movies & TV</span>
-          </Link>
-          <FaSearch
-            onClick={handleToggle}
-            className="text-lg cursor-pointer hover:text-cyan-500 max-sm:hidden"
-          />
-          <Transition
-            className="w-[700px] absolute top-[100%] left-1/2  -translate-x-1/2 "
-            show={isOpen}
-            enter="transition-opacity duration-300"
-            enterFrom="opacity-0"
-            enterTo="opacity-100"
-            leave="transition-opacity duration-300"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
-          >
-            <SearchBar handleToggle={handleToggle} />
-          </Transition>
-        </nav>
+        <MenuButton
+          isMenuOpen={isMenuOpen}
+          handleToggleMenuMode={handleToggleMenuMode}
+        />
+        <div className="max-sm:hidden">
+          <Navbar />
+        </div>
       </div>
     </header>
   );

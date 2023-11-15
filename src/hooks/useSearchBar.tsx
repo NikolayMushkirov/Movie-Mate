@@ -3,11 +3,11 @@
 import { useState } from "react";
 
 const useSearchBar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isSearchBarOpen, setIsSearchBarOpen] = useState(false);
 
-  const handleToggle = () => setIsOpen(!isOpen);
+  const handleToggleSearchBar = () => setIsSearchBarOpen(!isSearchBarOpen);
 
-  return { isOpen, handleToggle };
+  return { isSearchBarOpen, handleToggleSearchBar };
 };
 
 export default useSearchBar;

@@ -37,8 +37,8 @@ const MovieCard = ({ data }: Props) => {
           height={300}
           alt="Poster"
           loading="lazy"
-          className="w-full min-h-[340px]   max-sm:w-[250px]  transition-opacity opacity-0 duration-700 "
-          onLoadingComplete={(img) => img.classList.remove("opacity-0")}
+          className="w-full min-h-[340px]   max-sm:w-[250px]   "
+          onLoad={(img) => img.currentTarget.classList.remove("opacity-0")}
         />
 
         <div>

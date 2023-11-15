@@ -14,6 +14,7 @@ module.exports = {
         'max-md': {'max': '767px'},
         'max-sm': {'max': '639px'},
         "max-xsm": { 'max': "490px" },
+        "max-2xsm": { 'max': "400px" },
       },
       colors: {
         "main-bg-color": "#04152D",
