@@ -26,7 +26,7 @@ const MovieCard = ({ data }: Props) => {
 
   return (
     <Link href={title ? `/details/movie/${id}` : `/details/tv-show/${id}`}>
-      <div className="flex flex-col relative max-sm:items-center">
+      <div className="flex flex-col relative max-sm:items-center  ">
         <Image
           src={
             poster_path
@@ -37,7 +37,7 @@ const MovieCard = ({ data }: Props) => {
           height={300}
           alt="Poster"
           loading="lazy"
-          className="w-full min-h-[340px]   max-sm:w-[250px]   "
+          className="w-full min-h-[340px]   max-sm:w-[250px] hover:scale-105 transition-all duration-300  "
           onLoad={(img) => img.currentTarget.classList.remove("opacity-0")}
         />
 
@@ -49,9 +49,12 @@ const MovieCard = ({ data }: Props) => {
             <Genres genre_ids={genre_ids} />
           </div>
         </div>
-        <div className="justify-self-start max-sm:flex max-sm:flex-col max-sm:items-center">
-          <h3 className="text-xl font-bold">{title || name}</h3>
-          <p>{release_date || first_air_date}</p>
+        <div className="justify-self-start max-sm:flex max-sm:flex-col  max-sm:text-center">
+          <h3 className="text-lg font-bold mb-1">{title || name}</h3>
+          <p className="font-medium">
+            {(release_date && new Date(release_date).toLocaleDateString()) ||
+              (first_air_date && new Date(first_air_date).toLocaleDateString())}
+          </p>
         </div>
       </div>
     </Link>

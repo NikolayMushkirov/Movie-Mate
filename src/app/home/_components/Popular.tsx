@@ -19,9 +19,9 @@ const Popular = ({ popularData }: Props) => {
   };
 
   return (
-    <section>
-      <div className="flex justify-between items-baseline">
-        <h2 className="mb-6 text-2xl font-bold max-xsm:text-xl">Popular</h2>
+    <section >
+      <div className="flex justify-between items-baseline max-sm:mb-6 max-sm:flex-col max-sm:items-center">
+        <h2 className="mb-6 text-2xl font-semibold max-xsm:text-xl max-2xsm:text-lg">Popular</h2>
         <Tabs
           leftTabName={"Movies"}
           rightTabName={"TV Shows"}

@@ -18,8 +18,8 @@ const Trending = ({ trendingData }: Props) => {
 
   return (
     <section>
-      <div className="flex justify-between items-baseline ">
-        <h2 className="mb-6 text-2xl font-bold max-xsm:text-xl">Trending</h2>
+      <div className="flex justify-between items-baseline max-sm:mb-6 max-sm:flex-col max-sm:items-center">
+        <h2 className="mb-6 text-2xl font-semibold max-xsm:text-xl max-2xsm:text-lg">Trending</h2>
         <Tabs
           leftTabName={"Day"}
           rightTabName={"Week"}

@@ -22,7 +22,7 @@ const VideoCard = ({
           handleSetVideoKey(videoKey);
           handleOpenPopup();
         }}
-        className=" small-play-icon-box  mb-6  transition duration-300 ease-in-out transform hover:opacity-75 hover:filter hover:brightness-75"
+        className=" small-play-icon-box  mb-6   ease-in-out transform hover:opacity-75 hover:filter hover:brightness-75 hover:scale-105  duration-300"
       >
         <Image
           src={`https://img.youtube.com/vi/${videoKey}/mqdefault.jpg`}

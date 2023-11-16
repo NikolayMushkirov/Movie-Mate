@@ -9,7 +9,7 @@ type Props = CastType;
 const ProfileCard = ({ name, character, profile_path, id }: Props) => {
   return (
     <Link href={`/details/person/${id}`}>
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center hover:scale-105 transition-all duration-300">
         <Image
           src={
             profile_path

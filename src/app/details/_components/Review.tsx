@@ -16,7 +16,7 @@ const Review = ({ reviewInfo }: Props) => {
   return (
     <div className="flex flex-col gap-4">
       <div className="flex gap-4">
-        <div className="max-sm:hidden h-[70px] w-[70px] rounded-full overflow-hidden">
+        <div className="h-[70px] w-[70px] rounded-full overflow-hidden">
           {author_details.avatar_path ? (
             <Image
               src={`https://image.tmdb.org/t/p/w45/${author_details.avatar_path}`}
@@ -32,9 +32,9 @@ const Review = ({ reviewInfo }: Props) => {
           )}
         </div>
         <div className="">
-          <h2 className="mb-1 text-2xl font-semibold">A review by {author}</h2>
-          <div className="flex items-center gap-3">
-            <div className="flex gap-1 items-center  px-2 rounded-xl bg-white text-xl font-semibold  text-black">
+          <h2 className="mb-1 text-xl font-semibold">A review by {author}</h2>
+          <div className="flex items-center gap-3 max-sm:flex-col">
+            <div className="flex gap-2  items-center  px-3 rounded-xl bg-white text-xl font-semibold  text-black">
               <span>&#9733;</span>
               <span>{author_details?.rating}</span>
             </div>

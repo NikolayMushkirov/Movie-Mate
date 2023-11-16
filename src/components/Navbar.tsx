@@ -23,7 +23,7 @@ const Navbar = () => {
         className="text-lg cursor-pointer hover:text-cyan-500 "
       />
       <Transition
-        className="w-[700px] absolute top-[100%] left-1/2  -translate-x-1/2 "
+        className=""
         show={isSearchBarOpen}
         enter="transition-opacity duration-300"
         enterFrom="opacity-0"

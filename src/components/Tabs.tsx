@@ -25,7 +25,7 @@ const Tabs = ({ leftTabName, rightTabName, onTabChange }: Props) => {
     <div className="flex">
       <span
         id="leftTab"
-        className={`w-32 max-xsm:w-20 max-xsm:text-sm p-[5px] flex items-center justify-center   select-none rounded-l-full transition-all duration-400   cursor-pointer ${
+        className={`w-32  max-2xsm:w-24  p-[5px] flex items-center justify-center   select-none rounded-l-full transition-all duration-400  cursor-pointer ${
           selectedTab === `leftTab`
             ? "bg-gradient-main text-white"
             : "bg-white text-black"
@@ -36,7 +36,7 @@ const Tabs = ({ leftTabName, rightTabName, onTabChange }: Props) => {
       </span>
       <span
         id="rightTab"
-        className={`w-32 max-xsm:w-20 max-xsm:text-sm  flex items-center justify-center  select-none rounded-r-full transition-all duration-400   cursor-pointer ${
+        className={`w-32  max-2xsm:w-24  flex items-center justify-center  select-none rounded-r-full transition-all duration-400   cursor-pointer ${
           selectedTab === `rightTab`
             ? "bg-gradient-main text-white"
             : "bg-white text-black"
