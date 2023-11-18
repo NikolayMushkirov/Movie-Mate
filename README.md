@@ -26,17 +26,19 @@
 
 ## Screenshots
 
-<details>  <summary>Movie Page</summary> ![Movie Page](./public/screenshots/MoviePage.PNG)</details>
-
+<details> 
+    <summary>Movie Page</summary> 
+     <img src="./public/screenshots/MoviePage.PNG">
+</details>
 <details>
     <summary>Person Page</summary>
-    ![Person Page](./public/screenshots/PersonPage.PNG)
+     <img src="./public/screenshots/PersonPage.PNG">
 </details>
 <details>
     <summary>Discover Page</summary>
-    ![Discover Page](./public/screenshots/Discover.png)
+    <img src="./public/screenshots/Discover.png">
 </details>
 <details>
     <summary>Search Page</summary>
-    ![Search Page](./public/screenshots/Search%20Page.PNG.png)
+     <img src="./public/screenshots/Search%20Page.PNG.png">
 </details>
