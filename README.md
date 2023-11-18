@@ -2,7 +2,7 @@
 
 > Movie-Mate - app that uses TMDB API for searching movies, actors, and directors, viewing ratings, reviews, and trailers.
 >
-> Live demo [_here_](https://movie-mate-beta.vercel.app/) (If the application is not loading data, try using a VPN)
+> Live demo [_here_](https://movie-mate-beta.vercel.app/) (If the application is not loading, try using a VPN)
 
 ![MovieMate screenshot](./public/screenshots/MainPage.PNG)
 
