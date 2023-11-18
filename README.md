@@ -26,8 +26,10 @@
 
 ## Screenshots
 
-<details>  <summary>Movie Page</summary> ![Movie Page](./public/screenshots/MoviePage.PNG)</details>
-
+<details>  
+    <summary>Movie Page</summary> 
+     <img src="./public/screenshots/MoviePage.PNG">
+</details>
 <details>
     <summary>Person Page</summary>
      <img src="./public/screenshots/PersonPage.PNG">
@@ -38,5 +40,5 @@
 </details>
 <details>
     <summary>Search Page</summary>
-     <img src="./public/screenshots/Search%20Page.PNG.png">
+     <img src="./public/screenshots/SearchPage.PNG">
 </details>
