@@ -7,16 +7,16 @@ type Props = {
 
 const Review = ({ reviewInfo }: Props) => {
   if (!reviewInfo) {
-    return ;
+    return;
   }
   const { author, author_details, content, created_at } = reviewInfo;
   const createdDate = new Date(created_at).toLocaleDateString();
   const paragraphs = content.split("\r\n");
 
   return (
-    <div className="flex flex-col gap-4">
-      <div className="flex gap-4">
-        <div className="h-[70px] w-[70px] rounded-full overflow-hidden">
+    <div className="flex flex-col gap-4 ">
+      <div className="flex gap-4 max-sm:flex-col max-sm:items-center ">
+        <div className="h-[70px]  max-w-[70px] w-full rounded-full overflow-hidden ">
           {author_details.avatar_path ? (
             <Image
               src={`https://image.tmdb.org/t/p/w45/${author_details.avatar_path}`}
@@ -32,13 +32,15 @@ const Review = ({ reviewInfo }: Props) => {
           )}
         </div>
         <div className="">
-          <h2 className="mb-1 text-xl font-semibold">A review by {author}</h2>
-          <div className="flex items-center gap-3 max-sm:flex-col">
-            <div className="flex gap-2  items-center  px-3 rounded-xl bg-white text-xl font-semibold  text-black">
+          <h2 className="mb-1 text-xl font-semibold max-sm:text-center">
+            A review by {author}
+          </h2>
+          <div className="flex items-center gap-3 max-sm:flex-col max-sm:gap-1">
+            <div className="flex gap-2  items-center   px-3 rounded-xl bg-white text-xl font-semibold  text-black">
               <span>&#9733;</span>
-              <span>{author_details?.rating}</span>
+              <span>{author_details?.rating || <span className="text-base whitespace-nowrap">No rating</span>}</span>
             </div>
-            <span className="text-lg font-extralight">
+            <span className="text-lg font-extralight max-sm:text-center">
               Written by <span className="font-semibold">{author}</span> on{" "}
               {createdDate}
             </span>
@@ -48,7 +50,10 @@ const Review = ({ reviewInfo }: Props) => {
 
       <div className="flex flex-col gap-2">
         {paragraphs.map((paragraph) => (
-          <p className="leading-relaxed text-lg font-medium max-xsm:text-base" key={paragraph}>
+          <p
+            className="leading-relaxed text-lg font-medium max-xsm:text-base"
+            key={paragraph}
+          >
             {paragraph}
           </p>
         ))}

@@ -25,7 +25,7 @@ const Header = () => {
     >
       <div className="max-w-[1200px]  w-full m-auto top-32  flex justify-between items-center max-sm:gap-10">
         <Link href={"/"}>
-          <h1 className="text-4xl bg-cyan-400 text-transparent bg-clip-text max-sm:text-3xl">
+          <h1 className="text-4xl max-2xsm:text-3xl bg-cyan-400 text-transparent bg-clip-text max-sm:text-3xl">
             Movie Mate
           </h1>
         </Link>

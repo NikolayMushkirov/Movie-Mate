@@ -26,7 +26,7 @@ const PersonMovieList = ({ sortedCombinedCredits }: Props) => {
 
   return (
     <div className="">
-      <h2 className="mb-6 text-2xl font-semibold">Filmography</h2>
+      <h2 className="mb-6 text-2xl font-semibold max-xsm:text-xl">Filmography</h2>
       <div className="p-6 flex flex-col gap-4 bg-second-bg-color shadow-[0px_20px_20px_10px_bg-second-bg-color,0px_3px_8px_0px_#00000024] ">
         {sortedCombinedCredits.map(
           ({
@@ -42,7 +42,7 @@ const PersonMovieList = ({ sortedCombinedCredits }: Props) => {
             overview,
           }) => (
             <div key={id} className="flex gap-20">
-              <span className="w-[5%] text-center text-lg font-semibold">
+              <span className="w-[5%] text-center text-lg font-semibold  max-xsm:text-base">
                 {(release_date || first_air_date)?.slice(0, 4) || "—"}
               </span>
               <div className="relative flex flex-col items-baseline">
@@ -67,7 +67,7 @@ const PersonMovieList = ({ sortedCombinedCredits }: Props) => {
                       })
                     }
                     onMouseLeave={handleMouseLeave}
-                    className="text-xl font-semibold hover:text-cyan-500"
+                    className="text-xl font-semibold  max-xsm:text-base  hover:text-cyan-500"
                   >
                     {title || name}
                   </span>
@@ -75,7 +75,7 @@ const PersonMovieList = ({ sortedCombinedCredits }: Props) => {
                 {hoveredItem?.id === id && (
                   <InfoPopup hoveredItem={hoveredItem} />
                 )}
-                <span className="text-lg font-medium">as {character}</span>
+                <span className="text-lg font-medium  max-xsm:text-sm">as {character}</span>
               </div>
             </div>
           )

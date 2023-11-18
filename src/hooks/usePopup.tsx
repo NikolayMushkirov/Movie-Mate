@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { useState } from "react";
 
@@ -8,6 +8,7 @@ const usePopup = () => {
 
   const handleOpenPopup = () => {
     setIsOpen(true);
+    setVideoKey('');
   };
 
   const handleClosePopup = () => {

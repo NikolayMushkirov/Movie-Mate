@@ -60,7 +60,7 @@ const MovieDetails = async ({ params: { id } }: Props) => {
   )?.key;
 
   return (
-    <section className="mt-24 flex flex-col gap-10 max-sm:text-center">
+    <section className="mt-24 flex flex-col gap-10 ">
       <DetailsHero
         details={details}
         director={director}
@@ -69,7 +69,7 @@ const MovieDetails = async ({ params: { id } }: Props) => {
       />
       <TopCast cast={credits} />
       <>
-        <h2 className=" text-2xl">Reviews</h2>
+        <h2 className=" text-2xl font-bold max-sm:text-center ">Reviews</h2>
         {reviews.results.length ? (
           <Link href={`/details/reviews/${id}`}>
             <Review reviewInfo={reviews.results[0]} />

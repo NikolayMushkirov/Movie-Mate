@@ -22,11 +22,9 @@ type CombinedCreditsType = {
 
 const PersonDetails = async ({ params: { id } }: Props) => {
   const personData: PersonType = await fetchMovieData(`person/${id}`);
-
   const combinedCredits: CombinedCreditsType = await fetchMovieData(
     `person/${id}/combined_credits`
   );
-
   const sortedCombinedCredits = combinedCredits.cast
     ?.flat()
     .sort((a, b): number => {
@@ -45,9 +43,7 @@ const PersonDetails = async ({ params: { id } }: Props) => {
       }
       return 0;
     });
-
   const { name, biography, profile_path } = personData;
-
   const paragraphs = biography.split("\n\n");
 
   return (

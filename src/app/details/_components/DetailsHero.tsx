@@ -71,7 +71,7 @@ const DetailsHero = ({
         </div>
         <div className="max-w-2xl w-full  flex flex-col justify-start gap-4  max-lg:items-center">
           <div>
-            <h3 className="text-4xl mb-1  max-lg:text-center max-xsm:text-3xl" >
+            <h3 className="text-4xl mb-1  max-lg:text-center max-xsm:text-3xl">
               {name || title}
             </h3>
             <h4 className="text-xl text-gray-200 italic max-lg:text-center max-xsm:text-lg">
@@ -88,7 +88,7 @@ const DetailsHero = ({
             <WatchTrailer videoTrailerKey={videoTrailerKey} />
           </div>
           <div className="max-xsm:text-center max-xsm:text-">
-            <h3 className="text-2xl mb-1 max-xsm:text-xl">Overview</h3>
+            <h3 className="text-2xl mb-1 font-bold max-xsm:text-xl">Overview</h3>
             <p className="text-lg max-xsm:text-base">{overview}</p>
           </div>
           <div className="flex flex-col gap-4 max-lg:self-start max-xsm:self-center">
@@ -134,7 +134,9 @@ const DetailsHero = ({
             {director ? (
               <p className="flex gap-3 font-bold text-lg max-xsm:text-base max-xsm:flex-col max-xsm:text-center max-xsm:gap-2">
                 Director:
-                <span className="font-normal text-gray-200 max-xsm:text-base">{director}</span>
+                <span className="font-normal text-gray-200 max-xsm:text-base">
+                  {director}
+                </span>
               </p>
             ) : (
               <p className="flex  gap-3 font-bold text-lg max-xsm:text-base max-xsm:flex-col max-xsm:text-center max-xsm:gap-2">

@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { useRef, useCallback } from "react";
 import { Swiper, SwiperSlide, SwiperRef } from "swiper/react";
@@ -15,7 +15,6 @@ import VideoPopup from "@/components/popup/VideoPopup";
 import VideoCard from "@/components/cards/VideoCard";
 
 import { VideoType } from "@/types/video.types";
-
 
 type Props = { videos: { results: VideoType[] } };
 
@@ -39,46 +38,45 @@ const Videos = ({ videos }: Props) => {
     handleSetVideoKey,
   } = usePopup();
   return (
-    <div className="">
-      <h2 className="mb-6 text-2xl">Videos</h2>
+    <div className="max-sm:text-center">
+      <h2 className="mb-6 text-2xl font-bold">Videos</h2>
       <div className="relative">
+        <Swiper
+          ref={sliderRef}
+          slidesPerView={4}
+          spaceBetween={25}
+          className="cursor-pointer"
 
-      <Swiper
-        ref={sliderRef}
-        slidesPerView={4}
-        spaceBetween={25}
-        className="cursor-pointer"
-        // style={{ position: "static" }}
-        breakpoints={{
-          100: {
-            slidesPerView: 1,
-          },
-          450: {
-            slidesPerView: 2,
-          },
-          768: {
-            slidesPerView: 3,
-          },
-          1024: {
-            slidesPerView: 4,
-          },
-          1280: {
-            slidesPerView: 5,
-          },
-        }}
-      >
-        {videos.results?.map((video: VideoType) => (
-          <SwiperSlide key={video.id}>
-            <VideoCard
-              videoKey={video.key}
-              videoName={video.name}
-              handleOpenPopup={handleOpenPopup}
-              handleSetVideoKey={handleSetVideoKey}
-            />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-      <IoIosArrowBack
+          breakpoints={{
+            100: {
+              slidesPerView: 1,
+            },
+            450: {
+              slidesPerView: 2,
+            },
+            768: {
+              slidesPerView: 3,
+            },
+            1024: {
+              slidesPerView: 4,
+            },
+            1280: {
+              slidesPerView: 5,
+            },
+          }}
+        >
+          {videos.results?.map((video: VideoType) => (
+            <SwiperSlide key={video.id}>
+              <VideoCard
+                videoKey={video.key}
+                videoName={video.name}
+                handleOpenPopup={handleOpenPopup}
+                handleSetVideoKey={handleSetVideoKey}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+        <IoIosArrowBack
           className="absolute w-20 h-10  top-[20%] -left-16 text-cyan-500 cursor-pointer"
           onClick={handlePrev}
         />

@@ -57,7 +57,7 @@ const TVDetails = async ({ params: { id } }: Props) => {
         videoTrailerKey={videoTrailerKey}
       />
       <>
-        <h2 className=" text-2xl">Reviews</h2>
+        <h2 className=" text-2xl font-bold max-sm:text-center">Reviews</h2>
         {reviews.results.length ? (
           <Link href={`/details/reviews/${id}`}>
             <Review reviewInfo={reviews.results[0]} />
