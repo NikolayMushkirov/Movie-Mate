@@ -40,7 +40,7 @@ const MovieDetails = async ({ params: { id } }: Props) => {
       MovieAndTVShowResultsType,
       CreditsType,
       VideosType,
-      ReviewsType
+      ReviewsType,
     ];
 
   const director = credits.crew
@@ -50,13 +50,13 @@ const MovieDetails = async ({ params: { id } }: Props) => {
 
   const screenWriter = credits.crew
     .filter(
-      (item: CrewType) => item.job === "Screenplay" || item.job === "Writer"
+      (item: CrewType) => item.job === "Screenplay" || item.job === "Writer",
     )
     .map((field: CrewType) => field.name)
     .join(", ");
 
   const videoTrailerKey = videos.results.find(
-    (video) => video.name === "Main Trailer" || video.type === "Trailer"
+    (video) => video.name === "Main Trailer" || video.type === "Trailer",
   )?.key;
 
   return (

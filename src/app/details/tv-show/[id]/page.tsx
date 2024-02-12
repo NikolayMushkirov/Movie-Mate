@@ -15,6 +15,7 @@ import { DetailsType } from "@/types/details.types";
 import { MovieAndTVShowResultsType } from "@/types/movieAndTV.types";
 import { ReviewsType } from "@/types/reviews.types";
 
+
 type Props = {
   params: {
     id: string;
@@ -48,6 +49,7 @@ const TVDetails = async ({ params: { id } }: Props) => {
   const videoTrailerKey = videos.results.find(
     (video) => video.name === "Main Trailer" || video.type === "Trailer"
   )?.key;
+
 
   return (
     <section className=" mt-24 flex flex-col gap-10">

@@ -1,5 +1,5 @@
-import { fetchBackImage } from "../api/fetchBackImage";
 import { fetchMovieData } from "../api/fetchMovieData";
+import { backdropUrl } from "../api/imageUrls";
 
 import Hero from "./_components/Hero";
 import Popular from "./_components/Popular";
@@ -26,16 +26,14 @@ const HomePage = async () => {
     topRatedTVShow: await fetchMovieData(`tv/top_rated`),
   };
 
-  const bgImage = fetchBackImage(
-    String(
-      trendingData?.trendingWeek.results[Math.floor(Math.random() * 20)]
-        .backdrop_path
-    )
-  );
+  const randomBackDropImageUrl =
+    backdropUrl +
+    trendingData?.trendingWeek.results[Math.floor(Math.random() * 20)]
+      .backdrop_path;
 
   return (
-    <main className="w-full flex flex-col gap-14">
-      <Hero bgImage={bgImage} />
+    <main className="flex w-full flex-col gap-14">
+      <Hero randomBackDropImageUrl={randomBackDropImageUrl} />
       <Trending trendingData={trendingData} />
       <Popular popularData={popularData} />
       <TopRated topRatedData={topRatedData} />
