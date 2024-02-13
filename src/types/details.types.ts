@@ -82,7 +82,7 @@ export type DetailsType = {
   number_of_episodes?: number;
   number_of_seasons?: number;
   origin_country?: string[];
-  original_language?: string;
+  original_language: string;
   original_name?: string;
   overview: string;
   popularity?: number;
@@ -91,7 +91,7 @@ export type DetailsType = {
   production_countries?: ProductionCountry[];
   seasons?: Season[];
   spoken_languages?: SpokenLanguage[];
-  status?: string;
+  status: string;
   tagline?: string;
   type?: string;
   vote_average: number;
@@ -100,7 +100,7 @@ export type DetailsType = {
   budget?: number;
   imdb_id?: string;
   original_title?: string;
-  release_date?: string;
+  release_date: string;
   revenue?: number;
   runtime?: number;
   title?: string;

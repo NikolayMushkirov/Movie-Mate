@@ -8,6 +8,9 @@ type Props = {
 };
 
 const Similar = ({ similar }: Props) => {
+  if (!similar.results.length) {
+    return null;
+  }
   return (
     <div>
       <h2 className="mb-6 text-2xl font-bold max-sm:text-center">Similar Movies</h2>

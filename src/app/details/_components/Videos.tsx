@@ -19,6 +19,9 @@ import { VideoType } from "@/types/video.types";
 type Props = { videos: { results: VideoType[] } };
 
 const Videos = ({ videos }: Props) => {
+  if(!videos.results.length) {
+    return null;
+  }
   const sliderRef = useRef<SwiperRef>(null);
 
   const handlePrev = useCallback(() => {
@@ -46,7 +49,6 @@ const Videos = ({ videos }: Props) => {
           slidesPerView={4}
           spaceBetween={25}
           className="cursor-pointer"
-
           breakpoints={{
             100: {
               slidesPerView: 1,
@@ -77,11 +79,11 @@ const Videos = ({ videos }: Props) => {
           ))}
         </Swiper>
         <IoIosArrowBack
-          className="absolute w-20 h-10  top-[20%] -left-16 text-cyan-500 cursor-pointer"
+          className="absolute -left-16 top-[20%]  h-10 w-20 cursor-pointer text-cyan-500"
           onClick={handlePrev}
         />
         <IoIosArrowForward
-          className="absolute w-20 h-10 top-[20%] -right-16 text-cyan-500 cursor-pointer"
+          className="absolute -right-16 top-[20%] h-10 w-20 cursor-pointer text-cyan-500"
           onClick={handleNext}
         />
       </div>
