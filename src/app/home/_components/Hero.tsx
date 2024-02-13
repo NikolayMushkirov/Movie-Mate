@@ -12,10 +12,9 @@ const Hero = ({ randomBackDropImageUrl }: Props) => {
         src={randomBackDropImageUrl}
         alt="backdrop"
         fill={true}
+        loading="lazy"
         className="absolute left-0 top-0  min-h-full w-full object-cover opacity-50 max-lg:object-contain"
-        style={{ objectFit: "cover" }}
       />
-
       <div className="absolute bottom-0 left-0 h-[400px]  w-full bg-gradient max-sm:h-[100px]"></div>
       <SearchForm />
     </section>

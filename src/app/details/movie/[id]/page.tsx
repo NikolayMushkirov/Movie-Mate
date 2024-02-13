@@ -9,7 +9,7 @@ import Videos from "../../_components/Videos";
 import DetailsHero from "../../_components/DetailsHero";
 import Review from "../../_components/Review";
 
-import { CreditsType, CrewType } from "@/types/cast.types";
+import { CreditsType } from "@/types/cast.types";
 import { MovieAndTVShowResultsType } from "@/types/movieAndTV.types";
 import { VideosType } from "@/types/video.types";
 import { DetailsType } from "@/types/details.types";
@@ -44,15 +44,21 @@ const MovieDetails = async ({ params: { id } }: Props) => {
     ];
 
   const director = credits.crew
-    .filter((item: CrewType) => item.job === "Director")
-    .map((field: CrewType) => field.name)
+    .reduce((acc: string[], item) => {
+      if (item.job === "Director") {
+        acc.push(item.name);
+      }
+      return acc;
+    }, [])
     .join(", ");
 
   const screenWriter = credits.crew
-    .filter(
-      (item: CrewType) => item.job === "Screenplay" || item.job === "Writer",
-    )
-    .map((field: CrewType) => field.name)
+    .reduce((acc: string[], item) => {
+      if (item.job === "Screenplay" || item.job === "Writer") {
+        acc.push(item.name);
+      }
+      return acc;
+    }, [])
     .join(", ");
 
   const videoTrailerKey = videos.results.find(

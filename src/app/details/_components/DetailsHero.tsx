@@ -42,7 +42,7 @@ const DetailsHero = ({
     revenue,
   } = details;
 
-  const genresIds = genres?.map((genre) => genre.id);
+
 
   return (
     <section>
@@ -50,6 +50,7 @@ const DetailsHero = ({
         src={backdropUrl + backdrop_path}
         alt="backdrop"
         fill={true}
+        loading="lazy"
         className="absolute left-0 top-0 -z-30 w-full object-cover  opacity-50"
       />
       <div className="absolute bottom-0 left-0 -z-30 h-full w-full bg-gradient"></div>
@@ -61,7 +62,7 @@ const DetailsHero = ({
             width={500}
             height={300}
             className="w-[400px]  max-md:w-[300px]"
-            loading="lazy"
+            priority = {true}
           />
         </div>
         <div className="flex w-full  max-w-2xl flex-col justify-start gap-4  max-lg:items-center">
@@ -74,7 +75,7 @@ const DetailsHero = ({
             </h4>
           </div>
 
-          <Genres genre_ids={genresIds} />
+          <Genres genres={genres} />
 
           <div className="flex gap-7 max-lg:flex-col max-lg:items-center max-lg:gap-0 max-xsm:mt-4   max-xsm:gap-2">
             <div className="w-20 max-xsm:self-center">
@@ -84,9 +85,7 @@ const DetailsHero = ({
           </div>
 
           <div className="max-xsm:text- max-xsm:text-center">
-            <h3 className="mb-1 text-2xl font-bold max-xsm:text-xl">
-              Overview
-            </h3>
+            <h3 className="mb-1 text-2xl  max-xsm:text-xl">Overview</h3>
             <p className="text-lg max-xsm:text-base">{overview}</p>
           </div>
 
@@ -110,11 +109,6 @@ const DetailsHero = ({
               <span className="font-normal text-gray-200">{runtime}</span>
             </div>
 
-            {/* </div> */}
-
-            {/* <div className="flex gap-3 max-xsm:flex-col max-xsm:gap-2"> */}
-            {/* <div className="flex items-center gap-3 max-lg:flex-col max-xsm:flex-col"> */}
-
             <div className="flex items-center gap-3 text-lg   max-lg:flex-col max-xsm:flex-col max-xsm:gap-2">
               <p className=" text-lg font-bold max-xsm:text-base">Budget:</p>
               <span className="font-normal text-gray-200">
@@ -124,7 +118,6 @@ const DetailsHero = ({
               </span>
             </div>
 
-            {/* </div> */}
             <div className="flex items-center gap-3 text-lg max-lg:flex-col max-xsm:flex-col max-xsm:gap-2">
               <p className="text-lg font-bold max-xsm:text-base ">Revenue:</p>
               <span className="font-normal text-gray-200 max-xsm:text-base">
@@ -164,6 +157,7 @@ const DetailsHero = ({
               </div>
             )}
           </div>
+
         </div>
       </div>
     </section>
