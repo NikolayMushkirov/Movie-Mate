@@ -42,7 +42,7 @@ const DetailsHero = ({
     revenue,
   } = details;
 
-
+  console.log(genres , 'genres');
 
   return (
     <section>

@@ -46,7 +46,7 @@ const MovieCard = ({ data }: Props) => {
             <CircularRating vote_average={vote_average} />
           </div>
           <div className="relative -top-4 ">
-            <Genres genre_ids={genre_ids} />
+            <Genres genres={genre_ids} />
           </div>
         </div>
         <div className="justify-self-start max-sm:flex max-sm:flex-col  max-sm:text-center">
