@@ -53,12 +53,12 @@ const DetailsHero = ({
           <Overview overview={details.overview} />
           <DetailsGrid
             status={details.status}
-            releaseDate={details.release_date}
+            releaseDate={details.release_date || details.first_air_date}
             numberOfSeasons={details.number_of_seasons}
             numberOfEpisodes={details.number_of_episodes}
             runtime={details.runtime}
             episodeRunTime={details.episode_run_time}
-            originalLanguage={details.original_language}
+            originalLanguage={details.original_language.toUpperCase()}
             budget={details.budget}
             revenue={details.revenue}
             director={director}

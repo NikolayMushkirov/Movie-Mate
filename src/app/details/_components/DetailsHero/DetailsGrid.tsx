@@ -2,7 +2,7 @@ import { DetailsItem } from "./DetailsItem";
 
 type Props = {
   status: string;
-  releaseDate: string;
+  releaseDate?: string;
   numberOfSeasons?: number;
   numberOfEpisodes?: number;
   runtime?: number;
@@ -29,51 +29,52 @@ export const DetailsGrid = ({
   screenWriter,
 }: Props) => {
   return (
-    <div className="grid grid-cols-2 grid-rows-4 gap-2">
-      <DetailsItem label="Status" value={status} />
-      <DetailsItem label="Release Date" value={releaseDate} />
-      {numberOfSeasons && (
-        <DetailsItem label="Seasons" value={numberOfSeasons.toString()} />
+    <div className="grid grid-cols-2  gap-5">
+      <DetailsItem label="Status:" value={status} />
+      <DetailsItem label="Release Date:" value={releaseDate} />
+
+      {!!numberOfSeasons && (
+        <DetailsItem label="Seasons:" value={numberOfSeasons.toString()} />
       )}
-      {numberOfEpisodes && (
+      {!!numberOfEpisodes && (
         <DetailsItem
           label="Number of episodes"
           value={numberOfEpisodes.toString()}
         />
       )}
-      {runtime || (episodeRunTime && episodeRunTime.length > 0) ? (
+      {!!(runtime || (episodeRunTime && episodeRunTime.length > 0)) && (
         <DetailsItem
-          label={runtime ? "Runtime" : "Episode Runtime"}
-          value={(runtime || (episodeRunTime && episodeRunTime[0])) + " min"}
+          label={runtime ? "Runtime:" : "Episode Runtime:"}
+          value={`${runtime || (episodeRunTime && episodeRunTime[0])} min`}
         />
-      ) : null}
-      <DetailsItem label="Original Language" value={originalLanguage} />
-      {budget && (
+      )}
+
+      <DetailsItem label="Original Language:" value={originalLanguage} />
+
+      {!!budget && (
         <DetailsItem
-          label="Budget"
+          label="Budget:"
           value={
-            "$" +
-            (budget?.toLocaleString("en-US", { maximumFractionDigits: 2 }) ||
-              "")
+            "$" + budget?.toLocaleString("en-US", { maximumFractionDigits: 2 })
           }
         />
       )}
-      {revenue && (
+      {!!revenue && (
         <DetailsItem
-          label="Revenue"
+          label="Revenue:"
           value={
-            "$" +
-            (revenue?.toLocaleString("en-US", { maximumFractionDigits: 2 }) ||
-              "")
+            "$" + revenue?.toLocaleString("en-US", { maximumFractionDigits: 2 })
           }
         />
       )}
+
       <DetailsItem
-        label={director ? "Director" : "Creators"}
+        label={director ? "Director:" : "Creators:"}
         value={director || creators?.join(", ") || ""}
       />
+
       {screenWriter && (
-        <DetailsItem label="Screenwriter" value={screenWriter} />
+        <DetailsItem label="Screenwriter:" value={screenWriter} />
       )}
     </div>
   );
