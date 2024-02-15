@@ -1,4 +1,5 @@
-import Carousel from "@/components/Carousel";
+
+import MovieSlider from "@/components/sliders/MovieSlider";
 import { MovieAndTVShowType } from "@/types/movieAndTV.types";
 
 type Props = {
@@ -12,7 +13,7 @@ const Recommendations = ({ recommendations }: Props) => {
   return (
     <div>
       <h2 className="mb-6 text-2xl font-bold max-sm:text-center">Recommendations</h2>
-      <Carousel contentData={recommendations.results} contentName="movie" />
+      <MovieSlider contentData={recommendations.results}/>
     </div>
   );
 };

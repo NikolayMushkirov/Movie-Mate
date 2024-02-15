@@ -18,7 +18,7 @@ const WatchTrailer = ({ videoTrailerKey }: Props) => {
         className="play-icon-box flex items-center gap-5 cursor-pointer  hover:text-sky-300"
       >
         <PlayIcon />
-        <span className="text-xl transition-all ease-in-out duration-700">
+        <span className="text-xl transition-all ease-in-out duration-700  ">
           Watch Trailer
         </span>
       </div>

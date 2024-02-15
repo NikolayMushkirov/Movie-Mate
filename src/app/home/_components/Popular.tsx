@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 
-import Carousel from "@/components/Carousel";
 import Tabs from "@/components/Tabs";
+import MovieSlider from "@/components/sliders/MovieSlider";
 
 import { PopularDataType } from "@/types/home.page.types";
 
@@ -19,22 +19,23 @@ const Popular = ({ popularData }: Props) => {
   };
 
   return (
-    <section >
-      <div className="flex justify-between items-baseline max-sm:mb-6 max-sm:flex-col max-sm:items-center">
-        <h2 className="mb-6 text-2xl font-semibold max-xsm:text-xl max-2xsm:text-lg">Popular</h2>
+    <section>
+      <div className="flex items-baseline justify-between max-sm:mb-6 max-sm:flex-col max-sm:items-center">
+        <h2 className="mb-6 text-2xl font-semibold max-xsm:text-xl max-2xsm:text-lg">
+          Popular
+        </h2>
         <Tabs
           leftTabName={"Movies"}
           rightTabName={"TV Shows"}
           onTabChange={onTabChange}
         />
       </div>
-      <Carousel
+      <MovieSlider
         contentData={
           mediaType === "movie"
             ? popularData.popularMovie.results
             : popularData.popularTVShow.results
         }
-        contentName="movie"
       />
     </section>
   );

@@ -1,4 +1,4 @@
-import Carousel from "@/components/Carousel";
+import CastSlider from "@/components/sliders/CastSlider";
 import { CastType } from "@/types/cast.types";
 
 type Props = {
@@ -11,7 +11,7 @@ const TopCast = ({ cast }: Props) => {
   return (
     <div>
       <h2 className="mb-6 text-2xl font-bold max-sm:text-center">Top Cast</h2>
-      <Carousel contentData={cast.cast} contentName="cast" />
+      <CastSlider contentData={cast.cast} />
     </div>
   );
 };

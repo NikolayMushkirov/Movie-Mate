@@ -9,7 +9,7 @@ type Props = CastType;
 const ProfileCard = ({ name, character, profile_path, id }: Props) => {
   return (
     <Link href={`/details/person/${id}`}>
-      <div className="flex flex-col items-center hover:scale-105 transition-all duration-300">
+      <div className="flex flex-col items-center gap-2  transition-all duration-200 text-center ">
         <Image
           src={
             profile_path
@@ -17,13 +17,14 @@ const ProfileCard = ({ name, character, profile_path, id }: Props) => {
               : placeholder
           }
           alt="profile photo"
-          width={342}
-          height={330}
-          className="min-h-[340px] w-full mb-2 rounded-lg  max-sm:w-[250px] "
+          width={180}
+          height={100}
+          className="  rounded-xl transition-all duration-200  shadow-2xl hover:shadow-2xl hover:shadow-cyan-500"
           loading="lazy"
         />
-        <h2 className="text-xl font-bold">{name}</h2>
-        <h4 className="text-lg text-gray-300">{character}</h4>
+          <h2 className="text-xl font-bold ">{name}</h2>
+          <h4 className="text-lg text-gray-300 ">{character}</h4>
+
       </div>
     </Link>
   );

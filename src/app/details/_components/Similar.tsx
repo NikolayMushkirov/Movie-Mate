@@ -1,4 +1,4 @@
-import Carousel from "@/components/Carousel";
+import MovieSlider from "@/components/sliders/MovieSlider";
 import { MovieAndTVShowType } from "@/types/movieAndTV.types";
 
 type Props = {
@@ -13,8 +13,10 @@ const Similar = ({ similar }: Props) => {
   }
   return (
     <div>
-      <h2 className="mb-6 text-2xl font-bold max-sm:text-center">Similar Movies</h2>
-      <Carousel contentData={similar.results} contentName="movie" />
+      <h2 className="mb-6 text-2xl font-bold max-sm:text-center">
+        Similar Movies
+      </h2>
+      <MovieSlider contentData={similar.results} />
     </div>
   );
 };

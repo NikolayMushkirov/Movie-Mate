@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 
-import Carousel from "@/components/Carousel";
 import Tabs from "@/components/Tabs";
+import MovieSlider from "@/components/sliders/MovieSlider";
 
 import { TopRatedDataType } from "@/types/home.page.types";
 
@@ -20,21 +20,22 @@ const TopRated = ({ topRatedData }: Props) => {
 
   return (
     <section>
-      <div className="flex justify-between items-baseline max-sm:mb-6 max-sm:flex-col max-sm:items-center">
-        <h2 className="mb-6 text-2xl font-semibold max-xsm:text-xl max-2xsm:text-lg">Top Rated</h2>
+      <div className="flex items-baseline justify-between max-sm:mb-6 max-sm:flex-col max-sm:items-center">
+        <h2 className="mb-6 text-2xl font-semibold max-xsm:text-xl max-2xsm:text-lg">
+          Top Rated
+        </h2>
         <Tabs
           leftTabName={"Movies"}
           rightTabName={"TV Shows"}
           onTabChange={onTabChange}
         />
       </div>
-      <Carousel
+      <MovieSlider
         contentData={
           mediaType === "movie"
             ? topRatedData.topRatedMovie.results
             : topRatedData.topRatedTVShow.results
         }
-        contentName="movie"
       />
     </section>
   );
