@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import Genres from "@/components/Genres";
 
-import { backdropUrl } from "@/app/api/imageUrls";
+import { backdropUrl } from "@/app/api/tmdb.constants";
 
 import { PosterImage } from "./PosterImage";
 import { RatingAndTrailer } from "./RatingAndTrailer";
@@ -65,7 +65,6 @@ const DetailsHero = ({
             creators={creators}
             screenWriter={screenWriter}
           />
-
         </div>
       </div>
     </section>

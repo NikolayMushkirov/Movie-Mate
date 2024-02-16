@@ -21,11 +21,11 @@ const Header = () => {
     <header
       className={`fixed  ${
         scrollDirection === "down" ? "-top-32" : "top-0"
-      } left-0 w-full p-3 px-10 z-10 transition-all duration-500 bg-main-bg-color/20 `}
+      } left-0 z-10 w-full bg-main-bg-color/20 p-3 px-10 transition-all duration-500 `}
     >
-      <div className="max-w-[1200px]  w-full m-auto top-32  flex justify-between items-center max-sm:gap-10">
+      <div className="top-32  m-auto flex w-full  max-w-[1200px] items-center justify-between max-sm:gap-10">
         <Link href={"/"}>
-          <h1 className="text-4xl max-2xsm:text-3xl bg-cyan-400 text-transparent bg-clip-text max-sm:text-3xl">
+          <h1 className="bg-cyan-400 bg-clip-text text-4xl text-transparent max-sm:text-3xl max-2xsm:text-3xl">
             Movie Mate
           </h1>
         </Link>

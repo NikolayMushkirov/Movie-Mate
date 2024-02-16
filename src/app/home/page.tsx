@@ -1,5 +1,6 @@
 import { fetchMovieData } from "../api/fetchMovieData";
-import { backdropUrl } from "../api/imageUrls";
+import { backdropUrl } from "../api/tmdb.constants";
+
 
 import Hero from "./_components/Hero";
 import Popular from "./_components/Popular";

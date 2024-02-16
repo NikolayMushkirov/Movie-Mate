@@ -1,6 +1,7 @@
 import Image from "next/image";
-import { posterUrl } from "@/app/api/imageUrls";
+
 import placeholder from "@/assets/no-poster.png";
+import { posterUrl } from "@/app/api/tmdb.constants";
 export const PosterImage = ({ posterPath }: { posterPath?: string }) => {
   return (
     <div className="flex-shrink-0 overflow-hidden">
