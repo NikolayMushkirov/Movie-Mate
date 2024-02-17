@@ -34,7 +34,8 @@ const DetailsHero = ({
         alt="backdrop"
         fill={true}
         loading="lazy"
-        className="absolute left-0 top-0 -z-30 w-full object-cover  opacity-50"
+        style={{ objectFit: "cover" }}
+        className="absolute left-0 top-0 -z-30 w-full  opacity-50"
       />
       <div className="absolute bottom-0 left-0 -z-30 h-full w-full bg-gradient"></div>
       <div className="flex gap-16 max-lg:flex-col max-lg:items-center max-lg:gap-6 max-lg:text-center">

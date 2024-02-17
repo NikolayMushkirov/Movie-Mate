@@ -31,7 +31,10 @@ export const DetailsGrid = ({
   return (
     <div className="grid grid-cols-2  gap-5">
       <DetailsItem label="Status:" value={status} />
-      <DetailsItem label="Release Date:" value={releaseDate} />
+      <DetailsItem
+        label="Release Date:"
+        value={releaseDate && new Date(releaseDate).toLocaleDateString()}
+      />
 
       {!!numberOfSeasons && (
         <DetailsItem label="Seasons:" value={numberOfSeasons.toString()} />
@@ -49,7 +52,9 @@ export const DetailsGrid = ({
         />
       )}
 
-      <DetailsItem label="Original Language:" value={originalLanguage} />
+      {!!originalLanguage && (
+        <DetailsItem label="Original Language:" value={originalLanguage} />
+      )}
 
       {!!budget && (
         <DetailsItem
@@ -68,10 +73,13 @@ export const DetailsGrid = ({
         />
       )}
 
-      <DetailsItem
-        label={director ? "Director:" : "Creators:"}
-        value={director || creators?.join(", ") || ""}
-      />
+      {!!director ||
+        (!!creators?.length && (
+          <DetailsItem
+            label={director ? "Director:" : "Creators:"}
+            value={director || creators?.join(", ") || ""}
+          />
+        ))}
 
       {screenWriter && (
         <DetailsItem label="Screenwriter:" value={screenWriter} />

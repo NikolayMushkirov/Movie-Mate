@@ -13,7 +13,7 @@ module.exports = {
         'max-lg': {'max': '1023px'},
         'max-md': {'max': '767px'},
         'max-sm': {'max': '639px'},
-        "max-xsm": { 'max': "490px" },
+        "max-xsm": { 'max': "550px" },
         "max-2xsm": { 'max': "400px" },
       },
       colors: {

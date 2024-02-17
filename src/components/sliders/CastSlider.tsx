@@ -8,7 +8,8 @@ import { register } from "swiper/element/bundle";
 import "swiper/css";
 import "swiper/css/navigation";
 
-import SliderArrows from "./_components/SliderArrows";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+
 import ProfileCard from "../cards/ProfileCard";
 import { CastType } from "@/types/cast.types";
 
@@ -23,12 +24,25 @@ type Props = {
 const CastSlider = ({ contentData }: Props) => {
   const sliderRef = useRef<SwiperUseRef>(null);
 
+  const handlePrev = () => {
+    if (!sliderRef.current) return;
+    sliderRef.current.swiper.slidePrev();
+  };
+
+  const handleNext = () => {
+    if (!sliderRef.current) return;
+    sliderRef.current.swiper.slideNext();
+  };
+
   return (
-    <div className="relative">
+    <div className="relative flex items-center">
+      <IoIosArrowBack
+        className="h-14  w-11 flex-shrink-0  -translate-y-full cursor-pointer text-cyan-500 max-2xsm:w-9 "
+        onClick={handlePrev}
+      />
       <Swiper
         ref={sliderRef}
-        slidesPerView={5}
-        autoHeight
+        slidesPerView={"auto"}
         breakpoints={{
           100: {
             slidesPerView: 1,
@@ -58,7 +72,13 @@ const CastSlider = ({ contentData }: Props) => {
           </SwiperSlide>
         ))}
       </Swiper>
-      <SliderArrows sliderRef={sliderRef} />
+
+      <IoIosArrowForward
+        className=" h-14 w-11 flex-shrink-0 -translate-y-full  cursor-pointer text-cyan-500 max-2xsm:w-9  "
+        onClick={handleNext}
+      />
+
+
     </div>
   );
 };

@@ -3405,7 +3405,7 @@ __metadata:
     react-intersection-observer: "npm:^9.5.2"
     react-player: "npm:^2.12.0"
     react-select: "npm:^5.7.4"
-    swiper: "npm:^10.0.4"
+    swiper: "npm:^11.0.6"
     tailwindcss: "npm:3.3.3"
     typescript: "npm:5.1.6"
   languageName: unknown
@@ -4876,10 +4876,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"swiper@npm:^10.0.4":
-  version: 10.0.4
-  resolution: "swiper@npm:10.0.4"
-  checksum: 10c0/03d4c33a9e610856fa88ac23dd24a0cf7ba71611c174668cbf1ff82cf6e07625be2850f7b2ada230d1dafb4908b1d46dc39ce06d8e6e6f10e5cb76eecfa6c8b1
+"swiper@npm:^11.0.6":
+  version: 11.0.6
+  resolution: "swiper@npm:11.0.6"
+  checksum: 10c0/efdf2a207fb4534aced2db42c14b249eebba76ad497e14d6bd0a07019e2afe2509e02602e2e51167b362f65e27e4ab9c4f86e23764dbeba341745549a6f28ff3
   languageName: node
   linkType: hard
 

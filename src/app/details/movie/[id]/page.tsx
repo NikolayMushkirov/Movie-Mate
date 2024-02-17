@@ -59,7 +59,7 @@ const MovieDetails = async ({ params: { id } }: Props) => {
       }
       return acc;
     }, [])
-    .join(", ");
+    .slice(0,2).join(", ");
 
   const videoTrailerKey = videos.results.find(
     (video) => video.name === "Main Trailer" || video.type === "Trailer",

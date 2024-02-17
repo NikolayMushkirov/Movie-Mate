@@ -23,7 +23,7 @@ const Review = ({ reviewInfo }: Props) => {
               alt="avatar"
               width={70}
               height={70}
-              className="h-full w-full flex justify-center items-center"
+              className="w-full h-full flex justify-center items-center"
             />
           ) : (
             <div className="flex justify-center items-center text-2xl bg-cyan-500 w-full h-full">

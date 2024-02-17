@@ -27,18 +27,14 @@ const MovieCard = ({ data }: Props) => {
 
   return (
     <Link href={title ? `/details/movie/${id}` : `/details/tv-show/${id}`}>
-      <div className="relative flex flex-col max-sm:items-center group ">
+      <div className="group relative flex flex-col max-sm:items-center ">
         <Image
-          src={
-            poster_path
-              ? posterUrl + poster_path
-              : placeholder
-          }
+          src={poster_path ? posterUrl + poster_path : placeholder}
           width={342}
           height={300}
           alt="Poster"
           loading="lazy"
-          className="min-h-[340px] w-full   shadow-2xl transition-all duration-300 group-hover:scale-[1.03]  group-hover:shadow-2xl group-hover:shadow-cyan-500 max-sm:w-[250px]"
+          className="min-h-[340px] w-auto  shadow-2xl  transition-all duration-300 group-hover:scale-[1.03] group-hover:shadow-2xl  group-hover:shadow-cyan-500 max-xsm:h-[200px]  "
           onLoad={(img) => img.currentTarget.classList.remove("opacity-0")}
         />
 
@@ -51,7 +47,9 @@ const MovieCard = ({ data }: Props) => {
           </div>
         </div>
         <div className="justify-self-start max-sm:flex max-sm:flex-col  max-sm:text-center">
-          <h3 className="mb-1 text-lg font-bold  transition-all duration-300 group-hover:text-cyan-500">{title || name}</h3>
+          <h3 className="mb-1 text-lg font-bold  transition-all duration-300 group-hover:text-cyan-500">
+            {title || name}
+          </h3>
           <p className="font-medium ">
             {(release_date && new Date(release_date).toLocaleDateString()) ||
               (first_air_date && new Date(first_air_date).toLocaleDateString())}
