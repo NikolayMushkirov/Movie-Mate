@@ -33,7 +33,7 @@ const HomePage = async () => {
       .backdrop_path;
 
   return (
-    <main className="flex w-full flex-col gap-14">
+    <main className="flex w-full flex-col gap-14 max-sm:gap-6">
       <Hero randomBackDropImageUrl={randomBackDropImageUrl} />
       <Trending trendingData={trendingData} />
       <Popular popularData={popularData} />

@@ -1,12 +1,12 @@
 const SearchForm = () => {
   return (
-    <form action="/search" className="z-20 w-full flex justify-center">
+    <form action="/search" className="z-20 flex w-full justify-center items-center max-sm:flex-col max-sm:gap-4">
       <input
         name="search"
-        className="bg-white w-1/2 max-sm:w-52 max-sm:p-3 max-sm:text-sm p-5 pl-6 rounded-tl-full rounded-bl-full text-black text-lg  placeholder-gray-900 capitalize outline-none  max-md:text-base"
+        className="w-1/2 rounded-bl-full rounded-tl-full bg-white p-5 pl-6 text-lg capitalize text-black placeholder-gray-900 outline-none  max-md:text-base max-sm:w-52 max-sm:p-3   max-sm:rounded-full max-sm:text-center"
         placeholder="Enter Movie/TV Title"
       />
-      <button className="w-1/6 max-sm:text-sm max-sm:min-w-[30%] bg-gradient-main rounded-tr-full rounded-br-full text-lg max-md:text-base">
+      <button className="w-1/6 h-full rounded-br-full rounded-tr-full bg-gradient-main text-lg max-md:text-base   max-sm:rounded-full max-sm:p-3 max-sm:w-44">
         Search
       </button>
     </form>
