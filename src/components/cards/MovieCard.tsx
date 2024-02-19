@@ -39,7 +39,7 @@ const MovieCard = ({ data }: Props) => {
         />
 
         <div>
-          <div className="relative -top-7 left-2 w-14 max-sm:left-8">
+          <div className="relative -top-7 left-2 w-14 max-sm:left-1/3 max-sm:-translate-x-[20%]">
             <CircularRating vote_average={vote_average} />
           </div>
           <div className="relative -top-4 ">

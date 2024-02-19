@@ -27,6 +27,7 @@ const CircularRating = ({ vote_average }: Props) => {
         text: {
           fill: strokeColor,
           fontSize: "2.2rem",
+          fontWeight: "600",
           transform: "translate(0px, 5px)",
         },
 

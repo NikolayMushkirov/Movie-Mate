@@ -13,7 +13,7 @@ const Similar = ({ similar }: Props) => {
   }
   return (
     <div>
-      <h2 className="mb-6 text-2xl font-bold max-sm:text-center">
+      <h2 className="mb-6 text-2xl font-bold max-lg:text-center max-xsm:text-xl">
         Similar Movies
       </h2>
       <MovieSlider contentData={similar.results} />

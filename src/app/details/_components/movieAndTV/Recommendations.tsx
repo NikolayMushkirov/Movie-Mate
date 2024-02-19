@@ -12,7 +12,7 @@ const Recommendations = ({ recommendations }: Props) => {
   }
   return (
     <div>
-      <h2 className="mb-6 text-2xl font-bold max-sm:text-center">Recommendations</h2>
+      <h2 className="mb-6 text-2xl font-bold max-lg:text-center max-xsm:text-xl ">Recommendations</h2>
       <MovieSlider contentData={recommendations.results}/>
     </div>
   );

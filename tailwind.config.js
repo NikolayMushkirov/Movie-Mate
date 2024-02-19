@@ -28,6 +28,9 @@ module.exports = {
         gradient:
           "linear-gradient(180deg, rgba(4, 21, 45, 0) 0%, #04152d 79.17%)",
       },
+      boxShadow: {
+        'profile-card-shadow-box': '0 2px 18px 1px #06B6D4',
+      }
     },
     variants: {
       fill: ["hover", "focus"],

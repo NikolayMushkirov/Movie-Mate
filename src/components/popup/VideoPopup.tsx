@@ -5,7 +5,7 @@ import useOutsideClick from "@/hooks/useOutsideClick";
 import ReactPlayer from "react-player/youtube";
 
 type Props = {
-  videoKey?: number | string;
+  videoKey?: string;
   isOpen: Boolean;
   handleClosePopup: () => void;
 };
@@ -16,10 +16,10 @@ const VideoPopup = ({ videoKey, isOpen, handleClosePopup }: Props) => {
   return (
     <>
       {isOpen && (
-        <div className="fixed   inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
           <div
             ref={modalRef}
-            className="w-4/5 h-3/4 bg-gray-900 p-4 z-50 flex flex-col justify-center items-center"
+            className="z-50 flex h-3/4 w-4/5 flex-col items-center justify-center bg-gray-900 p-4"
           >
             <ReactPlayer
               url={`https://www.youtube.com/watch?v=${videoKey}`}
@@ -28,7 +28,7 @@ const VideoPopup = ({ videoKey, isOpen, handleClosePopup }: Props) => {
               height="100%"
             />
             <button
-              className="transition-all duration-0 hover:duration-200 bg-sky-600 hover:bg-sky-900   text-white font-bold py-2 px-4 rounded mt-4"
+              className="mt-4 rounded bg-sky-600 px-4 py-2   font-bold text-white transition-all duration-0 hover:bg-sky-900 hover:duration-200"
               onClick={handleClosePopup}
             >
               Close

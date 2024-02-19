@@ -3,11 +3,11 @@ import Link from "next/link";
 
 import { fetchMovieData } from "@/app/api/fetchMovieData";
 
-import PersonMovieList from "../../_components/PersonMovieList";
-import PersonInfo from "../../_components/PersonInfo";
+import PersonMovieList from "../../_components/person/PersonMovieList";
+import PersonInfo from "../../_components/person/PersonInfo";
 
 import { PersonMovieType, PersonType } from "@/types/person.types";
-import PersonBio from "../../_components/PersonBio";
+import PersonBio from "../../_components/person/PersonBio";
 
 type Props = {
   params: {

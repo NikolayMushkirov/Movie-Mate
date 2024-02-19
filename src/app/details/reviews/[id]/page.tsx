@@ -1,6 +1,6 @@
 import { fetchMovieData } from "@/app/api/fetchMovieData";
 import { ReviewType } from "@/types/reviews.types";
-import Review from "../../_components/Review";
+import Review from "../../_components/movieAndTV/Review";
 
 type Props = {
   params: {

@@ -8,11 +8,11 @@ const usePopup = () => {
 
   const handleOpenPopup = () => {
     setIsOpen(true);
-    setVideoKey('');
   };
 
   const handleClosePopup = () => {
     setIsOpen(false);
+    setVideoKey("");
   };
 
   const handleSetVideoKey = (videoId: string) => setVideoKey(videoId);

@@ -37,7 +37,7 @@ const CastSlider = ({ contentData }: Props) => {
   return (
     <div className="relative flex items-center">
       <IoIosArrowBack
-        className="h-14  w-11 flex-shrink-0  -translate-y-full cursor-pointer text-cyan-500 max-2xsm:w-9 "
+        className="h-14  w-11 flex-shrink-0  -translate-y-3/4 cursor-pointer text-cyan-500 max-2xsm:w-9 "
         onClick={handlePrev}
       />
       <Swiper
@@ -74,7 +74,7 @@ const CastSlider = ({ contentData }: Props) => {
       </Swiper>
 
       <IoIosArrowForward
-        className=" h-14 w-11 flex-shrink-0 -translate-y-full  cursor-pointer text-cyan-500 max-2xsm:w-9  "
+        className=" h-14 w-11 flex-shrink-0 -translate-y-3/4  cursor-pointer text-cyan-500 max-2xsm:w-9  "
         onClick={handleNext}
       />
 

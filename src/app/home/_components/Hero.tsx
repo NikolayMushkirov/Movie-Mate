@@ -7,7 +7,7 @@ type Props = {
 
 const Hero = ({ randomBackDropImageUrl }: Props) => {
   return (
-    <section className="flex  h-[900px] w-full flex-col items-center justify-center  max-xl:h-[700px] max-sm:h-[700px]">
+    <section className="flex  h-[900px] w-full flex-col items-center justify-center  max-xl:h-[800px] ">
       <Image
         src={randomBackDropImageUrl}
         alt="backdrop"
@@ -16,7 +16,7 @@ const Hero = ({ randomBackDropImageUrl }: Props) => {
         style={{objectFit: 'cover'}}
         className="absolute left-0 top-0  min-h-full w-full  opacity-50 max-lg:object-contain"
       />
-      <div className="absolute bottom-0 left-0 h-[400px]  w-full bg-gradient  max-xl:h-[200px] max-sm:h-[200px]"></div>
+      <div className="absolute bottom-0 left-0 h-[400px]  w-full bg-gradient  max-xl:h-[200px] "></div>
       <SearchForm />
     </section>
   );

@@ -2,12 +2,12 @@ import Link from "next/link";
 
 import { fetchMovieData } from "@/app/api/fetchMovieData";
 
-import TopCast from "../../_components/TopCast";
-import Similar from "../../_components/Similar";
-import Recommendations from "../../_components/Recommendations";
-import Videos from "../../_components/Videos";
-import DetailsHero from "../../_components/DetailsHero";
-import Review from "../../_components/Review";
+import TopCast from "../../_components/movieAndTV/TopCast";
+import Similar from "../../_components/movieAndTV/Similar";
+import Recommendations from "../../_components/movieAndTV/Recommendations";
+import Videos from "../../_components/movieAndTV/Videos";
+import DetailsHero from "../../_components/movieAndTV/detailsHero";
+import Review from "../../_components/movieAndTV/Review";
 
 import { CreditsType } from "@/types/cast.types";
 import { VideosType } from "@/types/video.types";

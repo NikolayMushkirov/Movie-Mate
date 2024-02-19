@@ -10,7 +10,9 @@ type Props = {
 const TopCast = ({ cast }: Props) => {
   return (
     <div>
-      <h2 className="mb-6 text-2xl font-bold max-sm:text-center">Top Cast</h2>
+      <h2 className="mb-6 text-2xl font-bold max-lg:text-center max-xsm:text-xl">
+        Top Cast
+      </h2>
       <CastSlider contentData={cast.cast} />
     </div>
   );
