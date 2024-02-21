@@ -1,17 +1,19 @@
 import useOutsideClick from "@/hooks/useOutsideClick";
 
 type Props = {
-  handleToggle: () => void;
+  handleCloseSearchBar: () => void;
 };
 
-const SearchBar = ({ handleToggle }: Props) => {
-  const ref = useOutsideClick(handleToggle);
+const SearchBar = ({ handleCloseSearchBar }: Props) => {
+  const ref = useOutsideClick(handleCloseSearchBar);
+
   return (
-    <div ref={ref}>
+    <div ref={ref} className="fixed">
       <form action="/search">
         <input
+          autoFocus
           name="search"
-          className="  max-w-[700px] w-full max-lg:max-w-[600px] max-sm:max-w-[400px] max-sm:top-32 fixed top-12 left-1/2  -translate-x-1/2   max-md:flex max-md:justify-center items-center p-3 bg-[#354D73]  text-center placeholder-slate-200 rounded-full outline-none"
+          className="  fixed left-1/2 top-12 w-full max-w-[700px] -translate-x-1/2 items-center rounded-full  bg-[#354D73]   p-3 text-center placeholder-slate-200 outline-none max-lg:max-w-[600px]  max-md:flex max-md:justify-center max-sm:top-32 max-sm:max-w-[400px]"
           placeholder="Enter Movie/TV Title."
         />
       </form>
