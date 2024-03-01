@@ -1,7 +1,7 @@
 const key = process.env.NEXT_PUBLIC_TMDB_KEY;
 
-const fetchMovieData = async <T>(url: string): Promise<T> => {
-  const baseUrl = `https://api.themoviedb.org/3/` + url;
+const fetchMovieData = async <T>(endPoint: string): Promise<T> => {
+  const baseUrl = `https://api.themoviedb.org/3/` + endPoint;
 
   const headers = new Headers();
   headers.append("accept", "application/json");
