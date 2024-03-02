@@ -106,5 +106,3 @@ export type DetailsType = {
   title?: string;
   video?: boolean;
 };
-
-

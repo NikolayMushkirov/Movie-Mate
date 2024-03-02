@@ -9,12 +9,12 @@ module.exports = {
     extend: {
       screens: {
         lgScreen: "1200px",
-        'max-xl': {'max': '1279px'},
-        'max-lg': {'max': '1023px'},
-        'max-md': {'max': '767px'},
-        'max-sm': {'max': '639px'},
-        "max-xsm": { 'max': "550px" },
-        "max-2xsm": { 'max': "400px" },
+        "max-xl": { max: "1279px" },
+        "max-lg": { max: "1023px" },
+        "max-md": { max: "767px" },
+        "max-sm": { max: "639px" },
+        "max-xsm": { max: "550px" },
+        "max-2xsm": { max: "400px" },
       },
       colors: {
         "main-bg-color": "#04152D",
@@ -29,8 +29,8 @@ module.exports = {
           "linear-gradient(180deg, rgba(4, 21, 45, 0) 0%, #04152d 79.17%)",
       },
       boxShadow: {
-        'profile-card-shadow-box': '0 2px 18px 1px #06B6D4',
-      }
+        "profile-card-shadow-box": "0 2px 18px 1px #06B6D4",
+      },
     },
     variants: {
       fill: ["hover", "focus"],

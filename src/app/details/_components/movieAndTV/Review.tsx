@@ -46,7 +46,7 @@ const Review = ({ reviewInfo }: Props) => {
               ) : (
                 <span className="whitespace-nowrap text-lg">No rating</span>
               )}
-            <IoIosStar size={15}/>
+              <IoIosStar size={15} />
             </div>
           </div>
         </div>

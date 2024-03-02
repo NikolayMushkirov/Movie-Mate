@@ -29,7 +29,7 @@ const SelectOptions = ({
       color: state.isFocused ? "#fff " : "#2d0404",
       backgroundColor: state.isFocused ? "#354D73 " : "#fff",
       cursor: "pointer",
-      ":hover": { background: "#354D73" , color : "#fff" },
+      ":hover": { background: "#354D73", color: "#fff" },
     }),
 
     control: (defaultStyles) => ({
@@ -60,7 +60,7 @@ const SelectOptions = ({
 
     dropdownIndicator: (defaultStyles) => ({
       ...defaultStyles,
-      color:  "#fff",
+      color: "#fff",
       ":hover": { color: "#ffffffb7" },
       fontSize: "1rem",
     }),

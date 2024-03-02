@@ -14,7 +14,7 @@ type Props = {
 const ProfileCard = ({ name, character, profile_path, id }: Partial<Props>) => {
   return (
     <Link href={`/details/person/${id}`}>
-      <div className="pt-2 group flex  flex-col items-center gap-2  text-center transition-all duration-300 ">
+      <div className="group flex flex-col  items-center gap-2 pt-2  text-center transition-all duration-300 ">
         <Image
           src={profile_path ? profilePhotoUrl + profile_path : placeholder}
           alt="profile photo"

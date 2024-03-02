@@ -10,7 +10,7 @@ type Props = {
 
 const PersonImages = async ({ searchParams }: Props) => {
   const personImages: PersonImagesType = await fetchMovieData(
-    `person/${searchParams.personId}/images`
+    `person/${searchParams.personId}/images`,
   );
 
   return (

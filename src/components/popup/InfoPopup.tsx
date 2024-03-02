@@ -12,7 +12,7 @@ type Props = {
 
 const InfoPopup = ({ hoveredItem }: Props) => {
   return (
-    <div className="absolute z-20 -top-80 -left-96 max-lg:-left-32  max-lg:w-[550px] max-md:hidden  w-[700px] h-[300px] p-4 flex gap-6 bg-cyan-800">
+    <div className="absolute -left-96 -top-80 z-20 flex  h-[300px] w-[700px]  gap-6 bg-cyan-800 p-4 max-lg:-left-32 max-lg:w-[550px] max-md:hidden">
       <Image
         width={185}
         height={100}
@@ -27,7 +27,7 @@ const InfoPopup = ({ hoveredItem }: Props) => {
         <h2 className="text-xl font-semibold">
           {hoveredItem?.title || hoveredItem.name}
         </h2>
-        <p className="text-lg font-medium leading-8 overflow-hidden text-ellipsis">
+        <p className="overflow-hidden text-ellipsis text-lg font-medium leading-8">
           {hoveredItem?.overview}
         </p>
         <div className="w-16">

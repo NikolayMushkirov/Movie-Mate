@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="max-w-[1200px] w-full m-auto max-xl:px-10 ">
+        <div className="m-auto w-full max-w-[1200px] max-xl:px-10 ">
           <Header />
           {children}
         </div>

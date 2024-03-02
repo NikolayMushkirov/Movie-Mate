@@ -15,7 +15,9 @@ const PersonBio = ({ paragraphs, name }: Props) => {
   };
   return (
     <div className=" flex flex-col justify-start gap-4 ">
-      <h2 className="text-3xl font-bold max-lg:text-center max-xsm:text-2xl">{name}</h2>
+      <h2 className="text-3xl font-bold max-lg:text-center max-xsm:text-2xl">
+        {name}
+      </h2>
       <div>
         <h4 className="mb-2 text-2xl font-semibold max-lg:text-center max-xsm:text-xl">
           Biography
@@ -32,7 +34,7 @@ const PersonBio = ({ paragraphs, name }: Props) => {
           )}
         </div>
         {paragraphs.at(0) !== "" && (
-          <span className="italic cursor-pointer" onClick={toggleExpanded}>
+          <span className="cursor-pointer italic" onClick={toggleExpanded}>
             {!expanded ? "Read more" : ""}
           </span>
         )}

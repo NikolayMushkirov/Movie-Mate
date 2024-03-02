@@ -30,6 +30,6 @@ export type PersonImageType = {
   width: number;
 };
 
-export type PersonMovieType =  MovieAndTVShowType & {
-  character : string
-}
+export type PersonMovieType = MovieAndTVShowType & {
+  character: string;
+};

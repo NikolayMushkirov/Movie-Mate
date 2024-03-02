@@ -7,9 +7,10 @@
 ![MovieMate screenshot](./public/screenshots/MainPage.PNG)
 
 ## Table of Contents
-* [Technologies Used](#technologies-used)
-* [Features](#features)
-* [Screenshots](#screenshots)
+
+- [Technologies Used](#technologies-used)
+- [Features](#features)
+- [Screenshots](#screenshots)
 
 ## Technologies Used
 

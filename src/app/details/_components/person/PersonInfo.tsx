@@ -34,8 +34,12 @@ const PersonInfo = ({ personData, knownCredits }: Props) => {
       <h2 className="text-2xl font-semibold">Personal Info</h2>
       {infoItems.map((infoItem, index) => (
         <div key={index} className="flex flex-col gap-1">
-          <h4 className=" text-xl font-semibold max-xsm:text-lg">{infoItem.label}</h4>
-          <span className="text-lg font-medium max-xsm:text-base">{infoItem.value}</span>
+          <h4 className=" text-xl font-semibold max-xsm:text-lg">
+            {infoItem.label}
+          </h4>
+          <span className="text-lg font-medium max-xsm:text-base">
+            {infoItem.value}
+          </span>
         </div>
       ))}
 

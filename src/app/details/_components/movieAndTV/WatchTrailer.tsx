@@ -15,10 +15,10 @@ const WatchTrailer = ({ videoTrailerKey }: Props) => {
     <>
       <div
         onClick={handleOpenPopup}
-        className="play-icon-box flex items-center gap-5 cursor-pointer  hover:text-sky-300 max-lg:flex-col max-lg:gap-2"
+        className="play-icon-box flex cursor-pointer items-center gap-5  hover:text-sky-300 max-lg:flex-col max-lg:gap-2"
       >
         <PlayIcon />
-        <span className="text-xl transition-all ease-in-out duration-700  ">
+        <span className="text-xl transition-all duration-700 ease-in-out  ">
           Watch Trailer
         </span>
       </div>

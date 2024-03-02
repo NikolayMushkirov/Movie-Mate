@@ -23,7 +23,7 @@ type CombinedCreditsType = {
 const PersonDetails = async ({ params: { id } }: Props) => {
   const personData: PersonType = await fetchMovieData(`person/${id}`);
   const combinedCredits: CombinedCreditsType = await fetchMovieData(
-    `person/${id}/combined_credits`
+    `person/${id}/combined_credits`,
   );
   const sortedCombinedCredits = combinedCredits.cast
     ?.flat()
@@ -61,7 +61,7 @@ const PersonDetails = async ({ params: { id } }: Props) => {
               alt="poster"
               width={500}
               height={500}
-              className="max-w-[350px] w-full mb-6 rounded-lg"
+              className="mb-6 w-full max-w-[350px] rounded-lg"
               priority={true}
             />
           </Link>
@@ -70,7 +70,7 @@ const PersonDetails = async ({ params: { id } }: Props) => {
             knownCredits={combinedCredits.cast.length}
           />
         </div>
-        <div className="flex flex-col gap-6 w-[90%]">
+        <div className="flex w-[90%] flex-col gap-6">
           <PersonBio paragraphs={paragraphs} name={name} />
           <PersonMovieList sortedCombinedCredits={sortedCombinedCredits} />
         </div>

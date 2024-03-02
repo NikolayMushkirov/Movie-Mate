@@ -7,7 +7,7 @@ type Props = {
 
 const PersonImages = ({ personImages }: Props) => {
   return (
-    <div className="max-h-[400px] grid grid-cols-4 overflow-hidden">
+    <div className="grid max-h-[400px] grid-cols-4 overflow-hidden">
       {personImages.profiles.map((img, index) => (
         <Image
           key={index}

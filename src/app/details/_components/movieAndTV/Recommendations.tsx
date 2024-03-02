@@ -1,4 +1,3 @@
-
 import MovieSlider from "@/components/sliders/MovieSlider";
 import { MovieAndTVShowType } from "@/types/movieAndTV.types";
 
@@ -12,8 +11,10 @@ const Recommendations = ({ recommendations }: Props) => {
   }
   return (
     <div>
-      <h2 className="mb-6 text-2xl font-bold max-lg:text-center max-xsm:text-xl ">Recommendations</h2>
-      <MovieSlider contentData={recommendations.results}/>
+      <h2 className="mb-6 text-2xl font-bold max-lg:text-center max-xsm:text-xl ">
+        Recommendations
+      </h2>
+      <MovieSlider contentData={recommendations.results} />
     </div>
   );
 };
