@@ -17,15 +17,15 @@ type MergeTwoTypes<T, U> = Partial<DifferentKeys<T, U>> & {
   [K in keyof SameKeys<T, U>]: T[K] | U[K];
 };
 
-type SearchResultsType = {
+export type SearchResultsType = {
   results: MergeTwoTypes<MovieAndTVShowType, PersonType>[];
 };
 
 type Props = {
-  searchData: (pageNum: number) => Promise<any>;
+  getSearchData: (pageNum: number) => Promise<SearchResultsType>;
 };
 
-const SearchResults = ({ searchData }: Props) => {
+const SearchResults = ({ getSearchData }: Props) => {
   const [data, setData] = useState<SearchResultsType>({ results: [] });
   const [pageNum, setPageNum] = useState(1);
   const searchParams = useSearchParams();
@@ -34,13 +34,13 @@ const SearchResults = ({ searchData }: Props) => {
   const searchValue = searchParams.get("search");
 
   const initialFetchData = async () => {
-    const initData = await searchData(pageNum);
+    const initData: SearchResultsType = await getSearchData(pageNum);
     setData(initData);
     setPageNum((prev) => prev + 1);
   };
 
   const nextPageFetchData = async () => {
-    const nextPageData: SearchResultsType = await searchData(pageNum);
+    const nextPageData: SearchResultsType = await getSearchData(pageNum);
     if (data.results) {
       setData({ ...data, results: [...data.results, ...nextPageData.results] });
     } else {

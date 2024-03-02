@@ -1,11 +1,22 @@
-import Discover from "./_components/Discover";
+import { fetchMovieData } from "../api/fetchMovieData";
+import Discover, { DiscoverDataType } from "./_components/Discover";
 
-const page = () => {
+const DiscoverPage = () => {
+  const getDiscoverData = async (
+    mediaType: string,
+    pageNum: number,
+    selectedGenres: string[],
+  ) => {
+    "use server";
+    return await fetchMovieData<DiscoverDataType>(
+      `discover/${mediaType}?&page=${pageNum}&with_genres=${selectedGenres}`,
+    );
+  };
   return (
     <section>
-      <Discover />
+      <Discover getDiscoverData={getDiscoverData} />
     </section>
   );
 };
 
-export default page;
+export default DiscoverPage;

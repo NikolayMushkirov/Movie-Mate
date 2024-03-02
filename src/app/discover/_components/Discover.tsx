@@ -4,16 +4,14 @@ import { useState, useEffect } from "react";
 
 import { useInView } from "react-intersection-observer";
 
-import { fetchMovieData } from "../../api/fetchMovieData";
-
 import MovieCard from "@/components/cards/MovieCard";
 
 import { MovieAndTVShowType } from "@/types/movieAndTV.types";
 import SelectOptions from "./SelectOptions";
+import { movieGenresList, tvShowGenresList } from "@/constants/genres";
+import { Genre } from "@/types/details.types";
 
-export type GenresDataType = {
-  genres: { id: number; name: string }[];
-};
+export type GenresDataType = Record<number, Genre>;
 
 export type DiscoverDataType = {
   results: MovieAndTVShowType[];
@@ -24,11 +22,19 @@ export type SelectedOptionType = {
   value: string;
 };
 
-const Discover = () => {
+type Props = {
+  getDiscoverData: (
+    mediaType: string,
+    pageNum: number,
+    selectedGenres: string[],
+  ) => Promise<DiscoverDataType>;
+};
+
+const Discover = ({ getDiscoverData }: Props) => {
   const [discoverData, setDiscoverData] = useState<DiscoverDataType>({
     results: [],
   });
-  const [genresData, setGenresData] = useState<GenresDataType>({ genres: [] });
+
   const [pageNum, setPageNum] = useState(1);
   const [mediaType, setMediaType] = useState("movie");
   const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
@@ -36,16 +42,20 @@ const Discover = () => {
   const { ref, inView } = useInView();
 
   const getInitialDiscoverData = async () => {
-    const data: DiscoverDataType = await fetchMovieData(
-      `discover/${mediaType}?&page=${pageNum}&with_genres=${selectedGenres}`
+    const data: DiscoverDataType = await getDiscoverData(
+      mediaType,
+      pageNum,
+      selectedGenres,
     );
     setDiscoverData(data);
     setPageNum((prev) => prev + 1);
   };
 
   const getNewDiscoverData = async () => {
-    const newData: DiscoverDataType = await fetchMovieData(
-      `discover/${mediaType}?&page=${pageNum}&with_genres=${selectedGenres}`
+    const newData: DiscoverDataType = await getDiscoverData(
+      mediaType,
+      pageNum,
+      selectedGenres,
     );
     discoverData?.results
       ? setDiscoverData({
@@ -56,13 +66,6 @@ const Discover = () => {
     setPageNum((prev) => prev + 1);
   };
 
-  const getGenresData = async () => {
-    const data: GenresDataType = await fetchMovieData(
-      `genre/${mediaType}/list`
-    );
-    setGenresData(data);
-  };
-
   const handleChangeGenres = (selectedOption?: SelectedOptionType[] | null) => {
     const selectedValues = selectedOption?.map((option) => option.value);
     if (selectedValues) setSelectedGenres(selectedValues);
@@ -70,20 +73,18 @@ const Discover = () => {
   };
 
   const handleChangeMediaType = (
-    selectedOption?: SelectedOptionType | null
+    selectedOption?: SelectedOptionType | null,
   ) => {
-    if (selectedOption) setMediaType(selectedOption.value);
-    setPageNum(1);
+    if (selectedOption) {
+      setMediaType(selectedOption.value);
+      setPageNum(1);
+    }
   };
 
   useEffect(() => {
     setPageNum(1);
     getInitialDiscoverData();
   }, [mediaType, selectedGenres]);
-
-  useEffect(() => {
-    getGenresData();
-  }, [mediaType]);
 
   useEffect(() => {
     if (inView) {
@@ -99,7 +100,9 @@ const Discover = () => {
             Discover new Movies and TV Shows
           </h2>
           <SelectOptions
-            genresData={genresData}
+            genresData={
+              mediaType === "movie" ? movieGenresList : tvShowGenresList
+            }
             handleChangeGenres={handleChangeGenres}
             handleChangeMediaType={handleChangeMediaType}
           />

@@ -26,7 +26,7 @@ const Header = () => {
       <div className="top-32  m-auto flex w-full  max-w-[1200px] items-center justify-between max-sm:gap-10">
         <Link href={"/"}>
           <h1 className="bg-cyan-400 bg-clip-text text-4xl text-transparent max-sm:text-3xl max-2xsm:text-3xl">
-            Movie Mate
+            MovieMate
           </h1>
         </Link>
         <MenuButton

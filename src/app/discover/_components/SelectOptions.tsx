@@ -19,16 +19,17 @@ const SelectOptions = ({
     { value: "tv", label: "TV Show" },
   ];
 
-  const genreOptions = genresData?.genres?.map((genre) => {
+  const genreOptions = Object.values(genresData).map((genre) => {
     return { value: genre.id, label: genre.name };
   });
 
   const customStyles: StylesConfig = {
     option: (defaultStyles, state) => ({
       ...defaultStyles,
-      color: state.isSelected ? "#fff " : "#04152D",
-      backgroundColor: state.isSelected ? "#354D73 " : "#fff",
+      color: state.isFocused ? "#fff " : "#2d0404",
+      backgroundColor: state.isFocused ? "#354D73 " : "#fff",
       cursor: "pointer",
+      ":hover": { background: "#354D73" , color : "#fff" },
     }),
 
     control: (defaultStyles) => ({
@@ -48,6 +49,19 @@ const SelectOptions = ({
       ...defaultStyles,
       color: "#fff",
       backgroundColor: " #354D73",
+      fontSize: "1rem",
+    }),
+    clearIndicator: (defaultStyles) => ({
+      ...defaultStyles,
+      color: "#fff",
+      ":hover": { color: "#ffffffb7" },
+      fontSize: "1rem",
+    }),
+
+    dropdownIndicator: (defaultStyles) => ({
+      ...defaultStyles,
+      color:  "#fff",
+      ":hover": { color: "#ffffffb7" },
       fontSize: "1rem",
     }),
   };

@@ -1,5 +1,5 @@
 import { fetchMovieData } from "../api/fetchMovieData";
-import SearchResults from "./_components/SearchResults";
+import SearchResults, { SearchResultsType } from "./_components/SearchResults";
 
 type Props = {
   searchParams: { search: string };
@@ -7,16 +7,16 @@ type Props = {
 
 const SearchPage = async (props: Props) => {
   const searchValue = props.searchParams.search;
-  const searchData = async (pageNum: number) => {
+  const getSearchData = async (pageNum: number) => {
     "use server";
-    return await fetchMovieData(
+    return await fetchMovieData<SearchResultsType>(
       `search/multi?query=${searchValue}&page=${pageNum}`,
     );
   };
 
   return (
     <section>
-      <SearchResults searchData={searchData} />
+      <SearchResults getSearchData={getSearchData} />
     </section>
   );
 };
