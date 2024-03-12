@@ -1,43 +1,30 @@
 # Movie-Mate
 
-> Movie-Mate - app that uses TMDB API for searching movies, actors, and directors, viewing ratings, reviews, and trailers.
+> Movie-Mate is an app that uses the TMDB API to search for movies, actors, directors, and see ratings, reviews, and trailers.
 >
-> Live demo [_here_](https://movie-mate-beta.vercel.app/) (If application is not loading, try using a VPN)
+> Live demo [_here_](https://movie-mate-beta.vercel.app/)
 
-![MovieMate screenshot](./public/screenshots/MainPage.PNG)
+![MovieMate screenshot](./public/screenshots/main.png)
 
 ## Table of Contents
 
 - [Technologies Used](#technologies-used)
 - [Features](#features)
-- [Screenshots](#screenshots)
 
 ## Technologies Used
 
-- Nextjs - version 14.0.1
-- React - version 18.2.0
-- Typescript - version 5.1.6
-- Tailwindcss - version 3.3.3
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
 
 ## Features
 
-- Search movies, TV shows, and people by keyword or name
-- Display detailed information about movies, including synopses, casts, crews, ratings, and reviews.
-- Trending section for currently popular content, a Popular section for highly watched titles, and a Top Rated section for critically acclaimed and highly rated movies and TV shows.
+- Search: Find movies, TV shows, and individuals using keywords or names.
+- <img src="./public/screenshots/Search.gif">
 
-## Screenshots
+- Detailed Information: Extensive movie details such as plot descriptions, casting specifics, crew lists, audience ratings, and user evaluations.
+- <img src="./public/screenshots/Details.gif">
 
-<details>  <summary>Movie Page</summary> ![Movie Page](./public/screenshots/MoviePage.PNG)</details>
-
-<details>
-    <summary>Person Page</summary>
-     <img src="./public/screenshots/PersonPage.PNG">
-</details>
-<details>
-    <summary>Discover Page</summary>
-    <img src="./public/screenshots/Discover.png">
-</details>
-<details>
-    <summary>Search Page</summary>
-     <img src="./public/screenshots/Search%20Page.PNG.png">
-</details>
+- The Trending Section features popular movies of the day or week. The Popular Section highlights the most watched movies and TV shows and a Top Rated Section for critically acclaimed and highly rated films and TV series.
+- <img src="./public/screenshots/Sections.gif">
