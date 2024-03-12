@@ -21,10 +21,10 @@
 ## Features
 
 - Search: Find movies, TV shows, and individuals using keywords or names.
-- <img src="./public/screenshots/Search.gif">
+- <img src="./public/screenshots/Search-min.gif">
 
 - Detailed Information: Extensive movie details such as plot descriptions, casting specifics, crew lists, audience ratings, and user evaluations.
-- <img src="./public/screenshots/Details.gif">
+- <img src="./public/screenshots/Details-min.gif">
 
 - The Trending Section features popular movies of the day or week. The Popular Section highlights the most watched movies and TV shows and a Top Rated Section for critically acclaimed and highly rated films and TV series.
-- <img src="./public/screenshots/Sections.gif">
+- <img src="./public/screenshots/Sections-min.gif">
