@@ -39,6 +39,7 @@ export const DetailsGrid = ({
       {!!numberOfSeasons && (
         <DetailsItem label="Seasons:" value={numberOfSeasons.toString()} />
       )}
+
       {!!numberOfEpisodes && (
         <DetailsItem
           label="Number of episodes"
@@ -73,15 +74,13 @@ export const DetailsGrid = ({
         />
       )}
 
-      {!!director ||
-        (!!creators?.length && (
-          <DetailsItem
-            label={director ? "Director:" : "Creators:"}
-            value={director || creators?.join(", ") || ""}
-          />
-        ))}
+      {!!director && <DetailsItem label={"Director:"} value={director || ""} />}
 
-      {screenWriter && (
+      {!!creators?.length && (
+        <DetailsItem label={"Creators:"} value={creators?.join(", ") || ""} />
+      )}
+
+      {!!screenWriter && (
         <DetailsItem label="Screenwriter:" value={screenWriter} />
       )}
     </div>
